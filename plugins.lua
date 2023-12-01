@@ -1,0 +1,592 @@
+local overrides = require('custom.configs.overrides')
+local leet_arg = 'leetcode.nvim'
+
+local VeryLazy = 'VeryLazy'
+local plugins = {
+
+  -- override default configurations
+
+  {
+    'williamboman/mason.nvim',
+    opts = overrides.mason,
+  },
+  {
+    'NvChad/nvim-colorizer.lua',
+    opts = overrides.colorizer,
+  },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    opts = overrides.nvimtree,
+    enabled = false,
+  },
+
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'folke/neodev.nvim', opts = {} }, -- better lua documentation
+    },
+    config = function()
+      require('plugins.configs.lspconfig')
+      require('custom.configs.lspconfig')
+    end,
+  },
+
+  {
+    'stevearc/conform.nvim', -- formatter
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
+    config = function()
+      require('custom.configs.conform')
+    end,
+  },
+
+  {
+    'hrsh7th/nvim-cmp',
+    opts = overrides.cmp,
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lua',
+      'ray-x/cmp-treesitter',
+      'hrsh7th/cmp-buffer',
+      'f3fora/cmp-spell',
+      'hrsh7th/cmp-emoji',
+      'windwp/nvim-autopairs',
+    },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'kevinhwang91/promise-async',
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        ft = 'javascriptreact',
+      },
+      {
+        'kevinhwang91/nvim-ufo',
+        config = function()
+          require('custom.configs.ufo')
+        end,
+      },
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        config = function()
+          require('Comment').setup({
+            pre_hook = require(
+              'ts_context_commentstring.integrations.comment_nvim'
+            ).create_pre_hook(),
+          })
+        end,
+      },
+    },
+    opts = overrides.treesitter,
+  },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    opts = overrides.telescope,
+    dependencies = {
+      {
+        'plbryant/git-worktree.nvim',
+        config = function()
+          require('git-worktree').setup({})
+          require('telescope').load_extension('git_worktree')
+        end,
+      },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+      },
+    },
+  },
+
+  -- startup
+
+  {
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
+
+  -- lazy
+
+  {
+    'hinell/lsp-timeout.nvim',
+    config = function()
+      vim.g['lsp-timeout-config'] = {
+        -- When focus is lost
+        -- wait 5 minutes before stopping all LSP servers
+        stopTimeout = 1000 * 60 * 5,
+        startTimeout = 1000 * 10,
+        silent = true,
+      }
+    end,
+  },
+
+  {
+    'ThePrimeagen/harpoon',
+    config = function()
+      require('custom.configs.harpoon')
+    end,
+  },
+
+  {
+    'kawre/leetcode.nvim',
+    build = ':TSUpdate html',
+    lazy = leet_arg ~= vim.fn.argv()[1],
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim', -- required by telescope
+      'MunifTanjim/nui.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'rcarriga/nvim-notify',
+      'nvim-tree/nvim-web-devicons',
+    },
+    opts = {
+      -- configuration goes here
+      arg = leet_arg,
+      lang = 'javascript',
+    },
+  },
+
+  -- keys
+  {
+    'vim-scripts/ReplaceWithRegister',
+    keys = { 'gr', 'grr' },
+  },
+
+  {
+    'crusj/bookmarks.nvim',
+    keys = {
+      {
+        '<tab><tab>',
+        mode = { 'n' },
+        desc = 'Toogle bookmarks',
+      },
+      { '\\z', mode = { 'n' }, desc = 'Add bookmark' },
+      { '\\dd', mode = { 'n' }, desc = 'Delete bookmark' },
+      { '\\sd', mode = { 'n' }, desc = 'Show bookmark' },
+    },
+    branch = 'main',
+    config = function()
+      require('bookmarks').setup()
+      require('telescope').load_extension('bookmarks')
+    end,
+  },
+
+  -- file type
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = 'MarkdownPreview',
+    build = 'cd app && yarn install',
+  },
+
+  {
+    'pmizio/typescript-tools.nvim', -- lsp intermediate tsc
+    config = function()
+      require('custom.configs.tsserver')
+    end,
+    ft = {
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+    },
+    opts = {},
+  },
+
+  -- very lazy
+
+  {
+    'tpope/vim-repeat',
+    event = VeryLazy,
+  },
+
+  {
+    'gbprod/cutlass.nvim',
+    event = VeryLazy,
+    opts = {
+      cut_key = 'x',
+    },
+  },
+
+  -- event
+
+  {
+    'max397574/better-escape.nvim',
+    event = 'InsertEnter',
+    config = true,
+  },
+
+  {
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup({})
+    end,
+  },
+
+  {
+    'mfussenegger/nvim-lint',
+    event = 'BufWritePre',
+    config = function()
+      require('custom.configs.linter')
+    end,
+  },
+
+  {
+    'kevinhwang91/nvim-fundo', -- forever undo nvim
+    event = 'BufReadPost',
+    opts = {},
+    build = function()
+      require('fundo').install()
+    end,
+  },
+
+  {
+    'utilyre/sentiment.nvim', -- highlight brackets
+    event = 'LspAttach',
+    opts = {},
+    init = function()
+      vim.g.loaded_matchparen = 1
+    end,
+  },
+
+  {
+    'ray-x/lsp_signature.nvim', -- highlight parameters when type a function
+    event = 'BufReadPost',
+    config = function()
+      require('custom.configs.signature')
+    end,
+  },
+
+  {
+    'tzachar/local-highlight.nvim', -- highlight same words under cursor
+    cmd = 'LocalHighlightToggle',
+    opts = {
+      hlgroup = 'LocalHighlight',
+    },
+  },
+
+  {
+    'folke/todo-comments.nvim',
+    event = 'BufWinEnter',
+    dependencies = {
+      {
+        'nvim-treesitter/nvim-treesitter',
+      },
+    },
+    config = function()
+      require('custom.configs.todo-comments')
+    end,
+  },
+
+  {
+    'folke/edgy.nvim',
+    event = 'BufReadPost',
+    init = function()
+      vim.opt.laststatus = 3
+      vim.opt.splitkeep = 'screen'
+    end,
+    opts = {
+      fix_win_height = vim.fn.has('nvim-0.10.0') == 0,
+      bottom = {
+        { ft = 'qf', title = 'QuickFix' },
+        { ft = 'dapui_watches', title = 'Watches' },
+        { ft = 'dapui_console', title = 'Debug Console' },
+        'Trouble',
+        {
+          ft = 'neotest-output-panel',
+          title = ' Test Output',
+          open = function()
+            vim.cmd.vsplit()
+            require('neotest').output_panel.toggle()
+          end,
+        },
+      },
+      left = {
+        { ft = 'dapui_scopes', title = 'Scopes' },
+        { ft = 'dapui_breakpoints', title = 'Breakpoints' },
+        { ft = 'dapui_stacks', title = 'Stacks' },
+        {
+          ft = 'neotest-summary',
+          title = '  Tests',
+          open = function()
+            require('neotest').summary.toggle()
+          end,
+        },
+      },
+      right = {
+        { ft = 'spectre_panel' },
+        {
+          ft = 'help',
+          size = { width = 90 }, -- only show help buffers
+          filter = function(buf)
+            return vim.bo[buf].buftype == 'help'
+          end,
+        },
+        'dapui_scopes',
+        'neotest-output-panel',
+        'neotest-summary',
+      },
+      options = {
+        left = { size = 70 },
+        bottom = { size = 10 },
+        right = { size = 60 },
+        top = { size = 10 },
+      },
+      wo = {
+        winbar = false,
+        signcolumn = 'no',
+      },
+    },
+  },
+
+  -- cmd
+
+  {
+    'tpope/vim-fugitive', -- git in nvim
+    cmd = 'G',
+  },
+
+  {
+    'preservim/tagbar',
+    cmd = 'TagbarToogle',
+  },
+
+  {
+    'famiu/bufdelete.nvim', -- better buff delete
+    cmd = { 'Bdelete', 'Bwipeout' },
+  },
+
+  {
+    'stevearc/oil.nvim',
+    cmd = { 'Oil' },
+    config = function()
+      require('custom.configs.oil')
+    end,
+  },
+
+  {
+    'smoka7/hop.nvim',
+    version = '*',
+    cmd = {
+      'HopAnywhere',
+      'HopChar1',
+      'HopChar2',
+      'HopWordCurrentLine',
+      'HopLineStart',
+      'HopPattern',
+      'HopWord',
+    },
+    config = function()
+      require('custom.configs.hop')
+    end,
+  },
+
+  {
+    'ThePrimeagen/refactoring.nvim',
+    cmd = 'Refactor',
+    config = function()
+      require('custom.configs.refactoring')
+    end,
+  },
+
+  {
+    'folke/zen-mode.nvim',
+    cmd = 'ZenMode',
+    config = function()
+      require('custom.configs.zenmode')
+    end,
+  },
+
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+    init = function()
+      vim.g.code_action_menu_show_details = true
+      vim.g.code_action_menu_show_diff = true
+      vim.g.code_action_menu_show_action_kind = true
+    end,
+  },
+
+  {
+    'folke/trouble.nvim',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' },
+    },
+    cmd = 'TroubleToggle',
+    config = function()
+      require('custom.configs.trouble')
+    end,
+  },
+
+  {
+    'nvim-neotest/neotest',
+    cmd = 'Neotest',
+    dependencies = {
+      'haydenmeade/neotest-jest',
+      'thenbe/neotest-playwright',
+    },
+    config = function()
+      require('custom.configs.neotest')
+    end,
+  },
+
+  {
+    'dmmulroy/tsc.nvim', -- check typescript definitions
+    cmd = { 'TSC' },
+    opts = {
+      auto_open_qflist = true,
+      spinner = {
+        '⠋',
+        '⠙',
+        '⠹',
+        '⠸',
+        '⠼',
+        '⠴',
+        '⠦',
+        '⠧',
+        '⠇',
+        '⠏',
+      },
+    },
+  },
+
+  {
+    'folke/twilight.nvim', -- focus on code (not zen mode)
+    cmd = 'Twilight',
+    opts = {
+      dimming = {
+        alpha = 0.25, -- amount of dimming
+        -- we try to get the foreground from the highlight groups or fallback color
+        color = { 'Normal', '#ffffff' },
+        term_bg = '#000000', -- if guibg=NONE, this will be used to calculate text color
+        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+      },
+      context = 10, -- amount of lines we will try to show around the current line
+      treesitter = true, -- use treesitter when available for the filetype
+      -- treesitter is used to automatically expand the visible text,
+      -- but you can further control the types of nodes that should always be fully expanded
+      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+        'function',
+        'method',
+        'table',
+        'if_statement',
+      },
+      exclude = {}, -- exclude these filetypes
+    },
+  },
+
+  {
+    'smoka7/multicursors.nvim',
+    dependencies = { 'smoka7/hydra.nvim' },
+    opts = { hint_config = false },
+    cmd = {
+      'MCstart',
+      'MCvisual',
+      'MCclear',
+      'MCpattern',
+      'MCvisualPattern',
+      'MCunderCursor',
+    },
+    keys = {
+      {
+        mode = { 'v', 'n' },
+        '<C-n>',
+        '<cmd>MCstart<cr>',
+        desc = 'Create a selection for selected text or word under the cursor',
+      },
+    },
+  },
+
+  -- debug
+
+  {
+    'mfussenegger/nvim-dap-python',
+    ft = 'python',
+    config = function(_, opts)
+      local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+      require('dap-python').setup(path)
+    end,
+  },
+
+  {
+    'mfussenegger/nvim-dap',
+    cmd = {
+      'DapContinue',
+      'DapStepOver',
+      'DapStepInto',
+      'DapStepOut',
+      'DapToggleBreakpoint',
+    },
+    dependencies = {
+      {
+        'theHamsta/nvim-dap-virtual-text',
+        config = function()
+          require('custom.configs.virtual-text')
+        end,
+      },
+      {
+        'rcarriga/nvim-dap-ui',
+        config = function()
+          require('custom.configs.dap-ui')
+        end,
+      },
+    },
+    config = function()
+      require('custom.configs.dap')
+    end,
+  },
+
+  {
+    'rest-nvim/rest.nvim',
+    ft = { 'http' },
+    config = function()
+      require('rest-nvim').setup({
+        result_split_horizontal = true,
+        encode_url = true, -- Encode URL before making request
+        result = {
+          show_url = false,
+          show_http_info = true,
+          show_headers = false,
+          formatters = {
+            json = function(body)
+              -- stylua: ignore
+              return vim.fn.system { "biome", "format", "--stdin", "--stdin-file-path", "foo.json", body }
+            end,
+            -- prettier already needed since it's the only proper yaml formatter
+            html = function(body)
+              return vim.fn.system({
+                'prettier',
+                '--parser=html',
+                body,
+              })
+            end,
+          },
+        },
+      })
+    end,
+  },
+
+  -- optional
+
+  {
+    'folke/which-key.nvim',
+    enabled = false,
+  },
+
+  {
+    'github/copilot.vim',
+    enabled = false,
+    event = 'BufWinEnter',
+    config = function()
+      require('custom.configs.copilot')
+    end,
+  },
+}
+
+return plugins
