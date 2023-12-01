@@ -179,7 +179,8 @@ local plugins = {
   -- file type
   {
     'iamcco/markdown-preview.nvim',
-    cmd = 'MarkdownPreview',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    ft = { 'markdown' },
     build = 'cd app && yarn install',
   },
 
