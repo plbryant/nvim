@@ -197,6 +197,15 @@ local plugins = {
     opts = {},
   },
 
+  {
+    'epwalsh/obsidian.nvim',
+    version = '*',
+    ft = 'markdown',
+    config = function()
+      require('custom.configs.obsidian')
+    end,
+  },
+
   -- very lazy
 
   {
@@ -291,58 +300,9 @@ local plugins = {
       vim.opt.laststatus = 3
       vim.opt.splitkeep = 'screen'
     end,
-    opts = {
-      fix_win_height = vim.fn.has('nvim-0.10.0') == 0,
-      bottom = {
-        { ft = 'qf', title = 'QuickFix' },
-        { ft = 'dapui_watches', title = 'Watches' },
-        { ft = 'dapui_console', title = 'Debug Console' },
-        'Trouble',
-        {
-          ft = 'neotest-output-panel',
-          title = ' Test Output',
-          open = function()
-            vim.cmd.vsplit()
-            require('neotest').output_panel.toggle()
-          end,
-        },
-      },
-      left = {
-        { ft = 'dapui_scopes', title = 'Scopes' },
-        { ft = 'dapui_breakpoints', title = 'Breakpoints' },
-        { ft = 'dapui_stacks', title = 'Stacks' },
-        {
-          ft = 'neotest-summary',
-          title = '  Tests',
-          open = function()
-            require('neotest').summary.toggle()
-          end,
-        },
-      },
-      right = {
-        { ft = 'spectre_panel' },
-        {
-          ft = 'help',
-          size = { width = 90 }, -- only show help buffers
-          filter = function(buf)
-            return vim.bo[buf].buftype == 'help'
-          end,
-        },
-        'dapui_scopes',
-        'neotest-output-panel',
-        'neotest-summary',
-      },
-      options = {
-        left = { size = 70 },
-        bottom = { size = 10 },
-        right = { size = 60 },
-        top = { size = 10 },
-      },
-      wo = {
-        winbar = false,
-        signcolumn = 'no',
-      },
-    },
+    config = function()
+      require('custom.configs.edgy')
+    end,
   },
 
   -- cmd
@@ -459,26 +419,9 @@ local plugins = {
   {
     'folke/twilight.nvim', -- focus on code (not zen mode)
     cmd = 'Twilight',
-    opts = {
-      dimming = {
-        alpha = 0.25, -- amount of dimming
-        -- we try to get the foreground from the highlight groups or fallback color
-        color = { 'Normal', '#ffffff' },
-        term_bg = '#000000', -- if guibg=NONE, this will be used to calculate text color
-        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-      },
-      context = 10, -- amount of lines we will try to show around the current line
-      treesitter = true, -- use treesitter when available for the filetype
-      -- treesitter is used to automatically expand the visible text,
-      -- but you can further control the types of nodes that should always be fully expanded
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        'function',
-        'method',
-        'table',
-        'if_statement',
-      },
-      exclude = {}, -- exclude these filetypes
-    },
+    config = function()
+      require('custom.configs.twilight')
+    end,
   },
 
   {
@@ -542,37 +485,15 @@ local plugins = {
     end,
   },
 
+  -- optional
+
   {
     'rest-nvim/rest.nvim',
     ft = { 'http' },
     config = function()
-      require('rest-nvim').setup({
-        result_split_horizontal = true,
-        encode_url = true, -- Encode URL before making request
-        result = {
-          show_url = false,
-          show_http_info = true,
-          show_headers = false,
-          formatters = {
-            json = function(body)
-              -- stylua: ignore
-              return vim.fn.system { "biome", "format", "--stdin", "--stdin-file-path", "foo.json", body }
-            end,
-            -- prettier already needed since it's the only proper yaml formatter
-            html = function(body)
-              return vim.fn.system({
-                'prettier',
-                '--parser=html',
-                body,
-              })
-            end,
-          },
-        },
-      })
+      require('custom.configs.rest')
     end,
   },
-
-  -- optional
 
   {
     'folke/which-key.nvim',

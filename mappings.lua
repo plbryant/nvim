@@ -317,7 +317,7 @@ M.dap = {
 M.twilight = {
   n = {
     ['<leader>tw'] = {
-      '<cmd> twilight <CR>',
+      '<cmd> Twilight <CR>',
       '🔦 Twilight focus on code',
     },
   },
@@ -360,7 +360,7 @@ M.hop = {
 
 M.oil = {
   n = {
-    ['-'] = {
+    ['<leader>e'] = {
       '<cmd> Oil <CR>',
       'Open oil menu',
     },
