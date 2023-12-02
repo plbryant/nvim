@@ -75,7 +75,6 @@ M.mason = {
     'debugpy',
 
     -- rust
-    'rust_analizer',
     'codelldb',
 
     -- go
