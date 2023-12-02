@@ -26,15 +26,6 @@ opt.updatetime = 100
 -- opt.virtualedit = 'all'
 opt.wrap = false
 
--- add copilot mapping
--- vim.g.copilot_no_tab_map = true
--- vim.api.nvim_set_keymap(
---   'i',
---   '<Shift-CR>',
---   'copilot#Accept("<CR>")',
---   { silent = true, expr = true }
--- )
-
 -- diagnostics
 vim.diagnostic.config({
   virtual_text = true,

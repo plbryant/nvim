@@ -23,9 +23,7 @@ local plugins = {
 
   {
     'neovim/nvim-lspconfig',
-    dependencies = {
-      { 'folke/neodev.nvim', opts = {} }, -- better lua documentation
-    },
+    dependencies = 'folke/neodev.nvim', -- better lua documentation
     config = function()
       require('plugins.configs.lspconfig')
       require('custom.configs.lspconfig')
@@ -61,10 +59,7 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'kevinhwang91/promise-async',
-      {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        ft = 'javascriptreact',
-      },
+      'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'kevinhwang91/nvim-ufo',
         config = function()
@@ -73,6 +68,7 @@ local plugins = {
       },
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
+        dependencies = 'nvim-treesitter/nvim-treesitter',
         config = function()
           require('Comment').setup({
             pre_hook = require(
@@ -89,13 +85,7 @@ local plugins = {
     'nvim-telescope/telescope.nvim',
     opts = overrides.telescope,
     dependencies = {
-      {
-        'plbryant/git-worktree.nvim',
-        config = function()
-          require('git-worktree').setup({})
-          require('telescope').load_extension('git_worktree')
-        end,
-      },
+      'plbryant/git-worktree.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
@@ -185,6 +175,47 @@ local plugins = {
   },
 
   {
+    'simrat39/rust-tools.nvim',
+    ft = 'rust',
+    dependencies = 'neovim/nvim-lspconfig',
+    opts = function()
+      return require('custom.configs.rust-tools')
+    end,
+    config = function(_, opts)
+      require('rust-tools').setup(opts)
+    end,
+  },
+
+  {
+    'saecki/crates.nvim',
+    ft = { 'toml' },
+    config = function(_, opts)
+      local crates = require('crates')
+      crates.setup(opts)
+      require('cmp').setup.buffer({
+        sources = { { name = 'crates' } },
+      })
+      crates.show()
+      require('core.utils').load_mappings('crates')
+    end,
+  },
+
+  {
+    'ray-x/go.nvim',
+    ft = { 'go', 'gomod', 'gosum', 'gowork' },
+    dependencies = {
+      {
+        'ray-x/guihua.lua',
+        build = 'cd lua/fzy && make',
+      },
+    },
+    config = function()
+      require('custom.configs.go')
+    end,
+    build = ':lua require("go.install").update_all_sync()',
+  },
+
+  {
     'pmizio/typescript-tools.nvim', -- lsp intermediate tsc
     config = function()
       require('custom.configs.tsserver')
@@ -195,7 +226,6 @@ local plugins = {
       'javascriptreact',
       'typescriptreact',
     },
-    opts = {},
   },
 
   {
@@ -233,7 +263,7 @@ local plugins = {
   {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
-    event = 'VeryLazy',
+    event = 'LspAttach',
     config = function()
       require('nvim-surround').setup({})
     end,
@@ -250,7 +280,6 @@ local plugins = {
   {
     'kevinhwang91/nvim-fundo', -- forever undo nvim
     event = 'BufReadPost',
-    opts = {},
     build = function()
       require('fundo').install()
     end,
@@ -259,7 +288,6 @@ local plugins = {
   {
     'utilyre/sentiment.nvim', -- highlight brackets
     event = 'LspAttach',
-    opts = {},
     init = function()
       vim.g.loaded_matchparen = 1
     end,
@@ -284,11 +312,6 @@ local plugins = {
   {
     'folke/todo-comments.nvim',
     event = 'BufWinEnter',
-    dependencies = {
-      {
-        'nvim-treesitter/nvim-treesitter',
-      },
-    },
     config = function()
       require('custom.configs.todo-comments')
     end,
@@ -376,9 +399,6 @@ local plugins = {
 
   {
     'folke/trouble.nvim',
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons' },
-    },
     cmd = 'TroubleToggle',
     config = function()
       require('custom.configs.trouble')
@@ -391,6 +411,7 @@ local plugins = {
     dependencies = {
       'haydenmeade/neotest-jest',
       'thenbe/neotest-playwright',
+      'nvim-neotest/neotest-go',
     },
     config = function()
       require('custom.configs.neotest')
@@ -450,15 +471,6 @@ local plugins = {
   -- debug
 
   {
-    'mfussenegger/nvim-dap-python',
-    ft = 'python',
-    config = function(_, opts)
-      local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
-      require('dap-python').setup(path)
-    end,
-  },
-
-  {
     'mfussenegger/nvim-dap',
     cmd = {
       'DapContinue',
@@ -486,7 +498,29 @@ local plugins = {
     end,
   },
 
+  {
+    'mfussenegger/nvim-dap-python',
+    ft = 'python',
+    config = function()
+      local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+      require('dap-python').setup(path)
+    end,
+  },
+
+  {
+    'leoluz/nvim-dap-go',
+    ft = 'go',
+    config = function(_, opts)
+      require('dap-go').setup(opts)
+    end,
+  },
+
   -- optional
+
+  {
+    'folke/which-key.nvim',
+    enabled = false,
+  },
 
   {
     'rest-nvim/rest.nvim',
@@ -497,16 +531,14 @@ local plugins = {
   },
 
   {
-    'folke/which-key.nvim',
+    'zbirenbaum/copilot.lua',
+    lazy = false,
     enabled = false,
-  },
-
-  {
-    'github/copilot.vim',
-    enabled = false,
-    event = 'BufWinEnter',
-    config = function()
-      require('custom.configs.copilot')
+    opts = function()
+      return require('custom.configs.copilot')
+    end,
+    config = function(_, opts)
+      require('copilot').setup(opts)
     end,
   },
 }

@@ -15,11 +15,17 @@ local options = {
     html = { 'prettierd' },
     json = { 'prettierd' },
     python = { 'blue', 'isort' },
+    jsonc = { 'prettierd' },
+    go = { 'goimports', 'gofumpt', 'golines' },
     ['scss'] = { 'prettier' },
     ['less'] = { 'prettier' },
     ['yaml'] = { 'prettier' },
     ['markdown'] = { 'prettier' },
     ['markdown.mdx'] = { 'prettier' },
+    ['rust'] = { 'rustfmt' },
+    ['vue'] = { 'prettier' },
+    ['graphql'] = { 'prettier' },
+    ['handlebars'] = { 'prettier' },
   },
 }
 

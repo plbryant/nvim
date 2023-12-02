@@ -13,6 +13,7 @@ local servers = {
   'tailwindcss',
   'yamlls',
   'pyright',
+  'gopls',
 }
 
 local ok, _ = pcall(require, 'ufo')
@@ -59,4 +60,27 @@ lspconfig.tailwindcss.setup({
     'tailwind.config.ts'
   ),
   autostart = false,
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_dir = require('lspconfig').util.root_pattern(
+    'go.work',
+    'go.mod',
+    '.git'
+  ),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
 })

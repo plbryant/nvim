@@ -11,6 +11,13 @@ M.treesitter = {
     'yaml',
     'regex',
     'toml',
+    'rust',
+
+    -- golang
+    'go',
+    'gomod',
+    'gowork',
+    'gosum',
 
     -- Markdown
     'markdown',
@@ -66,6 +73,18 @@ M.mason = {
     -- debugger
     'js-debug-adapter',
     'debugpy',
+
+    -- rust
+    'rust_analizer',
+    'codelldb',
+
+    -- go
+    'gofumpt',
+    'goimports',
+    'golines',
+    'gomodifytags',
+    'gopls',
+    'golangci-lint',
   },
 }
 
@@ -114,6 +133,7 @@ M.telescope = {
     'themes',
     'terms',
     'fzf',
+    'git_worktree',
   },
 
   extensions = {
@@ -150,6 +170,7 @@ M.cmp = {
     { name = 'path' },
     { name = 'spell' },
     { name = 'emoji' },
+    { name = 'crates' },
   },
 }
 
