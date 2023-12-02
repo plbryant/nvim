@@ -161,11 +161,8 @@ M.cmp = {
     { name = 'luasnip' },
     { name = 'nvim_lua' },
     { name = 'treesitter' },
-    { name = 'nvim_lsp_document_symbol' },
     { name = 'buffer' },
     { name = 'path' },
-    { name = 'spell' },
-    { name = 'emoji' },
     { name = 'crates' },
   },
 }

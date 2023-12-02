@@ -23,7 +23,6 @@ local plugins = {
 
   {
     'neovim/nvim-lspconfig',
-    dependencies = 'folke/neodev.nvim', -- better lua documentation
     config = function()
       require('plugins.configs.lspconfig')
       require('custom.configs.lspconfig')
@@ -49,8 +48,6 @@ local plugins = {
       'hrsh7th/cmp-nvim-lua',
       'ray-x/cmp-treesitter',
       'hrsh7th/cmp-buffer',
-      'f3fora/cmp-spell',
-      'hrsh7th/cmp-emoji',
       'windwp/nvim-autopairs',
     },
   },
@@ -59,7 +56,6 @@ local plugins = {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'kevinhwang91/promise-async',
-      'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'kevinhwang91/nvim-ufo',
         config = function()
@@ -68,7 +64,6 @@ local plugins = {
       },
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
         config = function()
           require('Comment').setup({
             pre_hook = require(
@@ -87,9 +82,8 @@ local plugins = {
     dependencies = {
       {
         'polarmutex/git-worktree.nvim',
-        enabled = false,
         config = function()
-          require('custom.configs.worktree')
+          require('custom.configs.git-worktree')
         end,
       },
 
@@ -108,19 +102,6 @@ local plugins = {
   },
 
   -- lazy
-
-  {
-    'hinell/lsp-timeout.nvim',
-    config = function()
-      vim.g['lsp-timeout-config'] = {
-        -- When focus is lost
-        -- wait 5 minutes before stopping all LSP servers
-        stopTimeout = 1000 * 60 * 5,
-        startTimeout = 1000 * 10,
-        silent = true,
-      }
-    end,
-  },
 
   {
     'ThePrimeagen/harpoon',
@@ -174,12 +155,6 @@ local plugins = {
   },
 
   -- file type
-  {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    ft = { 'markdown' },
-    build = 'cd app && yarn install',
-  },
 
   {
     'simrat39/rust-tools.nvim',
@@ -290,38 +265,6 @@ local plugins = {
   },
 
   {
-    'kevinhwang91/nvim-fundo', -- forever undo nvim
-    event = 'BufReadPost',
-    build = function()
-      require('fundo').install()
-    end,
-  },
-
-  {
-    'utilyre/sentiment.nvim', -- highlight brackets
-    event = 'LspAttach',
-    init = function()
-      vim.g.loaded_matchparen = 1
-    end,
-  },
-
-  {
-    'ray-x/lsp_signature.nvim', -- highlight parameters when type a function
-    event = 'BufReadPost',
-    config = function()
-      require('custom.configs.signature')
-    end,
-  },
-
-  {
-    'tzachar/local-highlight.nvim', -- highlight same words under cursor
-    cmd = 'LocalHighlightToggle',
-    opts = {
-      hlgroup = 'LocalHighlight',
-    },
-  },
-
-  {
     'folke/todo-comments.nvim',
     event = 'BufWinEnter',
     config = function()
@@ -356,6 +299,12 @@ local plugins = {
   {
     'famiu/bufdelete.nvim', -- better buff delete
     cmd = { 'Bdelete', 'Bwipeout' },
+  },
+
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    build = 'cd app && yarn install',
   },
 
   {

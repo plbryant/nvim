@@ -25,9 +25,7 @@ M.override = {
   SpellRare = { strikethrough = true, fg = 'nord_blue', undercurl = false },
 
   -- extend plugin
-  LspSignatureActiveParameter = { fg = 'orange', bg = 'none' },
   IndentBlanklineContextStart = { bg = 'none' },
-  LocalHighlight = { bold = true },
 }
 ---@type HLTable
 M.add = {
