@@ -245,6 +245,11 @@ local plugins = {
   },
 
   {
+    'stevearc/dressing.nvim',
+    event = VeryLazy,
+  },
+
+  {
     'gbprod/cutlass.nvim',
     event = VeryLazy,
     opts = {
@@ -411,7 +416,6 @@ local plugins = {
     dependencies = {
       'haydenmeade/neotest-jest',
       'thenbe/neotest-playwright',
-      'nvim-neotest/neotest-go',
     },
     config = function()
       require('custom.configs.neotest')
@@ -504,14 +508,6 @@ local plugins = {
     config = function()
       local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
       require('dap-python').setup(path)
-    end,
-  },
-
-  {
-    'leoluz/nvim-dap-go',
-    ft = 'go',
-    config = function(_, opts)
-      require('dap-go').setup(opts)
     end,
   },
 

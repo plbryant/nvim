@@ -15,12 +15,6 @@ vim.diagnostic.config({
 
 require('neotest').setup({
   adapters = {
-    require('neotest-go')({
-      experimental = {
-        test_table = true,
-      },
-      args = { '-count=1', '-coverprofile coverage.out', '-covermode=count' },
-    }),
     require('neotest-jest')({
       jestCommand = 'npm test --',
       env = { CI = true },

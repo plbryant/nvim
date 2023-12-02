@@ -74,9 +74,6 @@ M.mason = {
     'js-debug-adapter',
     'debugpy',
 
-    -- rust
-    'codelldb',
-
     -- go
     'gofumpt',
     'goimports',
