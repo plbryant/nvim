@@ -7,45 +7,47 @@ local M = {}
 ---@type HLTable
 M.override = {
   -- general
-  Visual = { bg = '#2f2e3e', fg = 'white' },
-  MatchWord = { bg = 'teal', fg = 'black' },
+  MatchWord = { bg = '#02cad8', fg = '#000000' },
   Comment = { italic = true },
+  Visual = { bg = '#fccc7e', fg = '#000000' },
 
   -- search
-  IncSearch = { fg = 'black', bg = 'pink' },
-  Search = { fg = 'black', bg = 'pink' },
+  IncSearch = { fg = '#000000', bg = '#fccc7e' },
+  Search = { fg = '#000000', bg = '#fccc7e' },
 
   -- cursor
-  Cursor = { bg = 'pink', fg = 'black' },
-  CursorLine = { bg = '#2f2e3e' },
+  Cursor = { bg = '#fcd28f', fg = '#000000' },
+  CursorLine = { bg = '#fceac7' },
 
   -- spell
-  SpellBad = { strikethrough = true, fg = 'red', undercurl = false },
-  SpellCap = { strikethrough = true, fg = 'orange', undercurl = false },
-  SpellRare = { strikethrough = true, fg = 'nord_blue', undercurl = false },
+  SpellBad = { fg = '#fca10f', strikethrough = true, undercurl = false },
+  SpellCap = { fg = '#fca10f', strikethrough = true, undercurl = false },
+  SpellRare = { fg = '#fca10f', strikethrough = true, undercurl = false },
 
-  -- extend plugin
+  -- indentBlankline
   IndentBlanklineContextStart = { bg = 'none' },
 }
+
 ---@type HLTable
 M.add = {
+  -- signature
+  LspSignatureActiveParameter = { fg = '#000000', bg = '#fceac7' },
 
-  -- blankline
+  -- Blankline
   IndentBlanklineContextChar = { fg = 'none' },
   IndentBlanklineContextStart = { bg = 'none' },
 
   -- dap
-  DapBreakpoint = { fg = 'red' },
+  DapBreakpoint = { fg = '#f70909' },
 
   -- gitsigns
-  GitSignsChange = { fg = 'green' },
-  GitSignsAdd = { fg = 'vibrant_green' },
-  GitSignsDelete = { fg = 'red' },
-  GitSignsText = { fg = 'white', bg = 'red', bold = true },
+  GitSignsChange = { fg = '#fcdb05' },
+  GitSignsAdd = { fg = '#05fca9' },
+  GitSignsDelete = { fg = '#f70909' },
+  GitSignsText = { fg = '#ffffff', bg = '#f70909', bold = true },
 
-  -- multicursor
-  MultiCursor = { bg = 'pink', fg = 'black2' },
-  MultiCursorMain = { bg = 'pink', fg = 'black2' },
+  MultiCursor = { bg = '#02cad8', fg = '#000000' },
+  MultiCursorMain = { bg = '#02cad8', fg = '#000000' },
 }
 
 return M
