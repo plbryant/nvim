@@ -85,7 +85,14 @@ local plugins = {
     'nvim-telescope/telescope.nvim',
     opts = overrides.telescope,
     dependencies = {
-      'plbryant/git-worktree.nvim',
+      {
+        'polarmutex/git-worktree.nvim',
+        enabled = false,
+        config = function()
+          require('custom.configs.worktree')
+        end,
+      },
+
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
