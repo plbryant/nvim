@@ -13,8 +13,12 @@ M.disabled = {
     -- diable for replace register
     ['<C-c>'] = '',
 
-    -- disable for new find files map
-    ['<leader>ff'] = '',
+    -- disable for bookmarks
+    [';'] = '',
+    ['<leader>b'] = '',
+
+    -- diasble for telescope buffers
+    ['<tab><tab>'] = '',
 
     -- disale default keybinds
     -- for tmux navitagor to work
