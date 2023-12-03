@@ -291,7 +291,7 @@ M.lspsaga = {
     ['Gr'] = { '<CMD>Telescope lsp_references<CR>', ' Lsp references' },
     ['[d'] = { '<CMD>Lspsaga diagnostic_jump_prev<CR>', ' Prev Diagnostic' },
     [']d'] = { '<CMD>Lspsaga diagnostic_jump_next<CR>', ' Next Diagnostic' },
-    ['<leader>qf'] = {
+    ['<leader>fx'] = {
       function()
         vim.diagnostic.setloclist()
       end,
