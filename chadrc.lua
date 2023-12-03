@@ -5,8 +5,8 @@ local M = {}
 local highlights = require('custom.highlights')
 
 M.ui = {
-  theme_toggle = { 'catppuccin', 'catppuccin' },
-  theme = 'catppuccin',
+  theme_toggle = { 'nightfox', 'nightfox' },
+  theme = 'nightfox',
   transparency = false,
 
   cmp = {

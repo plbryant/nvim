@@ -3,10 +3,12 @@ local M = {}
 
 M.disabled = {
   -- for tmux navitagor to work
-  ['<C-h>'] = '',
-  ['<C-l>'] = '',
-  ['<C-j>'] = '',
-  ['<C-k>'] = '',
+  n = {
+    ['<C-h>'] = '',
+    ['<C-l>'] = '',
+    ['<C-j>'] = '',
+    ['<C-k>'] = '',
+  },
 }
 
 M.general = {
@@ -264,7 +266,12 @@ M.crates = {
 
 M.lspsaga = {
   n = {
-    ['<leader>ca'] = { '<CMD>CodeActionMenu<CR>', '󰅱 Code Action' },
+    ['<leader>ca'] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      'LSP code action',
+    },
     ['gf'] = {
       function()
         vim.cmd('Lspsaga lsp_finder')
