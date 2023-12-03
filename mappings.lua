@@ -273,28 +273,32 @@ M.lspsaga = {
       'LSP code action',
     },
     ['gf'] = {
-      function()
-        vim.cmd('Lspsaga lsp_finder')
-      end,
-      ' Go to definition',
+      '<CMD>Lspsaga finder<CR>',
+      ' Lspsaga show references and implementations',
     },
     ['gd'] = {
       '<CMD>Lspsaga goto_definition<CR>',
-      ' Go to definition',
+      ' Lspsaga go to definition',
     },
     ['<leader>lp'] = {
       '<CMD>Lspsaga peek_definition<CR>',
-      ' Peek definition',
+      ' Lspsaga peek definition',
     },
     ['<leader>K'] = {
       '<CMD>Lspsaga hover_doc<CR>',
-      '󱙼 Hover lsp',
+      '󱙼 Lspsaga hover lsp',
     },
-    ['<leader>o'] = { '<CMD>Lspsaga outline<CR>', ' Show Outline' },
+    ['<leader>o'] = { '<CMD>Lspsaga outline<CR>', ' Lspsaga show outline' },
     --  LSP
     ['Gr'] = { '<CMD>Telescope lsp_references<CR>', ' Lsp references' },
-    ['[d'] = { '<CMD>Lspsaga diagnostic_jump_prev<CR>', ' Prev Diagnostic' },
-    [']d'] = { '<CMD>Lspsaga diagnostic_jump_next<CR>', ' Next Diagnostic' },
+    ['[d'] = {
+      '<CMD>Lspsaga diagnostic_jump_prev<CR>',
+      ' Lspsaga prev diagnostics',
+    },
+    [']d'] = {
+      '<CMD>Lspsaga diagnostic_jump_next<CR>',
+      ' Lspsaga next Diagnostic',
+    },
     ['<leader>fx'] = {
       function()
         vim.diagnostic.setloclist()
