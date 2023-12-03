@@ -1,7 +1,13 @@
 ---@type MappingsTable
 local M = {}
 
-M.disabled = {}
+M.disabled = {
+  -- for tmux navitagor to work
+  ['<C-h>'] = '',
+  ['<C-l>'] = '',
+  ['<C-j>'] = '',
+  ['<C-k>'] = '',
+}
 
 M.general = {
   n = {
@@ -200,15 +206,6 @@ M.dap = {
   },
 }
 
-M.twilight = {
-  n = {
-    ['<leader>tw'] = {
-      '<cmd> Twilight <CR>',
-      '🔦 Twilight focus on code',
-    },
-  },
-}
-
 M.worktree = {
   n = {
     ['<leader>wt'] = {
@@ -296,6 +293,15 @@ M.lspsaga = {
         vim.diagnostic.setloclist()
       end,
       '󰁨 Lsp Quickfix',
+    },
+  },
+}
+
+M.variety = {
+  n = {
+    ['<leader>tw'] = {
+      '<cmd> ZenMode <CR>',
+      '🔦 ZenMode focus on code',
     },
   },
 }
