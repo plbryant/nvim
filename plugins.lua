@@ -132,14 +132,14 @@ local plugins = {
   -- keys
   {
     'vim-scripts/ReplaceWithRegister',
-    keys = { 'gr', 'grr' },
+    keys = { 'gr' },
   },
 
   {
     'crusj/bookmarks.nvim',
     keys = {
       {
-        '<tab><tab>',
+        ';',
         mode = { 'n' },
         desc = 'Toogle bookmarks',
       },
@@ -292,11 +292,6 @@ local plugins = {
   },
 
   {
-    'preservim/tagbar',
-    cmd = 'TagbarToogle',
-  },
-
-  {
     'famiu/bufdelete.nvim', -- better buff delete
     cmd = { 'Bdelete', 'Bwipeout' },
   },
@@ -329,32 +324,6 @@ local plugins = {
     },
     config = function()
       require('custom.configs.hop')
-    end,
-  },
-
-  {
-    'ThePrimeagen/refactoring.nvim',
-    cmd = 'Refactor',
-    config = function()
-      require('custom.configs.refactoring')
-    end,
-  },
-
-  {
-    'folke/zen-mode.nvim',
-    cmd = 'ZenMode',
-    config = function()
-      require('custom.configs.zenmode')
-    end,
-  },
-
-  {
-    'weilbith/nvim-code-action-menu',
-    cmd = 'CodeActionMenu',
-    init = function()
-      vim.g.code_action_menu_show_details = true
-      vim.g.code_action_menu_show_diff = true
-      vim.g.code_action_menu_show_action_kind = true
     end,
   },
 
