@@ -27,19 +27,10 @@ M.ui = {
 
   telescope = { style = 'bordered' },
 
-  lsp = {
-    signature = {
-      disabled = false,
-      silent = true,
-    },
-  },
-
   extended_integrations = {
     'dap',
-    'codeactionmenu',
     'todo',
     'trouble',
-    'notify',
   },
 
   hl_override = highlights.override,

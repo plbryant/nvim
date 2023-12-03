@@ -119,7 +119,6 @@ local plugins = {
       'nvim-lua/plenary.nvim', -- required by telescope
       'MunifTanjim/nui.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'rcarriga/nvim-notify',
       'nvim-tree/nvim-web-devicons',
     },
     opts = {
@@ -244,6 +243,14 @@ local plugins = {
     'max397574/better-escape.nvim',
     event = 'InsertEnter',
     config = true,
+  },
+
+  {
+    'nvimdev/lspsaga.nvim',
+    event = 'LspAttach',
+    config = function()
+      require('lspsaga').setup()
+    end,
   },
 
   {

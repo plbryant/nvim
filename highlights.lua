@@ -26,6 +26,7 @@ M.override = {
 
   -- extend plugin
   IndentBlanklineContextStart = { bg = 'none' },
+  LspSignatureActiveParameter = { bg = 'none', fg = 'red' },
 }
 ---@type HLTable
 M.add = {

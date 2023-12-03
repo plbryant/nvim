@@ -1,36 +1,7 @@
 ---@type MappingsTable
 local M = {}
 
-M.disabled = {
-  n = {
-
-    -- diable for multicursors
-    ['<C-n>'] = '',
-
-    -- diable for replace register
-    ['gr'] = '',
-
-    -- diable for replace register
-    ['<C-c>'] = '',
-
-    -- disable for bookmarks
-    [';'] = '',
-    ['<leader>b'] = '',
-
-    -- diasble for telescope buffers
-    ['<tab><tab>'] = '',
-
-    -- disale default keybinds
-    -- for tmux navitagor to work
-    ['<C-h>'] = '',
-    ['<C-l>'] = '',
-    ['<C-j>'] = '',
-    ['<C-k>'] = '',
-
-    -- disale for hope plugin
-    ['<leader>h'] = '',
-  },
-}
+M.disabled = {}
 
 M.general = {
   n = {
@@ -183,12 +154,6 @@ M.lsp = {
       '  LSP references',
     },
     -- improve ui
-    ['<leader>ca'] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      'LSP code action',
-    },
     ['<leader>fm'] = {
       function()
         require('conform').format()
@@ -296,6 +261,41 @@ M.crates = {
         require('crates').upgrade_all_crates()
       end,
       'update crates',
+    },
+  },
+}
+
+M.lspsaga = {
+  n = {
+    ['<leader>ca'] = { '<CMD>CodeActionMenu<CR>', '󰅱 Code Action' },
+    ['gf'] = {
+      function()
+        vim.cmd('Lspsaga lsp_finder')
+      end,
+      ' Go to definition',
+    },
+    ['gd'] = {
+      '<CMD>Lspsaga goto_definition<CR>',
+      ' Go to definition',
+    },
+    ['<leader>lp'] = {
+      '<CMD>Lspsaga peek_definition<CR>',
+      ' Peek definition',
+    },
+    ['<leader>K'] = {
+      '<CMD>Lspsaga hover_doc<CR>',
+      '󱙼 Hover lsp',
+    },
+    ['<leader>o'] = { '<CMD>Lspsaga outline<CR>', ' Show Outline' },
+    --  LSP
+    ['Gr'] = { '<CMD>Telescope lsp_references<CR>', ' Lsp references' },
+    ['[d'] = { '<CMD>Lspsaga diagnostic_jump_prev<CR>', ' Prev Diagnostic' },
+    [']d'] = { '<CMD>Lspsaga diagnostic_jump_next<CR>', ' Next Diagnostic' },
+    ['<leader>qf'] = {
+      function()
+        vim.diagnostic.setloclist()
+      end,
+      '󰁨 Lsp Quickfix',
     },
   },
 }
