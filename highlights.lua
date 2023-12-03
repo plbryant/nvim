@@ -10,7 +10,6 @@ M.override = {
   Visual = { bg = '#2f2e3e', fg = 'white' },
   MatchWord = { bg = 'teal', fg = 'black' },
   Comment = { italic = true },
-  FloatBorder = { fg = 'gray' },
 
   -- search
   IncSearch = { fg = 'black', bg = 'pink' },
