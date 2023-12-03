@@ -144,16 +144,9 @@ M.telescope = {
 }
 
 M.cmp = {
-  completion = {
-    completeopt = 'menu,menuone,noinsert,noselect',
-  },
-
   mapping = {
     ['<A-Space>'] = require('cmp').mapping.complete(),
     ['<C-Space>'] = require('cmp').config.disable,
-    ['<CR>'] = require('cmp').mapping.confirm({
-      behavior = require('cmp').ConfirmBehavior.Insert,
-    }),
   },
 
   sources = {
