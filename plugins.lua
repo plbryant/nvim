@@ -149,8 +149,7 @@ local plugins = {
     },
     branch = 'main',
     config = function()
-      require('bookmarks').setup()
-      require('telescope').load_extension('bookmarks')
+      require('custom.configs.bookmarks')
     end,
   },
 
