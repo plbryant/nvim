@@ -26,6 +26,7 @@ M.override = {
 
   -- indentBlankline
   IndentBlanklineContextStart = { bg = 'none' },
+  LspSignatureActiveParameter = { bg = 'none', fg = 'red' },
 }
 
 ---@type HLTable

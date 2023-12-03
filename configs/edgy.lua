@@ -55,6 +55,9 @@ local options = {
     winbar = false,
     signcolumn = 'no',
   },
+  animate = {
+    enabled = false,
+  },
 }
 
 edgy.setup(options)
