@@ -303,6 +303,22 @@ local plugins = {
   },
 
   {
+    'folke/zen-mode.nvim',
+    cmd = 'ZenMode',
+    config = function()
+      require('custom.configs.zenmode')
+    end,
+  },
+
+  {
+    'ThePrimeagen/refactoring.nvim',
+    cmd = 'Refactor',
+    config = function()
+      require('custom.configs.refactoring')
+    end,
+  },
+
+  {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     build = 'cd app && yarn install',
@@ -371,14 +387,6 @@ local plugins = {
         '⠏',
       },
     },
-  },
-
-  {
-    'folke/twilight.nvim', -- focus on code (not zen mode)
-    cmd = 'Twilight',
-    config = function()
-      require('custom.configs.twilight')
-    end,
   },
 
   {
