@@ -28,85 +28,19 @@ M.disabled = {
   },
 }
 
-M.text = {
-  i = {
-    ['<C-s>'] = { '<cmd> w <CR>', 'Save file' },
-    ['<C-Up>'] = { '<cmd> :m-2<CR>', ' Move up' },
-    ['<C-Down>'] = { '<cmd> :m+<CR>', ' Move down' },
-    ['<A-Left>'] = {
-      '<ESC>I',
-      ' Move to beginning of line',
-    },
-    ['<A-Right>'] = { '<ESC>A', ' Move to end of line' },
-  },
-
-  n = {
-    ['<C-s>'] = { '<cmd> w <CR>', 'Save file' },
-    ['<C-Up>'] = { '<cmd> :m-2<CR>', '󰜸 Move line up' },
-    ['<C-Down>'] = {
-      '<cmd> :m+<CR>',
-      '󰜯 Move line down',
-    },
-  },
-
-  v = {
-    ['<C-Up>'] = {
-      ":m'<-2<CR>gv=gv",
-      '󰜸 Move selection up',
-      opts = { silent = true },
-    },
-    ['<C-Down>'] = {
-      ":m'>+1<CR>gv=gv",
-      '󰜯 Move selection down',
-      opts = { silent = true },
-    },
-    -- Indent backward/forward:
-    ['<'] = {
-      '<gv',
-      'Ident backward',
-      opts = { silent = false },
-    },
-    ['>'] = {
-      '>gv',
-      'Ident forward',
-      opts = { silent = false },
-    },
-  },
-}
-
 M.general = {
   n = {
     -- general
     ['<leader>q'] = { '<cmd> qa! <CR>', '󰗼 Exit' },
-
-    -- improve ui
-    ['<leader>ca'] = {
-      '<cmd> CodeActionMenu <CR>',
-      'CodeActionMenu',
-    },
 
     -- buffers
     ['<C-tab>'] = {
       '<cmd> b# <CR>',
       'Switch to last buffer',
     },
-    ['<tab>'] = {
-      '<cmd> bNext <CR>',
-      'Switch to the next buffer',
-    },
     ['<A-w>'] = {
       '<cmd> Bdelete <CR>',
       'Close current buffer',
-    },
-    ['<A-W>'] = {
-      '<cmd> Bwipeout <CR>',
-      'Force close current buffer',
-    },
-
-    -- telescope
-    ['<leader>tH'] = {
-      '<cmd> Telescope highlights <CR>',
-      'Open telescope highlights',
     },
 
     -- transparency
@@ -125,7 +59,7 @@ M.general = {
   v = {
     -- movement
     ['H'] = { '^', 'Go to the beginning of line' },
-    ['L'] = { '$', 'Go to the end of line' },
+    ['L'] = { 'g_', 'Go to the end of line' },
   },
 
   i = {
@@ -137,10 +71,6 @@ M.general = {
     ['<A-w>'] = {
       '<cmd> Bdelete <CR>',
       'Close current buffer',
-    },
-    ['<A-W>'] = {
-      '<cmd> Bwipeout <CR>',
-      'Force close current buffer',
     },
   },
 }
@@ -170,7 +100,7 @@ M.trouble = {
 
 M.Telescope = {
   n = {
-    ['<leader>ft'] = {
+    ['<leader>tt'] = {
       '<cmd> TodoTelescope <Cr>',
       ' Open TODO telescope',
     },
@@ -182,7 +112,7 @@ M.Telescope = {
       '<cmd> Telescope find_files <Cr>',
       '   Open telescope files',
     },
-    ['<leader>ff'] = {
+    ['<tab>'] = {
       '<cmd> Telescope buffers <Cr>',
       '   Open telescope buffers',
     },
@@ -240,26 +170,6 @@ M.harpoon = {
   },
 }
 
-M.nvimtree = {
-  n = {
-    ['<leader>e'] = {
-      function()
-        require('nvim-tree.api').tree.toggle(false, true)
-      end,
-      ' Toggle nvimtree',
-    },
-  },
-}
-
-M.treesitter = {
-  n = {
-    ['<leader>cu'] = {
-      '<CMD>Inspect<CR>',
-      ' Find highlight',
-    },
-  },
-}
-
 M.lsp = {
   n = {
     ['gi'] = {
@@ -267,6 +177,13 @@ M.lsp = {
         require('telescope.builtin').lsp_references()
       end,
       '  LSP references',
+    },
+    -- improve ui
+    ['<leader>ca'] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      'LSP code action',
     },
     ['<leader>fm'] = {
       function()
@@ -285,7 +202,7 @@ M.lsp = {
 
 M.dap = {
   n = {
-    ['<leader>tt'] = {
+    ['<leader>dt'] = {
       '<CMD>DapToggleBreakpoint<CR>',
       '  Dap Toggle breakpoint',
     },
