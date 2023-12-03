@@ -31,8 +31,8 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  -- signature
-  LspSignatureActiveParameter = { fg = '#000000', bg = '#fceac7' },
+  -- lspsaga
+  FloatBorder = { fg = '#225372' },
 
   -- Blankline
   IndentBlanklineContextChar = { fg = 'none' },
