@@ -59,9 +59,13 @@ M.mason = {
     'stylua',
     'prettierd',
     'prettier',
-    'isort',
-    'ruff',
     'blue',
+    'isort',
+    'gofumpt',
+    'goimports',
+    'golines',
+    'gopls',
+    'shfmt',
 
     -- linters
     'eslint_d',
@@ -69,18 +73,13 @@ M.mason = {
     'luacheck',
     'yamllint',
     'mypy',
+    'ruff',
+    'gomodifytags',
+    'golangci-lint',
 
     -- debugger
     'js-debug-adapter',
     'debugpy',
-
-    -- go
-    'gofumpt',
-    'goimports',
-    'golines',
-    'gomodifytags',
-    'gopls',
-    'golangci-lint',
   },
 }
 

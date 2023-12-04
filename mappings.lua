@@ -8,6 +8,7 @@ M.disabled = {
     ['<C-l>'] = '',
     ['<C-j>'] = '',
     ['<C-k>'] = '',
+    ['<leader>b'] = '',
   },
 }
 
@@ -108,7 +109,7 @@ M.Telescope = {
 
 M.harpoon = {
   n = {
-    ['<leader><leader>'] = {
+    ['<leader>sh'] = {
       '<CMD>Telescope harpoon marks<CR>',
       '󱡀 Harpoon Toggle quick menu',
     },
