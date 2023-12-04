@@ -62,7 +62,7 @@ local options = {
     ['`'] = 'actions.cd',
     ['~'] = 'actions.tcd',
     ['gs'] = 'actions.change_sort',
-    ['gx'] = 'actions.open_external',
+    ['<C-CR>'] = 'actions.open_external',
     ['g.'] = 'actions.toggle_hidden',
     ['g\\'] = 'actions.toggle_trash',
   },
