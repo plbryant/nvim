@@ -45,10 +45,10 @@ local plugins = {
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lua',
       'ray-x/cmp-treesitter',
+      'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-buffer',
-      'windwp/nvim-autopairs',
+      'hrsh7th/cmp-path',
     },
   },
 
@@ -163,20 +163,6 @@ local plugins = {
     end,
     config = function(_, opts)
       require('rust-tools').setup(opts)
-    end,
-  },
-
-  {
-    'saecki/crates.nvim',
-    ft = { 'toml' },
-    config = function(_, opts)
-      local crates = require('crates')
-      crates.setup(opts)
-      require('cmp').setup.buffer({
-        sources = { { name = 'crates' } },
-      })
-      crates.show()
-      require('core.utils').load_mappings('crates')
     end,
   },
 
