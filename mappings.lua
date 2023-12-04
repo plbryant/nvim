@@ -16,6 +16,10 @@ M.general = {
     -- general
     ['<leader>q'] = { '<cmd> qa! <CR>', '󰗼 Exit' },
 
+    -- save file
+    ['Z'] = { '<cmd> update <CR>', '󰗼 Save file' },
+    ['<C-s'] = { '<cmd> update <CR>', '󰗼 Save file' },
+
     -- buffers
     ['<C-tab>'] = {
       '<cmd> b# <CR>',
