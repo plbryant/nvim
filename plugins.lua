@@ -138,7 +138,7 @@ local plugins = {
     'crusj/bookmarks.nvim',
     keys = {
       {
-        ';',
+        '<leader><leader>',
         mode = { 'n' },
         desc = 'Toogle bookmarks',
       },
@@ -318,11 +318,7 @@ local plugins = {
     end,
   },
 
-  {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    build = 'cd app && yarn install',
-  },
+  { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
 
   {
     'stevearc/oil.nvim',

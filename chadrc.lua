@@ -5,8 +5,8 @@ local M = {}
 local highlights = require('custom.highlights')
 
 M.ui = {
-  theme_toggle = { 'nightfox', 'nightfox' },
-  theme = 'nightfox',
+  theme_toggle = { 'vscode_dark', 'vscode_dark' },
+  theme = 'vscode_dark',
   transparency = false,
 
   cmp = {

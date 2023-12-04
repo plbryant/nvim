@@ -17,6 +17,7 @@ local options = {
     python = { 'blue', 'isort' },
     jsonc = { 'prettierd' },
     go = { 'goimports', 'gofumpt', 'golines' },
+    sh = { 'shfmt' },
     ['scss'] = { 'prettier' },
     ['less'] = { 'prettier' },
     ['yaml'] = { 'prettier' },
