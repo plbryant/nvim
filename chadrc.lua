@@ -5,36 +5,36 @@ local M = {}
 local highlights = require('custom.highlights')
 
 M.ui = {
-  theme_toggle = { 'vscode_dark', 'vscode_dark' },
-  theme = 'vscode_dark',
-  transparency = false,
+	theme_toggle = { 'vscode_dark', 'vscode_dark' },
+	theme = 'vscode_dark',
+	transparency = false,
 
-  cmp = {
-    icons = true,
-    lspkind_text = true,
-    style = 'default', -- default/flat_light/flat_dark/atom/atom_colored
-    disabled = false,
-    border_color = 'grey_fg', -- only applicable for "default" style, use color names from base30 variables
-    selected_item_bg = 'simple', -- colored / simple
-  },
+	cmp = {
+		icons = true,
+		lspkind_text = true,
+		style = 'default', -- default/flat_light/flat_dark/atom/atom_colored
+		disabled = false,
+		border_color = 'grey_fg', -- only applicable for "default" style, use color names from base30 variables
+		selected_item_bg = 'simple', -- colored / simple
+	},
 
-  tabufline = {
-    show_numbers = false,
-    enabled = false,
-    lazyload = false,
-    overriden_modules = nil,
-  },
+	tabufline = {
+		show_numbers = false,
+		enabled = false,
+		lazyload = false,
+		overriden_modules = nil,
+	},
 
-  telescope = { style = 'bordered' },
+	telescope = { style = 'bordered' },
 
-  extended_integrations = {
-    'dap',
-    'todo',
-    'trouble',
-  },
+	extended_integrations = {
+		'dap',
+		'todo',
+		'trouble',
+	},
 
-  hl_override = highlights.override,
-  hl_add = highlights.add,
+	hl_override = highlights.override,
+	hl_add = highlights.add,
 }
 
 M.plugins = 'custom.plugins'

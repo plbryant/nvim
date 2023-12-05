@@ -28,8 +28,8 @@ opt.wrap = false
 
 -- diagnostics
 vim.diagnostic.config({
-  virtual_text = true,
-  float = {
-    source = 'always',
-  },
+	virtual_text = true,
+	float = {
+		source = 'always',
+	},
 })
