@@ -16,6 +16,15 @@ M.general = {
   n = {
     -- general
     ['<leader>q'] = { '<cmd> qa! <CR>', '󰗼 Exit' },
+    ['J'] = { 'mzJ`z', 'Better one line code' },
+    ['<C-d'] = { '<C-d>zz', 'Better c-d' },
+    ['<C-u'] = { '<C-u>zz', 'Better c-u' },
+    ['n'] = { 'nzzzv', 'Better n' },
+    ['N'] = { 'Nzzzv', 'Better N' },
+    ['<C-n'] = {
+      '[[:%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>]]',
+      'Multicursor',
+    },
 
     -- save file
     ['Z'] = { '<cmd> update <CR>', '󰗼 Save file' },
@@ -48,6 +57,8 @@ M.general = {
     -- movement
     ['H'] = { '^', 'Go to the beginning of line' },
     ['L'] = { 'g_', 'Go to the end of line' },
+    ['J'] = { ":m '>+1<CR>gv=gv", 'Move elements down' },
+    ['K'] = { ":m '>+1<CR>gv=gv", 'Move elements top' },
   },
 
   i = {
@@ -230,73 +241,11 @@ M.worktree = {
   },
 }
 
-M.hop = {
-  n = {
-    ['<leader>ha'] = {
-      '<cmd> HopAnywhere <CR>',
-      ' Hope anywhere',
-    },
-    ['s'] = { '<cmd> HopChar1 <CR>', ' Hope char 1' },
-    ['S'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
-    ['<leader>fh'] = {
-      '<cmd> HopWordCurrentLine <CR>',
-      ' Hop word current line',
-    },
-    ['<leader>hl'] = { '<cmd> HopLineStart <CR>', ' Hope line start' },
-    ['<leader>/'] = { '<cmd> HopPattern <CR>', ' Hope pattern' },
-    ['<leader>hw'] = { '<cmd> HopWord <CR>', ' Hope word' },
-  },
-}
-
 M.oil = {
   n = {
     ['<leader>e'] = {
       '<cmd> Oil <CR>',
       'Open oil menu',
-    },
-  },
-}
-
-M.lspsaga = {
-  n = {
-    ['<leader>ca'] = {
-      function()
-        vim.lsp.buf.code_action()
-      end,
-      'LSP code action',
-    },
-    ['gf'] = {
-      '<CMD>Lspsaga finder<CR>',
-      ' Lspsaga show references and implementations',
-    },
-    ['gd'] = {
-      '<CMD>Lspsaga goto_definition<CR>',
-      ' Lspsaga go to definition',
-    },
-    ['<leader>lp'] = {
-      '<CMD>Lspsaga peek_definition<CR>',
-      ' Lspsaga peek definition',
-    },
-    ['<leader>K'] = {
-      '<CMD>Lspsaga hover_doc<CR>',
-      '󱙼 Lspsaga hover lsp',
-    },
-    ['<leader>o'] = { '<CMD>Lspsaga outline<CR>', ' Lspsaga show outline' },
-    --  LSP
-    ['Gr'] = { '<CMD>Telescope lsp_references<CR>', ' Lsp references' },
-    ['[d'] = {
-      '<CMD>Lspsaga diagnostic_jump_prev<CR>',
-      ' Lspsaga prev diagnostics',
-    },
-    [']d'] = {
-      '<CMD>Lspsaga diagnostic_jump_next<CR>',
-      ' Lspsaga next Diagnostic',
-    },
-    ['<leader>fx'] = {
-      function()
-        vim.diagnostic.setloclist()
-      end,
-      '󰁨 Lsp Quickfix',
     },
   },
 }

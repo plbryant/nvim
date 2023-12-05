@@ -1,30 +1,25 @@
 -- basic config
 local opt = vim.opt
 opt.cmdheight = 0
-opt.expandtab = true
-opt.fileencoding = 'utf-8'
--- opt.guicursor = vim.o.guicursor .. ',i:ver25-CursorInsert'
+opt.guicursor = ''
 opt.guifont = { 'MapleMonoNF Nerd Font' }
 opt.number = true
 opt.numberwidth = 1
-opt.pumheight = 10
-opt.relativenumber = false
+opt.relativenumber = true
 opt.shiftwidth = 2
 opt.showcmd = false
-opt.showmode = false
 opt.showtabline = 0
-opt.smartcase = true
-opt.smarttab = true
-opt.spell = false
+opt.spell = true
 opt.spelllang = { 'en_us', 'es_mx' }
-opt.swapfile = false
-opt.tabpagemax = 1
-opt.tabstop = 2
 opt.termguicolors = true
-opt.undofile = true -- enable persistent undo
-opt.updatetime = 100
--- opt.virtualedit = 'all'
+opt.undofile = true
+opt.undodir = '~/.nvim/undodir/'
 opt.wrap = false
+opt.scrolloff = 8
+opt.signcolumn = 'yes'
+opt.hlsearch = false
+opt.incsearch = true
+opt.colorcolumn = 80
 
 -- diagnostics
 vim.diagnostic.config({

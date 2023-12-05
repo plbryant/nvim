@@ -150,7 +150,6 @@ M.cmp = {
 
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'treesitter' },
     { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'nvim_lua' },

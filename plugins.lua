@@ -45,7 +45,6 @@ local plugins = {
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'saadparwaiz1/cmp_luasnip',
-      'ray-x/cmp-treesitter',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -232,14 +231,6 @@ local plugins = {
   },
 
   {
-    'nvimdev/lspsaga.nvim',
-    event = 'LspAttach',
-    config = function()
-      require('custom.configs.lspsaga')
-    end,
-  },
-
-  {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
     event = 'LspAttach',
@@ -315,23 +306,6 @@ local plugins = {
   },
 
   {
-    'smoka7/hop.nvim',
-    version = '*',
-    cmd = {
-      'HopAnywhere',
-      'HopChar1',
-      'HopChar2',
-      'HopWordCurrentLine',
-      'HopLineStart',
-      'HopPattern',
-      'HopWord',
-    },
-    config = function()
-      require('custom.configs.hop')
-    end,
-  },
-
-  {
     'folke/trouble.nvim',
     cmd = 'TroubleToggle',
     config = function()
@@ -367,28 +341,6 @@ local plugins = {
         '⠧',
         '⠇',
         '⠏',
-      },
-    },
-  },
-
-  {
-    'smoka7/multicursors.nvim',
-    dependencies = { 'smoka7/hydra.nvim' },
-    opts = { hint_config = false },
-    cmd = {
-      'MCstart',
-      'MCvisual',
-      'MCclear',
-      'MCpattern',
-      'MCvisualPattern',
-      'MCunderCursor',
-    },
-    keys = {
-      {
-        mode = { 'v', 'n' },
-        '<C-n>',
-        '<cmd>MCstart<cr>',
-        desc = 'Create a selection for selected text or word under the cursor',
       },
     },
   },
