@@ -4,412 +4,421 @@ local leet_arg = 'leetcode.nvim'
 local VeryLazy = 'VeryLazy'
 local plugins = {
 
-  -- override default configurations
+	-- override default configurations
 
-  {
-    'williamboman/mason.nvim',
-    opts = overrides.mason,
-  },
-  {
-    'NvChad/nvim-colorizer.lua',
-    opts = overrides.colorizer,
-  },
+	{
+		'williamboman/mason.nvim',
+		opts = overrides.mason,
+	},
+	{
+		'NvChad/nvim-colorizer.lua',
+		opts = overrides.colorizer,
+	},
 
-  {
-    'nvim-tree/nvim-tree.lua',
-    opts = overrides.nvimtree,
-    enabled = false,
-  },
+	{
+		'nvim-tree/nvim-tree.lua',
+		opts = overrides.nvimtree,
+		enabled = false,
+	},
 
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require('plugins.configs.lspconfig')
-      require('custom.configs.lspconfig')
-    end,
-  },
+	{
+		'neovim/nvim-lspconfig',
+		config = function()
+			require('plugins.configs.lspconfig')
+			require('custom.configs.lspconfig')
+		end,
+	},
 
-  {
-    'stevearc/conform.nvim', -- formatter
-    init = function()
-      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-    end,
-    config = function()
-      require('custom.configs.conform')
-    end,
-  },
+	{
+		'stevearc/conform.nvim', -- formatter
+		init = function()
+			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+		end,
+		config = function()
+			require('custom.configs.conform')
+		end,
+	},
 
-  {
-    'hrsh7th/nvim-cmp',
-    opts = overrides.cmp,
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lua',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-    },
-  },
+	{
+		'hrsh7th/nvim-cmp',
+		opts = overrides.cmp,
+		dependencies = {
+			'hrsh7th/cmp-nvim-lsp',
+			'saadparwaiz1/cmp_luasnip',
+			'hrsh7th/cmp-nvim-lua',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+		},
+	},
 
-  {
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'kevinhwang91/promise-async',
-      {
-        'kevinhwang91/nvim-ufo',
-        config = function()
-          require('custom.configs.ufo')
-        end,
-      },
-      {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        config = function()
-          require('Comment').setup({
-            pre_hook = require(
-              'ts_context_commentstring.integrations.comment_nvim'
-            ).create_pre_hook(),
-          })
-        end,
-      },
-    },
-    opts = overrides.treesitter,
-  },
+	{
+		'nvim-treesitter/nvim-treesitter',
+		dependencies = {
+			'kevinhwang91/promise-async',
+			{
+				'kevinhwang91/nvim-ufo',
+				config = function()
+					require('custom.configs.ufo')
+				end,
+			},
+			{
+				'JoosepAlviste/nvim-ts-context-commentstring',
+				config = function()
+					require('Comment').setup({
+						pre_hook = require(
+							'ts_context_commentstring.integrations.comment_nvim'
+						).create_pre_hook(),
+					})
+				end,
+			},
+		},
+		opts = overrides.treesitter,
+	},
 
-  {
-    'nvim-telescope/telescope.nvim',
-    opts = overrides.telescope,
-    dependencies = {
-      {
-        'polarmutex/git-worktree.nvim',
-        config = function()
-          require('custom.configs.git-worktree')
-        end,
-      },
+	{
+		'nvim-telescope/telescope.nvim',
+		opts = overrides.telescope,
+		dependencies = {
+			{
+				'polarmutex/git-worktree.nvim',
+				config = function()
+					require('custom.configs.git-worktree')
+				end,
+			},
 
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-      },
-    },
-  },
+			{
+				'nvim-telescope/telescope-fzf-native.nvim',
+				build = 'make',
+			},
+		},
+	},
 
-  -- startup
+	-- startup
 
-  {
-    'christoomey/vim-tmux-navigator',
-    lazy = false,
-  },
+	{
+		'christoomey/vim-tmux-navigator',
+		lazy = false,
+	},
 
-  -- lazy
+	-- lazy
 
-  {
-    'ThePrimeagen/harpoon',
-    config = function()
-      require('custom.configs.harpoon')
-    end,
-  },
+	{
+		'ThePrimeagen/harpoon',
+		config = function()
+			require('custom.configs.harpoon')
+		end,
+	},
 
-  {
-    'kawre/leetcode.nvim',
-    build = ':TSUpdate html',
-    lazy = leet_arg ~= vim.fn.argv()[1],
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/plenary.nvim', -- required by telescope
-      'MunifTanjim/nui.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-tree/nvim-web-devicons',
-    },
-    opts = {
-      -- configuration goes here
-      arg = leet_arg,
-      lang = 'javascript',
-    },
-  },
+	{
+		'kawre/leetcode.nvim',
+		build = ':TSUpdate html',
+		lazy = leet_arg ~= vim.fn.argv()[1],
+		dependencies = {
+			'nvim-telescope/telescope.nvim',
+			'nvim-lua/plenary.nvim', -- required by telescope
+			'MunifTanjim/nui.nvim',
+			'nvim-treesitter/nvim-treesitter',
+			'nvim-tree/nvim-web-devicons',
+		},
+		opts = {
+			-- configuration goes here
+			arg = leet_arg,
+			lang = 'javascript',
+		},
+	},
 
-  -- keys
-  {
-    'vim-scripts/ReplaceWithRegister',
-    keys = { 'gr' },
-  },
+	-- keys
+	{
+		'vim-scripts/ReplaceWithRegister',
+		keys = { 'gr' },
+	},
 
-  {
-    'crusj/bookmarks.nvim',
-    keys = {
-      {
-        '<leader><leader>',
-        mode = { 'n' },
-        desc = 'Toogle bookmarks',
-      },
-      { '\\z', mode = { 'n' }, desc = 'Add bookmark' },
-      { '\\dd', mode = { 'n' }, desc = 'Delete bookmark' },
-      { '\\sd', mode = { 'n' }, desc = 'Show bookmark' },
-    },
-    branch = 'main',
-    config = function()
-      require('custom.configs.bookmarks')
-    end,
-  },
+	{
+		'crusj/bookmarks.nvim',
+		keys = {
+			{
+				'<leader><leader>',
+				mode = { 'n' },
+				desc = 'Toogle bookmarks',
+			},
+			{ '\\z', mode = { 'n' }, desc = 'Add bookmark' },
+			{ '\\dd', mode = { 'n' }, desc = 'Delete bookmark' },
+			{ '\\sd', mode = { 'n' }, desc = 'Show bookmark' },
+		},
+		branch = 'main',
+		config = function()
+			require('custom.configs.bookmarks')
+		end,
+	},
 
-  -- file type
+	-- file type
 
-  {
-    'simrat39/rust-tools.nvim',
-    ft = 'rust',
-    dependencies = 'neovim/nvim-lspconfig',
-    opts = function()
-      return require('custom.configs.rust-tools')
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
-    end,
-  },
+	{
+		'simrat39/rust-tools.nvim',
+		ft = 'rust',
+		dependencies = 'neovim/nvim-lspconfig',
+		opts = function()
+			return require('custom.configs.rust-tools')
+		end,
+		config = function(_, opts)
+			require('rust-tools').setup(opts)
+		end,
+	},
 
-  {
-    'ray-x/go.nvim',
-    ft = { 'go', 'gomod', 'gosum', 'gowork' },
-    dependencies = {
-      {
-        'ray-x/guihua.lua',
-        build = 'cd lua/fzy && make',
-      },
-    },
-    config = function()
-      require('custom.configs.go')
-    end,
-    build = ':lua require("go.install").update_all_sync()',
-  },
+	{
+		'ray-x/go.nvim',
+		ft = { 'go', 'gomod', 'gosum', 'gowork' },
+		dependencies = {
+			{
+				'ray-x/guihua.lua',
+				build = 'cd lua/fzy && make',
+			},
+		},
+		config = function()
+			require('custom.configs.go')
+		end,
+		build = ':lua require("go.install").update_all_sync()',
+	},
 
-  {
-    'pmizio/typescript-tools.nvim', -- lsp intermediate tsc
-    config = function()
-      require('custom.configs.tsserver')
-    end,
-    ft = {
-      'javascript',
-      'typescript',
-      'javascriptreact',
-      'typescriptreact',
-    },
-  },
+	{
+		'pmizio/typescript-tools.nvim', -- lsp intermediate tsc
+		config = function()
+			require('custom.configs.tsserver')
+		end,
+		ft = {
+			'javascript',
+			'typescript',
+			'javascriptreact',
+			'typescriptreact',
+		},
+	},
 
-  {
-    'epwalsh/obsidian.nvim',
-    version = '*',
-    ft = 'markdown',
-    config = function()
-      require('custom.configs.obsidian')
-    end,
-  },
+	{
+		'epwalsh/obsidian.nvim',
+		version = '*',
+		ft = 'markdown',
+		config = function()
+			require('custom.configs.obsidian')
+		end,
+	},
 
-  -- very lazy
+	-- very lazy
 
-  {
-    'tpope/vim-repeat',
-    event = VeryLazy,
-  },
+	{
+		'tpope/vim-repeat',
+		event = VeryLazy,
+	},
 
-  {
-    'stevearc/dressing.nvim',
-    event = VeryLazy,
-  },
+	{
+		'stevearc/dressing.nvim',
+		event = VeryLazy,
+	},
 
-  {
-    'gbprod/cutlass.nvim',
-    event = VeryLazy,
-    opts = {
-      cut_key = 'x',
-    },
-  },
+	{
+		'gbprod/cutlass.nvim',
+		event = VeryLazy,
+		opts = {
+			cut_key = 'x',
+		},
+	},
 
-  -- event
+	-- event
 
-  {
-    'max397574/better-escape.nvim',
-    event = 'InsertEnter',
-    config = true,
-  },
+	{
+		'max397574/better-escape.nvim',
+		event = 'InsertEnter',
+		config = true,
+	},
 
-  {
-    'kylechui/nvim-surround',
-    version = '*', -- Use for stability; omit to use `main` branch for the latest features
-    event = 'LspAttach',
-    config = function()
-      require('nvim-surround').setup({})
-    end,
-  },
+	{
+		'kevinhwang91/nvim-fundo',
+		event = 'BufReadPost',
+		opts = {},
+		build = function()
+			require('fundo').install()
+		end,
+	},
 
-  {
-    'mfussenegger/nvim-lint',
-    event = 'BufWritePre',
-    config = function()
-      require('custom.configs.linter')
-    end,
-  },
+	{
+		'kylechui/nvim-surround',
+		version = '*', -- Use for stability; omit to use `main` branch for the latest features
+		event = 'LspAttach',
+		config = function()
+			require('nvim-surround').setup({})
+		end,
+	},
 
-  {
-    'folke/todo-comments.nvim',
-    event = 'BufWinEnter',
-    config = function()
-      require('custom.configs.todo-comments')
-    end,
-  },
+	{
+		'mfussenegger/nvim-lint',
+		event = 'BufWritePre',
+		config = function()
+			require('custom.configs.linter')
+		end,
+	},
 
-  {
-    'folke/edgy.nvim',
-    event = 'BufReadPost',
-    init = function()
-      vim.opt.laststatus = 3
-      vim.opt.splitkeep = 'screen'
-    end,
-    config = function()
-      require('custom.configs.edgy')
-    end,
-  },
+	{
+		'folke/todo-comments.nvim',
+		event = 'BufWinEnter',
+		config = function()
+			require('custom.configs.todo-comments')
+		end,
+	},
 
-  -- cmd
+	{
+		'folke/edgy.nvim',
+		event = 'BufReadPost',
+		init = function()
+			vim.opt.laststatus = 3
+			vim.opt.splitkeep = 'screen'
+		end,
+		config = function()
+			require('custom.configs.edgy')
+		end,
+	},
 
-  {
-    'tpope/vim-fugitive', -- git in nvim
-    cmd = 'G',
-  },
+	-- cmd
 
-  {
-    'famiu/bufdelete.nvim', -- better buff delete
-    cmd = { 'Bdelete', 'Bwipeout' },
-  },
+	{
+		'tpope/vim-fugitive', -- git in nvim
+		cmd = 'G',
+	},
 
-  {
-    'folke/zen-mode.nvim',
-    cmd = 'ZenMode',
-    config = function()
-      require('custom.configs.zenmode')
-    end,
-  },
+	{
+		'famiu/bufdelete.nvim', -- better buff delete
+		cmd = { 'Bdelete', 'Bwipeout' },
+	},
 
-  {
-    'ThePrimeagen/refactoring.nvim',
-    cmd = 'Refactor',
-    config = function()
-      require('custom.configs.refactoring')
-    end,
-  },
+	{
+		'folke/zen-mode.nvim',
+		cmd = 'ZenMode',
+		config = function()
+			require('custom.configs.zenmode')
+		end,
+	},
 
-  { 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
+	{
+		'ThePrimeagen/refactoring.nvim',
+		cmd = 'Refactor',
+		config = function()
+			require('custom.configs.refactoring')
+		end,
+	},
 
-  {
-    'stevearc/oil.nvim',
-    cmd = { 'Oil' },
-    config = function()
-      require('custom.configs.oil')
-    end,
-  },
+	{ 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
 
-  {
-    'folke/trouble.nvim',
-    cmd = 'TroubleToggle',
-    config = function()
-      require('custom.configs.trouble')
-    end,
-  },
+	{
+		'stevearc/oil.nvim',
+		cmd = { 'Oil' },
+		config = function()
+			require('custom.configs.oil')
+		end,
+	},
 
-  {
-    'nvim-neotest/neotest',
-    cmd = 'Neotest',
-    dependencies = {
-      'haydenmeade/neotest-jest',
-      'thenbe/neotest-playwright',
-    },
-    config = function()
-      require('custom.configs.neotest')
-    end,
-  },
+	{
+		'folke/trouble.nvim',
+		cmd = 'TroubleToggle',
+		config = function()
+			require('custom.configs.trouble')
+		end,
+	},
 
-  {
-    'dmmulroy/tsc.nvim', -- check typescript definitions
-    cmd = { 'TSC' },
-    opts = {
-      auto_open_qflist = true,
-      spinner = {
-        '⠋',
-        '⠙',
-        '⠹',
-        '⠸',
-        '⠼',
-        '⠴',
-        '⠦',
-        '⠧',
-        '⠇',
-        '⠏',
-      },
-    },
-  },
+	{
+		'nvim-neotest/neotest',
+		cmd = 'Neotest',
+		dependencies = {
+			'haydenmeade/neotest-jest',
+			'thenbe/neotest-playwright',
+		},
+		config = function()
+			require('custom.configs.neotest')
+		end,
+	},
 
-  -- debug
+	{
+		'dmmulroy/tsc.nvim', -- check typescript definitions
+		cmd = { 'TSC' },
+		opts = {
+			auto_open_qflist = true,
+			spinner = {
+				'⠋',
+				'⠙',
+				'⠹',
+				'⠸',
+				'⠼',
+				'⠴',
+				'⠦',
+				'⠧',
+				'⠇',
+				'⠏',
+			},
+		},
+	},
 
-  {
-    'mfussenegger/nvim-dap',
-    cmd = {
-      'DapContinue',
-      'DapStepOver',
-      'DapStepInto',
-      'DapStepOut',
-      'DapToggleBreakpoint',
-    },
-    dependencies = {
-      {
-        'theHamsta/nvim-dap-virtual-text',
-        config = function()
-          require('custom.configs.virtual-text')
-        end,
-      },
-      {
-        'rcarriga/nvim-dap-ui',
-        config = function()
-          require('custom.configs.dap-ui')
-        end,
-      },
-    },
-    config = function()
-      require('custom.configs.dap')
-    end,
-  },
+	-- debug
 
-  {
-    'mfussenegger/nvim-dap-python',
-    ft = 'python',
-    config = function()
-      local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
-      require('dap-python').setup(path)
-    end,
-  },
+	{
+		'mfussenegger/nvim-dap',
+		cmd = {
+			'DapContinue',
+			'DapStepOver',
+			'DapStepInto',
+			'DapStepOut',
+			'DapToggleBreakpoint',
+		},
+		dependencies = {
+			{
+				'theHamsta/nvim-dap-virtual-text',
+				config = function()
+					require('custom.configs.virtual-text')
+				end,
+			},
+			{
+				'rcarriga/nvim-dap-ui',
+				config = function()
+					require('custom.configs.dap-ui')
+				end,
+			},
+		},
+		config = function()
+			require('custom.configs.dap')
+		end,
+	},
 
-  -- optional
+	{
+		'mfussenegger/nvim-dap-python',
+		ft = 'python',
+		config = function()
+			local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
+			require('dap-python').setup(path)
+		end,
+	},
 
-  {
-    'folke/which-key.nvim',
-    enabled = false,
-  },
+	-- optional
 
-  {
-    'rest-nvim/rest.nvim',
-    ft = { 'http' },
-    config = function()
-      require('custom.configs.rest')
-    end,
-  },
+	{
+		'folke/which-key.nvim',
+		enabled = false,
+	},
 
-  {
-    'zbirenbaum/copilot.lua',
-    lazy = false,
-    enabled = false,
-    opts = function()
-      return require('custom.configs.copilot')
-    end,
-    config = function(_, opts)
-      require('copilot').setup(opts)
-    end,
-  },
+	{
+		'rest-nvim/rest.nvim',
+		ft = { 'http' },
+		config = function()
+			require('custom.configs.rest')
+		end,
+	},
+
+	{
+		'zbirenbaum/copilot.lua',
+		lazy = false,
+		enabled = false,
+		opts = function()
+			return require('custom.configs.copilot')
+		end,
+		config = function(_, opts)
+			require('copilot').setup(opts)
+		end,
+	},
 }
 
 return plugins
