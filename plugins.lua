@@ -323,6 +323,23 @@ local plugins = {
 	},
 
 	{
+		'smoka7/hop.nvim',
+		version = '*',
+		cmd = {
+			'HopAnywhere',
+			'HopChar1',
+			'HopChar2',
+			'HopWordCurrentLine',
+			'HopLineStart',
+			'HopPattern',
+			'HopWord',
+		},
+		config = function()
+			require('custom.configs.hop')
+		end,
+	},
+
+	{
 		'nvim-neotest/neotest',
 		cmd = 'Neotest',
 		dependencies = {

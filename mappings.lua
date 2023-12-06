@@ -227,4 +227,21 @@ M.variety = {
 	},
 }
 
+-M.hop = {
+	n = {
+		['<leader>ha'] = {
+			'<cmd> HopAnywhere <CR>',
+			' Hope anywhere',
+		},
+		['s'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
+		['<leader>hl'] = {
+			'<cmd> HopWordCurrentLine <CR>',
+			' Hop word current line',
+		},
+		['<leader>hs'] = { '<cmd> HopLineStart <CR>', ' Hope line start' },
+		['<leader>/'] = { '<cmd> HopPattern <CR>', ' Hope pattern' },
+		['<leader>hw'] = { '<cmd> HopWord <CR>', ' Hope word' },
+	},
+}
+
 return M
