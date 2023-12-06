@@ -201,17 +201,17 @@ M.git = {
 		['<leader>gc'] = { '<CMD>Telescope git_commits<CR>', '  Git commits' },
 		['<leader>gb'] = { '<CMD>Telescope git_branches<CR>', '  Git branches' },
 		['<leader>gs'] = { '<CMD>Telescope git_status<CR>', '  Git status' },
-		['<leader>gvd'] = { '<CMD> DiffviewOpen<CR>', '  Show git diff' },
+		['<leader>gvd'] = { '<CMD> DiffviewOpen<CR>', ' Diffview show git diff' },
 		['<leader>gvf'] = {
 			'<CMD> DiffviewFileHistory %<CR>',
-			'  Show file history',
+			' Diffview show file history',
 		},
 		['<leader>gvp'] = {
 			'<CMD> DiffviewOpen --cached<CR>',
-			'  Show staged diffs',
+			' Diffview show staged diffs',
 		},
-		['<leader>gvr'] = { '<CMD> DiffviewRefresh<CR>', '  Refresh diff view' },
-		['<leader>gvc'] = { '<CMD> DiffviewClose<CR>', '  Close diff view' },
+		['<leader>gvr'] = { '<CMD> DiffviewRefresh<CR>', ' Diffview refresh' },
+		['<leader>gvc'] = { '<CMD> DiffviewClose<CR>', ' Diffview close' },
 	},
 }
 return M
