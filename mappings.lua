@@ -185,7 +185,8 @@ M.hop = {
 			'<cmd> HopAnywhere <CR>',
 			' Hope anywhere',
 		},
-		['s'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
+		['s'] = { '<cmd> HopChar1 <CR>', ' Hope char 1' },
+		['S'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
 		['<leader>hl'] = {
 			'<cmd> HopWordCurrentLine <CR>',
 			' Hop word current line',
