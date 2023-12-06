@@ -39,31 +39,6 @@ autocmd('LspAttach', {
 	end,
 })
 
--- windows to close with "q"
-autocmd('FileType', {
-	pattern = {
-		'help',
-		'startuptime',
-		'qf',
-		'lspinfo',
-		'man',
-		'checkhealth',
-		'tsplayground',
-		'HIERARCHY-TREE-GO',
-		'dap-float',
-		'spectre_panel',
-		'null-ls-info',
-		'empty',
-		'neotest-output',
-		'neotest-summary',
-		'neotest-output-panel',
-	},
-	command = [[
-            nnoremap <buffer><silent> q :close<CR>
-            set nobuflisted
-        ]],
-})
-
 -- Disable diagnostics in node_modules (0 is current buffer only)
 autocmd({ 'BufNewFile', 'BufRead' }, {
 	pattern = {

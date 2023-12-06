@@ -23,32 +23,15 @@ M.override = {
 	SpellBad = { fg = '#fca10f', strikethrough = true, undercurl = false },
 	SpellCap = { fg = '#fca10f', strikethrough = true, undercurl = false },
 	SpellRare = { fg = '#fca10f', strikethrough = true, undercurl = false },
-
-	-- indentBlankline
-	IndentBlanklineContextStart = { bg = 'none' },
-	LspSignatureActiveParameter = { bg = 'none', fg = 'red' },
 }
 
 ---@type HLTable
 M.add = {
-	-- lspsaga
-	FloatBorder = { fg = '#225372' },
-
-	-- Blankline
-	IndentBlanklineContextChar = { fg = 'none' },
-	IndentBlanklineContextStart = { bg = 'none' },
-
-	-- dap
-	DapBreakpoint = { fg = '#f70909' },
-
 	-- gitsigns
 	GitSignsChange = { fg = '#fcdb05' },
 	GitSignsAdd = { fg = '#05fca9' },
 	GitSignsDelete = { fg = '#f70909' },
 	GitSignsText = { fg = '#ffffff', bg = '#f70909', bold = true },
-
-	MultiCursor = { bg = '#02cad8', fg = '#000000' },
-	MultiCursorMain = { bg = '#02cad8', fg = '#000000' },
 }
 
 return M

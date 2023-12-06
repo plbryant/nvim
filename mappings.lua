@@ -161,54 +161,6 @@ M.lsp = {
 	},
 }
 
-M.dap = {
-	n = {
-		['<leader>dt'] = {
-			'<CMD>DapToggleBreakpoint<CR>',
-			'  Dap Toggle breakpoint',
-		},
-		['<leader>ta'] = {
-			function()
-				require('dap').clear_breakpoints()
-			end,
-			'Dap clear breakpoints',
-		},
-		['<F5>'] = {
-			'<CMD>DapContinue <CR>',
-			' Dap Continue',
-		},
-		['<F10>'] = {
-			'<CMD>DapStepOver <CR>',
-			'  Dap Step over',
-		},
-		['<F11>'] = {
-			'<CMD>DapStepInto <CR>',
-			' Dap Step into',
-		},
-		['<F9>'] = {
-			'<CMD>DapStepOut <CR>',
-			' Dap Step out',
-		},
-	},
-}
-
-M.worktree = {
-	n = {
-		['<leader>wt'] = {
-			function()
-				require('telescope').extensions.git_worktree.git_worktrees()
-			end,
-			'🌳 Open worktree menu',
-		},
-		['<leader>cwt'] = {
-			function()
-				require('telescope').extensions.git_worktree.create_git_worktree()
-			end,
-			'🌳 Create a worktree',
-		},
-	},
-}
-
 M.oil = {
 	n = {
 		['<leader>e'] = {

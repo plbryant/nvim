@@ -10,12 +10,11 @@ M.ui = {
 	transparency = false,
 
 	cmp = {
-		icons = true,
-		lspkind_text = true,
+		icons = false,
+		lspkind_text = false,
 		style = 'default', -- default/flat_light/flat_dark/atom/atom_colored
 		disabled = false,
-		border_color = 'grey_fg', -- only applicable for "default" style, use color names from base30 variables
-		selected_item_bg = 'simple', -- colored / simple
+		selected_item_bg = 'colored', -- colored / simple
 	},
 
 	tabufline = {
@@ -25,10 +24,7 @@ M.ui = {
 		overriden_modules = nil,
 	},
 
-	telescope = { style = 'bordered' },
-
 	extended_integrations = {
-		'dap',
 		'todo',
 		'trouble',
 	},

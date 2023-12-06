@@ -76,10 +76,6 @@ M.mason = {
 		'ruff',
 		'gomodifytags',
 		'golangci-lint',
-
-		-- debugger
-		'js-debug-adapter',
-		'debugpy',
 	},
 }
 
@@ -116,6 +112,11 @@ M.telescope = {
 			'.git',
 			'yarn.lock',
 			'tags',
+			'go.sum',
+			'go.mod',
+			'tags',
+			'mocks',
+			'refactoring',
 		},
 		layout_config = {
 			horizontal = {
@@ -128,7 +129,6 @@ M.telescope = {
 		'themes',
 		'terms',
 		'fzf',
-		'git_worktree',
 	},
 
 	extensions = {
@@ -142,121 +142,27 @@ M.telescope = {
 	},
 }
 
-M.cmp = {
-
-	completion = {
-		completeopt = 'menu,menuone,noinsert,noselect',
-	},
-
-	mapping = {
-		['<A-Space>'] = require('cmp').mapping.complete(),
-		['<C-Space>'] = require('cmp').config.disable,
-		['<CR>'] = require('cmp').config.disable,
-	},
-
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'buffer' },
-		{ name = 'nvim_lua' },
-		{ name = 'path' },
-	},
-}
-
-M.nvimtree = {
-	filters = {
-		dotfiles = false,
-		custom = {
-			'**/node_modules',
-			'**/%.git',
-			'**/%.github',
-		},
-	},
-	git = {
-		enable = true,
-		ignore = false,
-	},
-	view = {
-		side = 'left',
-		width = 45,
-		cursorline = false,
-	},
-	actions = {
-		open_file = {
-			resize_window = true,
-			quit_on_open = false,
-		},
-	},
-	renderer = {
-		group_empty = true,
-		indent_width = 4,
-		highlight_opened_files = 'name',
-		highlight_git = true,
-		indent_markers = {
-			enable = false,
-			icons = {
-				corner = '└ ',
-				edge = '│ ',
-				none = '  ',
-			},
-		},
-		icons = {
-			show = {
-				git = true,
-			},
-			glyphs = {
-				git = {
-					deleted = '',
-					ignored = '◌',
-					renamed = '➜',
-					staged = '',
-					unmerged = '',
-					unstaged = '',
-					untracked = '',
-				},
-			},
-		},
-	},
-	hijack_unnamed_buffer_when_opening = true,
-	hijack_cursor = true,
-	sync_root_with_cwd = true,
-	tab = {
-		sync = {
-			open = true,
-			close = true,
-		},
-	},
-	sort_by = 'name',
-	diagnostics = {
-		enable = false,
-	},
-}
-
 M.colorizer = {
-	user_default_options = {
-		RGB = true, -- #RGB hex codes
-		RRGGBB = true, -- #RRGGBB hex codes
-		names = true, -- "Name" codes like Blue or blue
-		RRGGBBAA = false, -- #RRGGBBAA hex codes
-		AARRGGBB = false, -- 0xAARRGGBB hex codes
-		rgb_fn = false, -- CSS rgb() and rgba() functions
-		hsl_fn = false, -- CSS hsl() and hsla() functions
-		css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-		css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-		-- Available modes for `mode`: foreground, background,  virtualtext
-		mode = 'virtualtext', -- Set the display mode.
-		-- Available methods are false / true / "normal" / "lsp" / "both"
-		-- True is same as normal
-		tailwind = false, -- Enable tailwind colors
-		-- parsers can contain values used in |user_default_options|
-		sass = { enable = false, parsers = { 'css' } }, -- Enable sass colors
-		virtualtext = '■',
-		-- update color values even if buffer is not focused
-		-- example use: cmp_menu, cmp_docs
-		always_update = false,
-	},
 	filetypes = {
 		'*',
+		cmp_docs = { always_update = true },
+		cmp_menu = { always_update = true },
+	},
+	user_default_options = {
+		names = false,
+		RRGGBBAA = true,
+		rgb_fn = true,
+		tailwind = true,
+		RGB = true,
+		RRGGBB = true,
+		AARRGGBB = true,
+		hsl_fn = true,
+		css = true,
+		css_fn = true,
+		sass = { enable = true, parsers = { 'css' } },
+		mode = 'background', -- Available methods are false / true / "normal" / "lsp" / "both"
+		virtualtext = '■',
+		always_update = true,
 	},
 }
 

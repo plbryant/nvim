@@ -1,3 +1,4 @@
+local cmp_opt = require('custom.configs.cmp')
 local overrides = require('custom.configs.overrides')
 local leet_arg = 'leetcode.nvim'
 
@@ -13,12 +14,6 @@ local plugins = {
 	{
 		'NvChad/nvim-colorizer.lua',
 		opts = overrides.colorizer,
-	},
-
-	{
-		'nvim-tree/nvim-tree.lua',
-		opts = overrides.nvimtree,
-		enabled = false,
 	},
 
 	{
@@ -41,7 +36,7 @@ local plugins = {
 
 	{
 		'hrsh7th/nvim-cmp',
-		opts = overrides.cmp,
+		opts = cmp_opt.cmp,
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'saadparwaiz1/cmp_luasnip',
@@ -61,16 +56,6 @@ local plugins = {
 					require('custom.configs.ufo')
 				end,
 			},
-			{
-				'JoosepAlviste/nvim-ts-context-commentstring',
-				config = function()
-					require('Comment').setup({
-						pre_hook = require(
-							'ts_context_commentstring.integrations.comment_nvim'
-						).create_pre_hook(),
-					})
-				end,
-			},
 		},
 		opts = overrides.treesitter,
 	},
@@ -79,17 +64,7 @@ local plugins = {
 		'nvim-telescope/telescope.nvim',
 		opts = overrides.telescope,
 		dependencies = {
-			{
-				'polarmutex/git-worktree.nvim',
-				config = function()
-					require('custom.configs.git-worktree')
-				end,
-			},
-
-			{
-				'nvim-telescope/telescope-fzf-native.nvim',
-				build = 'make',
-			},
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 		},
 	},
 
@@ -191,15 +166,6 @@ local plugins = {
 			'javascriptreact',
 			'typescriptreact',
 		},
-	},
-
-	{
-		'epwalsh/obsidian.nvim',
-		version = '*',
-		ft = 'markdown',
-		config = function()
-			require('custom.configs.obsidian')
-		end,
 	},
 
 	-- very lazy
@@ -371,49 +337,20 @@ local plugins = {
 		},
 	},
 
-	-- debug
-
-	{
-		'mfussenegger/nvim-dap',
-		cmd = {
-			'DapContinue',
-			'DapStepOver',
-			'DapStepInto',
-			'DapStepOut',
-			'DapToggleBreakpoint',
-		},
-		dependencies = {
-			{
-				'theHamsta/nvim-dap-virtual-text',
-				config = function()
-					require('custom.configs.virtual-text')
-				end,
-			},
-			{
-				'rcarriga/nvim-dap-ui',
-				config = function()
-					require('custom.configs.dap-ui')
-				end,
-			},
-		},
-		config = function()
-			require('custom.configs.dap')
-		end,
-	},
-
-	{
-		'mfussenegger/nvim-dap-python',
-		ft = 'python',
-		config = function()
-			local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
-			require('dap-python').setup(path)
-		end,
-	},
-
 	-- optional
 
 	{
+		'lukas-reineke/indent-blankline.nvim',
+		enabled = false,
+	},
+
+	{
 		'folke/which-key.nvim',
+		enabled = false,
+	},
+
+	{
+		'nvim-tree/nvim-tree.lua',
 		enabled = false,
 	},
 
