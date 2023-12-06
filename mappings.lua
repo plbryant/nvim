@@ -227,7 +227,7 @@ M.variety = {
 	},
 }
 
--M.hop = {
+M.hop = {
 	n = {
 		['<leader>ha'] = {
 			'<cmd> HopAnywhere <CR>',
