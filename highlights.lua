@@ -10,6 +10,7 @@ M.override = {
 	MatchWord = { bg = '#02cad8', fg = '#000000' },
 	Comment = { italic = true },
 	Visual = { bg = '#fccc7e', fg = '#000000' },
+	MatchParen = { bg = 'none' },
 
 	-- search
 	IncSearch = { fg = '#000000', bg = '#fccc7e' },

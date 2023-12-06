@@ -158,6 +158,12 @@ M.lsp = {
 			end,
 			'format with conform',
 		},
+		['<leader>lf'] = {
+			function()
+				vim.diagnostic.open_float({ border = 'rounded' })
+			end,
+			'Floating diagnostic',
+		},
 	},
 }
 
