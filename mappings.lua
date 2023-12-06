@@ -220,7 +220,7 @@ M.oil = {
 
 M.variety = {
 	n = {
-		['<leader>tw'] = {
+		['<leader>tz'] = {
 			'<cmd> ZenMode <CR>',
 			'🔦 ZenMode focus on code',
 		},
