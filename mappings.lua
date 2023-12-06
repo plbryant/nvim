@@ -196,4 +196,22 @@ M.hop = {
 	},
 }
 
+M.git = {
+	n = {
+		['<leader>gc'] = { '<CMD>Telescope git_commits<CR>', '  Git commits' },
+		['<leader>gb'] = { '<CMD>Telescope git_branches<CR>', '  Git branches' },
+		['<leader>gs'] = { '<CMD>Telescope git_status<CR>', '  Git status' },
+		['<leader>gvd'] = { '<CMD> DiffviewOpen<CR>', '  Show git diff' },
+		['<leader>gvf'] = {
+			'<CMD> DiffviewFileHistory %<CR>',
+			'  Show file history',
+		},
+		['<leader>gvp'] = {
+			'<CMD> DiffviewOpen --cached<CR>',
+			'  Show staged diffs',
+		},
+		['<leader>gvr'] = { '<CMD> DiffviewRefresh<CR>', '  Refresh diff view' },
+		['<leader>gvc'] = { '<CMD> DiffviewClose<CR>', '  Close diff view' },
+	},
+}
 return M

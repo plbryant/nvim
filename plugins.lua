@@ -245,13 +245,23 @@ local plugins = {
 	-- cmd
 
 	{
-		'tpope/vim-fugitive', -- git in nvim
-		cmd = 'G',
+		'famiu/bufdelete.nvim', -- better buff delete
+		cmd = { 'Bdelete', 'Bwipeout' },
 	},
 
 	{
-		'famiu/bufdelete.nvim', -- better buff delete
-		cmd = { 'Bdelete', 'Bwipeout' },
+		'sindrets/diffview.nvim',
+		cmd = 'DiffviewOpen',
+		config = function()
+			require('diffview').setup({
+				view = {
+					merge_tool = {
+						layout = 'diff3_mixed',
+						disable_diagnostics = true,
+					},
+				},
+			})
+		end,
 	},
 
 	{
