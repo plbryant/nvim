@@ -1,30 +1,34 @@
--- basic config
 local opt = vim.opt
 opt.cmdheight = 0
-opt.expandtab = true
-opt.fileencoding = 'utf-8'
--- opt.guicursor = vim.o.guicursor .. ',i:ver25-CursorInsert'
-opt.guifont = { 'MapleMonoNF Nerd Font' }
 opt.number = true
 opt.numberwidth = 1
-opt.pumheight = 10
-opt.relativenumber = false
-opt.shiftwidth = 2
 opt.showcmd = false
-opt.showmode = false
 opt.showtabline = 0
-opt.smartcase = true
-opt.smarttab = true
+opt.relativenumber = true
+opt.shiftwidth = 2
 opt.spell = false
 opt.spelllang = { 'en_us', 'es_mx' }
-opt.swapfile = false
-opt.tabpagemax = 1
-opt.tabstop = 2
 opt.termguicolors = true
-opt.undofile = true -- enable persistent undo
-opt.updatetime = 100
--- opt.virtualedit = 'all'
+opt.undofile = true
 opt.wrap = false
+opt.scrolloff = 9
+opt.signcolumn = 'yes'
+opt.hlsearch = false
+opt.incsearch = true
+opt.colorcolumn = '80'
+
+-- better default mappings
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.keymap.set('n', 'J', 'mzJ`z')
+
+-- improve moving
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', 'g_')
+vim.keymap.set('v', 'H', '^')
+vim.keymap.set('v', 'L', 'g_')
 
 -- diagnostics
 vim.diagnostic.config({

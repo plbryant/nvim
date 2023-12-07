@@ -7,10 +7,8 @@ end
 local options = {
 	fix_win_height = vim.fn.has('nvim-0.10.0') == 0,
 	bottom = {
-		{ ft = 'qf', title = 'QuickFix' },
-		{ ft = 'dapui_watches', title = 'Watches' },
-		{ ft = 'dapui_console', title = 'Debug Console' },
 		'Trouble',
+		{ ft = 'qf', title = 'QuickFix' },
 		{
 			ft = 'neotest-output-panel',
 			title = ' Test Output',
@@ -21,9 +19,6 @@ local options = {
 		},
 	},
 	left = {
-		{ ft = 'dapui_scopes', title = 'Scopes' },
-		{ ft = 'dapui_breakpoints', title = 'Breakpoints' },
-		{ ft = 'dapui_stacks', title = 'Stacks' },
 		{
 			ft = 'neotest-summary',
 			title = '  Tests',
@@ -41,13 +36,12 @@ local options = {
 				return vim.bo[buf].buftype == 'help'
 			end,
 		},
-		'dapui_scopes',
 		'neotest-output-panel',
 		'neotest-summary',
 	},
 	options = {
 		left = { size = 70 },
-		bottom = { size = 10 },
+		bottom = { size = 20 },
 		right = { size = 60 },
 		top = { size = 10 },
 	},

@@ -1,3 +1,4 @@
+local cmp_opt = require('custom.configs.cmp')
 local overrides = require('custom.configs.overrides')
 local leet_arg = 'leetcode.nvim'
 
@@ -13,12 +14,6 @@ local plugins = {
 	{
 		'NvChad/nvim-colorizer.lua',
 		opts = overrides.colorizer,
-	},
-
-	{
-		'nvim-tree/nvim-tree.lua',
-		opts = overrides.nvimtree,
-		enabled = false,
 	},
 
 	{
@@ -41,11 +36,10 @@ local plugins = {
 
 	{
 		'hrsh7th/nvim-cmp',
-		opts = overrides.cmp,
+		opts = cmp_opt.cmp,
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'saadparwaiz1/cmp_luasnip',
-			'ray-x/cmp-treesitter',
 			'hrsh7th/cmp-nvim-lua',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
@@ -62,16 +56,6 @@ local plugins = {
 					require('custom.configs.ufo')
 				end,
 			},
-			{
-				'JoosepAlviste/nvim-ts-context-commentstring',
-				config = function()
-					require('Comment').setup({
-						pre_hook = require(
-							'ts_context_commentstring.integrations.comment_nvim'
-						).create_pre_hook(),
-					})
-				end,
-			},
 		},
 		opts = overrides.treesitter,
 	},
@@ -80,17 +64,7 @@ local plugins = {
 		'nvim-telescope/telescope.nvim',
 		opts = overrides.telescope,
 		dependencies = {
-			{
-				'polarmutex/git-worktree.nvim',
-				config = function()
-					require('custom.configs.git-worktree')
-				end,
-			},
-
-			{
-				'nvim-telescope/telescope-fzf-native.nvim',
-				build = 'make',
-			},
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 		},
 	},
 
@@ -170,10 +144,7 @@ local plugins = {
 		'ray-x/go.nvim',
 		ft = { 'go', 'gomod', 'gosum', 'gowork' },
 		dependencies = {
-			{
-				'ray-x/guihua.lua',
-				build = 'cd lua/fzy && make',
-			},
+			{ 'ray-x/guihua.lua', build = 'cd lua/fzy && make' },
 		},
 		config = function()
 			require('custom.configs.go')
@@ -232,10 +203,11 @@ local plugins = {
 	},
 
 	{
-		'nvimdev/lspsaga.nvim',
-		event = 'LspAttach',
-		config = function()
-			require('custom.configs.lspsaga')
+		'kevinhwang91/nvim-fundo',
+		event = 'BufReadPost',
+		opts = {},
+		build = function()
+			require('fundo').install()
 		end,
 	},
 
@@ -279,13 +251,23 @@ local plugins = {
 	-- cmd
 
 	{
-		'tpope/vim-fugitive', -- git in nvim
-		cmd = 'G',
+		'famiu/bufdelete.nvim', -- better buff delete
+		cmd = { 'Bdelete', 'Bwipeout' },
 	},
 
 	{
-		'famiu/bufdelete.nvim', -- better buff delete
-		cmd = { 'Bdelete', 'Bwipeout' },
+		'sindrets/diffview.nvim',
+		cmd = 'DiffviewOpen',
+		config = function()
+			require('diffview').setup({
+				view = {
+					merge_tool = {
+						layout = 'diff3_mixed',
+						disable_diagnostics = true,
+					},
+				},
+			})
+		end,
 	},
 
 	{
@@ -315,6 +297,14 @@ local plugins = {
 	},
 
 	{
+		'folke/trouble.nvim',
+		cmd = 'TroubleToggle',
+		config = function()
+			require('custom.configs.trouble')
+		end,
+	},
+
+	{
 		'smoka7/hop.nvim',
 		version = '*',
 		cmd = {
@@ -332,11 +322,25 @@ local plugins = {
 	},
 
 	{
-		'folke/trouble.nvim',
-		cmd = 'TroubleToggle',
-		config = function()
-			require('custom.configs.trouble')
-		end,
+		'smoka7/multicursors.nvim',
+		dependencies = { 'smoka7/hydra.nvim' },
+		opts = { hint_config = false },
+		cmd = {
+			'MCstart',
+			'MCvisual',
+			'MCclear',
+			'MCpattern',
+			'MCvisualPattern',
+			'MCunderCursor',
+		},
+		keys = {
+			{
+				mode = { 'v', 'n' },
+				'<C-n>',
+				'<cmd>MCstart<cr>',
+				desc = 'Create a selection for selected text or word under the cursor',
+			},
+		},
 	},
 
 	{
@@ -371,71 +375,20 @@ local plugins = {
 		},
 	},
 
-	{
-		'smoka7/multicursors.nvim',
-		dependencies = { 'smoka7/hydra.nvim' },
-		opts = { hint_config = false },
-		cmd = {
-			'MCstart',
-			'MCvisual',
-			'MCclear',
-			'MCpattern',
-			'MCvisualPattern',
-			'MCunderCursor',
-		},
-		keys = {
-			{
-				mode = { 'v', 'n' },
-				'<C-n>',
-				'<cmd>MCstart<cr>',
-				desc = 'Create a selection for selected text or word under the cursor',
-			},
-		},
-	},
-
-	-- debug
-
-	{
-		'mfussenegger/nvim-dap',
-		cmd = {
-			'DapContinue',
-			'DapStepOver',
-			'DapStepInto',
-			'DapStepOut',
-			'DapToggleBreakpoint',
-		},
-		dependencies = {
-			{
-				'theHamsta/nvim-dap-virtual-text',
-				config = function()
-					require('custom.configs.virtual-text')
-				end,
-			},
-			{
-				'rcarriga/nvim-dap-ui',
-				config = function()
-					require('custom.configs.dap-ui')
-				end,
-			},
-		},
-		config = function()
-			require('custom.configs.dap')
-		end,
-	},
-
-	{
-		'mfussenegger/nvim-dap-python',
-		ft = 'python',
-		config = function()
-			local path = '~/.local/share/nvim/mason/packages/debugpy/venv/bin/python'
-			require('dap-python').setup(path)
-		end,
-	},
-
 	-- optional
 
 	{
+		'lukas-reineke/indent-blankline.nvim',
+		enabled = false,
+	},
+
+	{
 		'folke/which-key.nvim',
+		enabled = false,
+	},
+
+	{
+		'nvim-tree/nvim-tree.lua',
 		enabled = false,
 	},
 

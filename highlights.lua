@@ -8,8 +8,12 @@ local M = {}
 M.override = {
 	-- general
 	Visual = { bg = '#2f2e3e', fg = 'white' },
-	MatchWord = { bg = 'teal', fg = 'black' },
 	Comment = { italic = true },
+	MatchWord = { bg = 'none' },
+	MatchParen = { bg = 'none' },
+
+	-- tresitter
+	['@punctuation.bracket'] = { bg = 'none' },
 
 	-- search
 	IncSearch = { fg = 'black', bg = 'pink' },
@@ -23,23 +27,9 @@ M.override = {
 	SpellBad = { strikethrough = true, fg = 'red', undercurl = false },
 	SpellCap = { strikethrough = true, fg = 'orange', undercurl = false },
 	SpellRare = { strikethrough = true, fg = 'nord_blue', undercurl = false },
-
-	-- extend plugin
-	IndentBlanklineContextStart = { bg = 'none' },
-	LspSignatureActiveParameter = { bg = 'none', fg = 'red' },
 }
 ---@type HLTable
 M.add = {
-	-- lspsaga
-	FloatBorder = { fg = '#225372' },
-
-	-- blankline
-	IndentBlanklineContextChar = { fg = 'none' },
-	IndentBlanklineContextStart = { bg = 'none' },
-
-	-- dap
-	DapBreakpoint = { fg = 'red' },
-
 	-- gitsigns
 	GitSignsChange = { fg = 'green' },
 	GitSignsAdd = { fg = 'vibrant_green' },

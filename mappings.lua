@@ -2,13 +2,13 @@
 local M = {}
 
 M.disabled = {
-	-- for tmux navitagor to work
 	n = {
 		['<C-h>'] = '',
 		['<C-l>'] = '',
 		['<C-j>'] = '',
 		['<C-k>'] = '',
 		['<leader>b'] = '',
+		['gr'] = '',
 	},
 }
 
@@ -17,15 +17,12 @@ M.general = {
 		-- general
 		['<leader>q'] = { '<cmd> qa! <CR>', '󰗼 Exit' },
 
-		-- save file
-		['Z'] = { '<cmd> update <CR>', '󰗼 Save file' },
-		['<C-s'] = { '<cmd> update <CR>', '󰗼 Save file' },
-
 		-- buffers
 		['<C-tab>'] = {
 			'<cmd> b# <CR>',
 			'Switch to last buffer',
 		},
+
 		['<A-w>'] = {
 			'<cmd> Bdelete <CR>',
 			'Close current buffer',
@@ -38,16 +35,6 @@ M.general = {
 			end,
 			'Toggle transparency',
 		},
-
-		-- movement
-		['H'] = { '^', 'Go to the beginning of line' },
-		['L'] = { '$', 'Go to the end of line' },
-	},
-
-	v = {
-		-- movement
-		['H'] = { '^', 'Go to the beginning of line' },
-		['L'] = { 'g_', 'Go to the end of line' },
 	},
 
 	i = {
@@ -162,89 +149,22 @@ M.lsp = {
 	n = {
 		['gi'] = {
 			function()
-				require('telescope.builtin').lsp_references()
+				require('telescipe.builtin').lsp_references()
 			end,
 			'  LSP references',
 		},
-		-- improve ui
 		['<leader>fm'] = {
 			function()
 				require('conform').format()
 			end,
-			' 🖌️ SLP format with conform',
+			'format with conform',
 		},
-		['<leader>f'] = {
+		['<leader>lf'] = {
 			function()
 				vim.diagnostic.open_float({ border = 'rounded' })
 			end,
-			' ❓LSP floating diagnostic',
+			'Floating diagnostic',
 		},
-	},
-}
-
-M.dap = {
-	n = {
-		['<leader>dt'] = {
-			'<CMD>DapToggleBreakpoint<CR>',
-			'  Dap Toggle breakpoint',
-		},
-		['<leader>ta'] = {
-			function()
-				require('dap').clear_breakpoints()
-			end,
-			' 🤙 Dap clear breakpoints',
-		},
-		['<F5>'] = {
-			'<CMD>DapContinue <CR>',
-			' Dap Continue',
-		},
-		['<F10>'] = {
-			'<CMD>DapStepOver <CR>',
-			'  Dap Step over',
-		},
-		['<F11>'] = {
-			'<CMD>DapStepInto <CR>',
-			' Dap Step into',
-		},
-		['<F9>'] = {
-			'<CMD>DapStepOut <CR>',
-			' Dap Step out',
-		},
-	},
-}
-
-M.worktree = {
-	n = {
-		['<leader>wt'] = {
-			function()
-				require('telescope').extensions.git_worktree.git_worktrees()
-			end,
-			'🌳 Open worktree menu',
-		},
-		['<leader>cwt'] = {
-			function()
-				require('telescope').extensions.git_worktree.create_git_worktree()
-			end,
-			'🌳 Create a worktree',
-		},
-	},
-}
-
-M.hop = {
-	n = {
-		['<leader>ha'] = {
-			'<cmd> HopAnywhere <CR>',
-			' Hope anywhere',
-		},
-		['s'] = { '<cmd> HopChar1 <CR>', ' Hope char 1' },
-		['S'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
-		['<leader>fh'] = {
-			'<cmd> HopWordCurrentLine <CR>',
-			' Hop word current line',
-		},
-		['<leader>hl'] = { '<cmd> HopLineStart <CR>', ' Hope line start' },
-		['<leader>/'] = { '<cmd> HopPattern <CR>', ' Hope pattern' },
-		['<leader>hw'] = { '<cmd> HopWord <CR>', ' Hope word' },
 	},
 }
 
@@ -257,57 +177,49 @@ M.oil = {
 	},
 }
 
-M.lspsaga = {
-	n = {
-		['<leader>ca'] = {
-			function()
-				vim.lsp.buf.code_action()
-			end,
-			'LSP code action',
-		},
-		['gf'] = {
-			'<CMD>Lspsaga finder<CR>',
-			' Lspsaga show references and implementations',
-		},
-		['gd'] = {
-			'<CMD>Lspsaga goto_definition<CR>',
-			' Lspsaga go to definition',
-		},
-		['<leader>lp'] = {
-			'<CMD>Lspsaga peek_definition<CR>',
-			' Lspsaga peek definition',
-		},
-		['<leader>K'] = {
-			'<CMD>Lspsaga hover_doc<CR>',
-			'󱙼 Lspsaga hover lsp',
-		},
-		['<leader>o'] = { '<CMD>Lspsaga outline<CR>', ' Lspsaga show outline' },
-		--  LSP
-		['Gr'] = { '<CMD>Telescope lsp_references<CR>', ' Lsp references' },
-		['[d'] = {
-			'<CMD>Lspsaga diagnostic_jump_prev<CR>',
-			' Lspsaga prev diagnostics',
-		},
-		[']d'] = {
-			'<CMD>Lspsaga diagnostic_jump_next<CR>',
-			' Lspsaga next Diagnostic',
-		},
-		['<leader>fx'] = {
-			function()
-				vim.diagnostic.setloclist()
-			end,
-			'󰁨 Lsp Quickfix',
-		},
-	},
-}
-
 M.variety = {
 	n = {
-		['<leader>tw'] = {
+		['<leader>tz'] = {
 			'<cmd> ZenMode <CR>',
 			'🔦 ZenMode focus on code',
 		},
 	},
 }
 
+M.hop = {
+	n = {
+		['<leader>ha'] = {
+			'<cmd> HopAnywhere <CR>',
+			' Hope anywhere',
+		},
+		['s'] = { '<cmd> HopChar1 <CR>', ' Hope char 1' },
+		['S'] = { '<cmd> HopChar2 <CR>', ' Hope char 2' },
+		['<leader>hl'] = {
+			'<cmd> HopWordCurrentLine <CR>',
+			' Hop word current line',
+		},
+		['<leader>hs'] = { '<cmd> HopLineStart <CR>', ' Hope line start' },
+		['<leader>/'] = { '<cmd> HopPattern <CR>', ' Hope pattern' },
+		['<leader>hw'] = { '<cmd> HopWord <CR>', ' Hope word' },
+	},
+}
+
+M.git = {
+	n = {
+		['<leader>gc'] = { '<CMD>Telescope git_commits<CR>', '  Git commits' },
+		['<leader>gb'] = { '<CMD>Telescope git_branches<CR>', '  Git branches' },
+		['<leader>gs'] = { '<CMD>Telescope git_status<CR>', '  Git status' },
+		['<leader>gvd'] = { '<CMD> DiffviewOpen<CR>', ' Diffview show git diff' },
+		['<leader>gvf'] = {
+			'<CMD> DiffviewFileHistory %<CR>',
+			' Diffview show file history',
+		},
+		['<leader>gvp'] = {
+			'<CMD> DiffviewOpen --cached<CR>',
+			' Diffview show staged diffs',
+		},
+		['<leader>gvr'] = { '<CMD> DiffviewRefresh<CR>', ' Diffview refresh' },
+		['<leader>gvc'] = { '<CMD> DiffviewClose<CR>', ' Diffview close' },
+	},
+}
 return M
