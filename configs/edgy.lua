@@ -41,7 +41,7 @@ local options = {
 	},
 	options = {
 		left = { size = 70 },
-		bottom = { size = 10 },
+		bottom = { size = 20 },
 		right = { size = 60 },
 		top = { size = 10 },
 	},

@@ -24,22 +24,11 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('n', 'J', 'mzJ`z')
 
--- move elements up and down
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-
 -- improve moving
 vim.keymap.set('n', 'H', '^')
 vim.keymap.set('n', 'L', 'g_')
 vim.keymap.set('v', 'H', '^')
 vim.keymap.set('v', 'L', 'g_')
-
--- replace
-vim.keymap.set(
-	'n',
-	'<leader>rp',
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
-)
 
 -- diagnostics
 vim.diagnostic.config({

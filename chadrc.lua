@@ -10,11 +10,11 @@ M.ui = {
 	transparency = false,
 
 	cmp = {
-		icons = false,
-		lspkind_text = false,
+		icons = true,
+		lspkind_text = true,
 		style = 'default', -- default/flat_light/flat_dark/atom/atom_colored
 		disabled = false,
-		selected_item_bg = 'colored', -- colored / simple
+		selected_item_bg = 'simple', -- colored / simple
 	},
 
 	tabufline = {

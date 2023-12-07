@@ -144,10 +144,7 @@ local plugins = {
 		'ray-x/go.nvim',
 		ft = { 'go', 'gomod', 'gosum', 'gowork' },
 		dependencies = {
-			{
-				'ray-x/guihua.lua',
-				build = 'cd lua/fzy && make',
-			},
+			{ 'ray-x/guihua.lua', build = 'cd lua/fzy && make' },
 		},
 		config = function()
 			require('custom.configs.go')
@@ -166,6 +163,15 @@ local plugins = {
 			'javascriptreact',
 			'typescriptreact',
 		},
+	},
+
+	{
+		'epwalsh/obsidian.nvim',
+		version = '*',
+		ft = 'markdown',
+		config = function()
+			require('custom.configs.obsidian')
+		end,
 	},
 
 	-- very lazy
@@ -313,6 +319,28 @@ local plugins = {
 		config = function()
 			require('custom.configs.hop')
 		end,
+	},
+
+	{
+		'smoka7/multicursors.nvim',
+		dependencies = { 'smoka7/hydra.nvim' },
+		opts = { hint_config = false },
+		cmd = {
+			'MCstart',
+			'MCvisual',
+			'MCclear',
+			'MCpattern',
+			'MCvisualPattern',
+			'MCunderCursor',
+		},
+		keys = {
+			{
+				mode = { 'v', 'n' },
+				'<C-n>',
+				'<cmd>MCstart<cr>',
+				desc = 'Create a selection for selected text or word under the cursor',
+			},
+		},
 	},
 
 	{

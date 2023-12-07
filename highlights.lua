@@ -7,10 +7,13 @@ local M = {}
 ---@type HLTable
 M.override = {
 	-- general
-	MatchWord = { bg = '#02cad8', fg = '#000000' },
-	Comment = { italic = true },
 	Visual = { bg = '#fccc7e', fg = '#000000' },
+	Comment = { italic = true },
+	MatchWord = { bg = 'none' },
 	MatchParen = { bg = 'none' },
+
+	-- tresitter
+	['@punctuation.bracket'] = { bg = 'none' },
 
 	-- search
 	IncSearch = { fg = '#000000', bg = '#fccc7e' },
@@ -33,6 +36,9 @@ M.add = {
 	GitSignsAdd = { fg = '#05fca9' },
 	GitSignsDelete = { fg = '#f70909' },
 	GitSignsText = { fg = '#ffffff', bg = '#f70909', bold = true },
+
+	MultiCursor = { bg = '#02cad8', fg = '#000000' },
+	MultiCursorMain = { bg = '#02cad8', fg = '#000000' },
 }
 
 return M

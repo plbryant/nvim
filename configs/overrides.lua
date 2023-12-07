@@ -74,7 +74,6 @@ M.mason = {
 		'yamllint',
 		'mypy',
 		'ruff',
-		'gomodifytags',
 		'golangci-lint',
 	},
 }
