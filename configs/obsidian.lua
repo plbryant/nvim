@@ -5,7 +5,7 @@ if not present then
 end
 
 local options = {
-	dir = '/home/bryant/Documents/github/obsidian/',
+	dir = '/home/bryant/Documents/github/notes/',
 	disable_frontmatter = true,
 	completion = {
 		nvim_cmp = true,
