@@ -13,10 +13,12 @@ autocmd('BufReadPost', {
 })
 
 -- stop auto commenting new lines
-autocmd('BufEnter', {
-	desc = 'Prevent auto comment new line',
-	command = [[set formatoptions-=cro]],
-})
+vim.api.nvim_exec(
+	[[
+  autocmd! FileType * setlocal formatoptions-=cro
+]],
+	false
+)
 
 -- prevent comment from being inserted when entering new line in existing comment
 vim.api.nvim_create_autocmd('BufEnter', {
