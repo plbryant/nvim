@@ -28,7 +28,6 @@ local options = {
 		},
 	},
 	right = {
-		{ ft = 'spectre_panel' },
 		{
 			ft = 'help',
 			size = { width = 90 }, -- only show help buffers

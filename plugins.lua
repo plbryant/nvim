@@ -11,6 +11,7 @@ local plugins = {
 		'williamboman/mason.nvim',
 		opts = overrides.mason,
 	},
+
 	{
 		'NvChad/nvim-colorizer.lua',
 		opts = overrides.colorizer,
@@ -106,6 +107,16 @@ local plugins = {
 	{
 		'vim-scripts/ReplaceWithRegister',
 		keys = { 'gr' },
+	},
+
+	{
+		'kylechui/nvim-surround',
+		version = '*', -- Use for stability; omit to use `main` branch for the latest features
+		keys = { 'ys', 'ds', 'cs', { 'S', mode = 'v' } },
+		event = 'LspAttach',
+		config = function()
+			require('nvim-surround').setup({})
+		end,
 	},
 
 	{
@@ -208,15 +219,6 @@ local plugins = {
 		opts = {},
 		build = function()
 			require('fundo').install()
-		end,
-	},
-
-	{
-		'kylechui/nvim-surround',
-		version = '*', -- Use for stability; omit to use `main` branch for the latest features
-		event = 'LspAttach',
-		config = function()
-			require('nvim-surround').setup({})
 		end,
 	},
 
