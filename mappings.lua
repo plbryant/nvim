@@ -23,7 +23,7 @@ M.general = {
 			'Switch to last buffer',
 		},
 
-		['<A-w>'] = {
+		['<C-w>'] = {
 			'<cmd> Bdelete <CR>',
 			'Close current buffer',
 		},
@@ -43,7 +43,7 @@ M.general = {
 			'<cmd> b# <CR>',
 			'Switch to last buffer',
 		},
-		['<A-w>'] = {
+		['<C-w>'] = {
 			'<cmd> Bdelete <CR>',
 			'Close current buffer',
 		},
