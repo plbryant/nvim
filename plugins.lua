@@ -198,6 +198,20 @@ local plugins = {
 	},
 
 	{
+		'IogaMaster/neocord',
+		event = 'VeryLazy',
+		config = {
+			main_image = 'logo',
+			logo = 'blob:https://mega.nz/d0396889-25f3-49e0-921d-e6b5b1736b50',
+			show_time = true,
+			log_level = 'debug',
+			workspace_text = function()
+				return 'Working or playing with nvim'
+			end,
+		},
+	},
+
+	{
 		'gbprod/cutlass.nvim',
 		event = VeryLazy,
 		opts = {
