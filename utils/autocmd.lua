@@ -66,3 +66,4 @@ autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
 autocmd('FileChangedShellPost', {
 	command = [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]],
 })
+
