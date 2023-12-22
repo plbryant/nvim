@@ -24,7 +24,13 @@ M.ui = {
 		overriden_modules = nil,
 	},
 
+	statusline = {
+		theme = 'default',
+	},
+
 	extended_integrations = {
+		'dap',
+		'hop',
 		'todo',
 		'trouble',
 	},
