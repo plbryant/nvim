@@ -208,12 +208,6 @@ local plugins = {
 	-- event
 
 	{
-		'max397574/better-escape.nvim',
-		event = 'InsertEnter',
-		config = true,
-	},
-
-	{
 		'kevinhwang91/nvim-fundo',
 		event = 'BufReadPost',
 		opts = {},
@@ -238,24 +232,7 @@ local plugins = {
 		end,
 	},
 
-	{
-		'folke/edgy.nvim',
-		event = 'BufReadPost',
-		init = function()
-			vim.opt.laststatus = 3
-			vim.opt.splitkeep = 'screen'
-		end,
-		config = function()
-			require('custom.configs.edgy')
-		end,
-	},
-
 	-- cmd
-
-	{
-		'famiu/bufdelete.nvim', -- better buff delete
-		cmd = { 'Bdelete', 'Bwipeout' },
-	},
 
 	{
 		'sindrets/diffview.nvim',
@@ -277,14 +254,6 @@ local plugins = {
 		cmd = 'ZenMode',
 		config = function()
 			require('custom.configs.zenmode')
-		end,
-	},
-
-	{
-		'ThePrimeagen/refactoring.nvim',
-		cmd = 'Refactor',
-		config = function()
-			require('custom.configs.refactoring')
 		end,
 	},
 
@@ -326,7 +295,7 @@ local plugins = {
 	{
 		'smoka7/multicursors.nvim',
 		dependencies = { 'smoka7/hydra.nvim' },
-		opts = { hint_config = false },
+		opts = { hint_config = true },
 		cmd = {
 			'MCstart',
 			'MCvisual',
@@ -343,18 +312,6 @@ local plugins = {
 				desc = 'Create a selection for selected text or word under the cursor',
 			},
 		},
-	},
-
-	{
-		'nvim-neotest/neotest',
-		cmd = 'Neotest',
-		dependencies = {
-			'haydenmeade/neotest-jest',
-			'thenbe/neotest-playwright',
-		},
-		config = function()
-			require('custom.configs.neotest')
-		end,
 	},
 
 	{
@@ -395,10 +352,17 @@ local plugins = {
 	},
 
 	{
-		'rest-nvim/rest.nvim',
-		ft = { 'http' },
+		'max397574/better-escape.nvim',
+		event = 'InsertEnter',
+		enabled = false,
+	},
+
+	{
+		'ThePrimeagen/refactoring.nvim',
+		enabled = false,
+		cmd = 'Refactor',
 		config = function()
-			require('custom.configs.rest')
+			require('custom.configs.refactoring')
 		end,
 	},
 
@@ -411,6 +375,32 @@ local plugins = {
 		end,
 		config = function(_, opts)
 			require('copilot').setup(opts)
+		end,
+	},
+
+	{
+		'folke/edgy.nvim',
+		enabled = false,
+		event = 'BufReadPost',
+		init = function()
+			vim.opt.laststatus = 3
+			vim.opt.splitkeep = 'screen'
+		end,
+		config = function()
+			require('custom.configs.edgy')
+		end,
+	},
+
+	{
+		'nvim-neotest/neotest',
+		enabled = false,
+		cmd = 'Neotest',
+		dependencies = {
+			'haydenmeade/neotest-jest',
+			'thenbe/neotest-playwright',
+		},
+		config = function()
+			require('custom.configs.neotest')
 		end,
 	},
 }

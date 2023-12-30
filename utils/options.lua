@@ -3,7 +3,7 @@ opt.cmdheight = 0
 opt.number = true
 opt.numberwidth = 1
 opt.showcmd = false
-opt.showtabline = 0
+opt.showtabline = 0 -- disable tabs
 opt.relativenumber = true
 opt.shiftwidth = 2
 opt.spell = false
@@ -16,6 +16,7 @@ opt.signcolumn = 'yes'
 opt.hlsearch = false
 opt.incsearch = true
 opt.colorcolumn = '80'
+opt.guicursor = ''
 
 -- better default mappings
 vim.keymap.set('n', '<C-d>', '<C-d>zz')

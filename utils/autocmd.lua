@@ -67,3 +67,28 @@ autocmd('FileChangedShellPost', {
 	command = [[echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None]],
 })
 
+-- :echo &ft
+autocmd('FileType', {
+	pattern = {
+		'help',
+		'startuptime',
+		'qf',
+		'lspinfo',
+		'man',
+		'checkhealth',
+		'tsplayground',
+		'HIERARCHY-TREE-GO',
+		'dap-float',
+		'spectre_panel',
+		'null-ls-info',
+		'empty',
+		'neotest-output',
+		'neotest-summary',
+		'neotest-output-panel',
+		'bookmarks',
+	},
+	command = [[
+            nnoremap <buffer><silent> q :close<CR>
+            set nobuflisted
+        ]],
+})
