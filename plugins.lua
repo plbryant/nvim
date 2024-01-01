@@ -295,7 +295,7 @@ local plugins = {
 	{
 		'smoka7/multicursors.nvim',
 		dependencies = { 'smoka7/hydra.nvim' },
-		opts = { hint_config = true },
+		opts = { hint_config = false },
 		cmd = {
 			'MCstart',
 			'MCvisual',
