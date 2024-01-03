@@ -87,10 +87,6 @@ M.Telescope = {
 			'<cmd> Telescope find_files <Cr>',
 			'   Open telescope files',
 		},
-		['<tab>'] = {
-			'<cmd> Telescope buffers <Cr>',
-			'   Open telescope buffers',
-		},
 	},
 }
 

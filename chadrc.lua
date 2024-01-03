@@ -7,7 +7,7 @@ local highlights = require('custom.highlights')
 M.ui = {
 	theme_toggle = { 'chadracula', 'chadracula' },
 	theme = 'chadracula',
-	transparency = true,
+	transparency = false,
 
 	cmp = {
 		icons = true,
