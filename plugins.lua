@@ -13,11 +13,6 @@ local plugins = {
 	},
 
 	{
-		'NvChad/nvim-colorizer.lua',
-		opts = overrides.colorizer,
-	},
-
-	{
 		'neovim/nvim-lspconfig',
 		config = function()
 			require('plugins.configs.lspconfig')
@@ -295,26 +290,6 @@ local plugins = {
 		end,
 	},
 
-	{
-		'dmmulroy/tsc.nvim', -- check typescript definitions
-		cmd = { 'TSC' },
-		opts = {
-			auto_open_qflist = true,
-			spinner = {
-				'⠋',
-				'⠙',
-				'⠹',
-				'⠸',
-				'⠼',
-				'⠴',
-				'⠦',
-				'⠧',
-				'⠇',
-				'⠏',
-			},
-		},
-	},
-
 	-- optional
 
 	{
@@ -345,6 +320,12 @@ local plugins = {
 		config = function()
 			require('custom.configs.refactoring')
 		end,
+	},
+
+	{
+		'NvChad/nvim-colorizer.lua',
+		enabled = false,
+		opts = overrides.colorizer,
 	},
 
 	{

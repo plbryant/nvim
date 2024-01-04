@@ -14,9 +14,6 @@ M.disabled = {
 
 M.general = {
 	n = {
-		-- general
-		['<leader>q'] = { '<cmd> qa! <CR>', '󰗼 Exit' },
-
 		-- buffers
 		['<C-tab>'] = {
 			'<cmd> b# <CR>',
