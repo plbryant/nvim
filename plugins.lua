@@ -262,8 +262,6 @@ local plugins = {
 		end,
 	},
 
-	{ 'ellisonleao/glow.nvim', config = true, cmd = 'Glow' },
-
 	{
 		'stevearc/oil.nvim',
 		cmd = { 'Oil' },

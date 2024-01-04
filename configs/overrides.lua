@@ -12,6 +12,7 @@ M.treesitter = {
 		'regex',
 		'toml',
 		'rust',
+		'vimdoc',
 
 		-- golang
 		'go',
