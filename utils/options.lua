@@ -31,6 +31,11 @@ vim.keymap.set('n', 'L', 'g_')
 vim.keymap.set('v', 'H', '^')
 vim.keymap.set('v', 'L', 'g_')
 
+if vim.g.neovide then
+	vim.o.guifont = 'Maple Mono NF:h9' -- text below applies for VimScript
+	vim.g.neovide_refresh_rate = 60
+end
+
 -- diagnostics
 vim.diagnostic.config({
 	virtual_text = true,
