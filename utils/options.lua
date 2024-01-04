@@ -16,7 +16,6 @@ opt.signcolumn = 'yes'
 opt.hlsearch = false
 opt.incsearch = true
 opt.colorcolumn = '80'
-opt.guicursor = ''
 
 -- better default mappings
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
