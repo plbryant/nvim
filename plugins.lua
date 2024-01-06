@@ -324,7 +324,7 @@ local plugins = {
 
 	{
 		'NvChad/nvim-colorizer.lua',
-		enabled = false,
+		enabled = true,
 		opts = overrides.colorizer,
 	},
 
