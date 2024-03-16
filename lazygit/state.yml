@@ -1,0 +1,13 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/bryant/Documents/github/dotfiles
+- /home/bryant/.config/nvim
+- /home/bryant/Documents/github/portfolio
+- /home/bryant/Documents/github/notes
+- /home/bryant/Documents/github/tmux-sessionist
+- /home/bryant/Documents/github/st
+startuppopupversion: 5
+customcommandshistory:
+- q
+hidecommandlog: false
+ignorewhitespaceindiffview: false
