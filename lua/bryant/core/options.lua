@@ -1,34 +1,61 @@
-vim.g.have_nerd_font = true
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.opt.breakindent = true
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.cmdheight = 0
-vim.opt.conceallevel = 1
-vim.opt.cursorline = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.inccommand = 'split'
-vim.opt.list = true
-vim.opt.listchars = { tab = '- ', trail = '·', nbsp = '␣', eol = '↵' }
-vim.opt.mouse = 'a'
-vim.opt.number = true
-vim.opt.scrolloff = 10
-vim.opt.shiftwidth = 2
-vim.opt.shortmess:append('sI')
-vim.opt.showmode = true
-vim.opt.showtabline = 0
-vim.opt.signcolumn = 'yes'
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.softtabstop = 2
-vim.opt.spell = true
-vim.opt.spelllang = { 'en_us', 'es_mx' }
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-vim.opt.timeoutlen = 300
-vim.opt.timeoutlen = 400
-vim.opt.undofile = true
-vim.opt.updatetime = 250
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+
+-- set globals
+g.have_nerd_font = true
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+-- defaults
+o.laststatus = 0
+opt.clipboard = 'unnamedplus'
+opt.cmdheight = 0
+opt.conceallevel = 1
+opt.inccommand = 'split'
+opt.list = true
+opt.listchars = { tab = '- ', trail = '·', nbsp = '␣', eol = '↵' }
+opt.mouse = 'a'
+opt.scrolloff = 10
+opt.shortmess:append('sI')
+opt.showmode = false
+opt.showtabline = 0
+opt.signcolumn = 'yes'
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.timeoutlen = 300
+opt.undofile = true
+opt.wrap = false
+
+-- indenting
+o.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.softtabstop = 2
+opt.tabstop = 2
+
+-- numbers
+o.ruler = false
+o.numberwidth = 2
+opt.number = true
+
+-- search
+opt.hlsearch = true
+opt.ignorecase = true
+opt.smartcase = true
+
+-- colors
+opt.termguicolors = true
+opt.cursorline = true
+o.cursorlineopt = 'number'
+
+-- spell
+opt.spell = true
+opt.spelllang = { 'en_us', 'es_mx' }
+
+-- disable some default providers
+vim.g['loaded_node_provider'] = 0
+vim.g['loaded_python3_provider'] = 0
+vim.g['loaded_perl_provider'] = 0
+vim.g['loaded_ruby_provider'] = 0

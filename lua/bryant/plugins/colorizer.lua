@@ -1,5 +1,6 @@
 return {
 	'NvChad/nvim-colorizer.lua',
+	event = 'BufRead',
 	opts = {
 		filetypes = {
 			'*',
@@ -23,7 +24,6 @@ return {
 			always_update = true,
 		},
 	},
-	event = 'User FilePost',
 	config = function(_, opts)
 		vim.defer_fn(function()
 			require('colorizer').setup(opts)

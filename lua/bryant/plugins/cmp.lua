@@ -14,8 +14,8 @@ return {
 				fast_wrap = {},
 				disable_filetype = { 'TelescopePrompt', 'vim', 'spectre_panel' },
 			},
-			config = function()
-				require('nvim-autopairs').setup({})
+			config = function(_, opts)
+				require('nvim-autopairs').setup(opts)
 				local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 				require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
 			end,
@@ -28,7 +28,7 @@ return {
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
-		luasnip.config.setup({})
+		luasnip.config.setup({}) -- snipet engine
 
 		cmp.setup({
 			snippet = {
@@ -54,9 +54,9 @@ return {
 				end, { 'i', 's' }),
 			}),
 			sources = {
-				{ name = 'nvim_lsp' },
-				{ name = 'luasnip' },
-				{ name = 'path' },
+				{ name = 'nvim_lsp', max_item_count = 5 },
+				{ name = 'luasnip', max_item_count = 5 },
+				{ name = 'path', max_item_count = 5 },
 			},
 		})
 	end,
