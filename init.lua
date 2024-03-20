@@ -1,2 +1,1 @@
-require('bryant.core')
-require('bryant.lazy')
+require('bryant')
