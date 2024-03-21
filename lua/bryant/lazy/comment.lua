@@ -1,6 +1,6 @@
 return {
 	'numToStr/Comment.nvim',
-  config = true,
+	config = true,
 	keys = {
 		{ 'gcc', mode = 'n', desc = 'Comment toggle current line' },
 		{ 'gc', mode = { 'n', 'o' }, desc = 'Comment toggle linewise' },

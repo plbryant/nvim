@@ -1,14 +1,13 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/bryant/Documents/github/nvim-versions/nvim
 - /home/bryant/.config/nvim
 - /home/bryant/Documents/github/dotfiles
+- /home/bryant/Documents/github/st
 - /home/bryant/Documents/github/examples/nvchad-custom
 - /home/bryant/Documents/github/examples/dotfiles-lazf
 - /home/bryant/Documents/github/portfolio
 - /home/bryant/Documents/github/notes
 - /home/bryant/Documents/github/tmux-sessionist
-- /home/bryant/Documents/github/st
 startuppopupversion: 5
 customcommandshistory:
 - q

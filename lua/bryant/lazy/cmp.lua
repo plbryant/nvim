@@ -7,12 +7,13 @@ return {
 			build = (function()
 				return 'make install_jsregexp'
 			end)(),
+      dependencies = { "rafamadriz/friendly-snippets" },
 		},
 		{
 			'windwp/nvim-autopairs',
 			opts = {
 				fast_wrap = {},
-				disable_filetype = { 'TelescopePrompt', 'vim', 'spectre_panel' },
+				disable_filetype = { 'TelescopePrompt', 'vim' },
 			},
 			config = function(_, opts)
 				require('nvim-autopairs').setup(opts)
@@ -28,7 +29,7 @@ return {
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
-		luasnip.config.setup({}) -- snipet engine
+		luasnip.config.setup({})
 
 		cmp.setup({
 			snippet = {

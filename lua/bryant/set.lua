@@ -4,14 +4,7 @@ local g = vim.g
 
 g.mapleader = ' '
 
-o.laststatus = 0
-opt.cmdheight = 0
-opt.conceallevel = 1
-
-opt.list = true
-opt.listchars = { eol = '↵' }
-
-opt.showmode = false
+opt.showmode = true
 opt.showtabline = 0
 
 opt.swapfile = false
@@ -28,7 +21,7 @@ opt.tabstop = 2
 opt.nu = true
 opt.relativenumber = true
 
-opt.hlsearch = false
+opt.hlsearch = true
 opt.incsearch = true
 
 opt.scrolloff = 8
@@ -39,6 +32,8 @@ opt.isfname:append('@-@')
 opt.updatetime = 50
 
 opt.termguicolors = true
+
+opt.conceallevel = 1
 
 opt.spell = true
 opt.spelllang = { 'en_us', 'es_mx' }

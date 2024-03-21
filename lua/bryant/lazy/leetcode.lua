@@ -4,7 +4,7 @@ return {
 	lazy = 'leetcode.nvim' ~= vim.fn.argv()[1],
 	dependencies = {
 		'nvim-telescope/telescope.nvim',
-		'nvim-lua/plenary.nvim', -- required by telescope
+		'nvim-lua/plenary.nvim',
 		'MunifTanjim/nui.nvim',
 	},
 	opts = {
