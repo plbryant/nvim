@@ -1,45 +1,36 @@
 local map = vim.keymap.set
 
-map("n", "<Esc>", "<cmd>noh<CR>")
+map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
 
-map('n', '<C-c>', 'ciw')
+map('n', '<C-c>', 'ciw', { desc = 'Change inner word' })
 
-map("n", "J", "mzJ`z")
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "n", "nzzzv")
+map('n', 'J', 'mzJ`z', { desc = 'One row align items' })
+map('n', '<C-d>', '<C-d>zz', { desc = 'Better c-d command' })
+map('n', '<C-u>', '<C-u>zz', { desc = 'Better c-u command' })
+map('n', 'n', 'nzzzv', { desc = 'Better "n" command' })
 
-map("n", "{", "{zz")
-map("n", "}", "}zz")
-map("n", "<C-o>", "<C-o>zz")
-map("n", "<C-i>", "<C-i>zz")
+map('n', '{', '{zz', { desc = 'Better go to the next block command' })
+map('n', '}', '}zz', { desc = 'Better go to the previous block command' })
+map('n', '<C-o>', '<C-o>zz', { desc = 'Better go to the previous location' })
+map('n', '<C-i>', '<C-i>zz', { desc = 'Better go to the next location' })
 
-map("x", "<leader>p", [["_dP]])
+map('n', '<leader>p', [["_dP]], { desc = 'Paste withouth override register' })
+map({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete withouth override register' })
 
-map({"n", "v"}, "<leader>d", [["_d]])
+map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word' })
 
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map('n', '<leader>tn', '<cmd>set rnu!<CR>', { desc = 'Toggle number mode' })
 
-map("n", "<leader>tn", "<cmd>set rnu!<CR>")
+map('v', '<', '<gv', { desc = 'Better align items' })
+map('v', '>', '>gv', { desc = 'Better align items' })
 
-map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-map("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+map('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move elements up' })
+map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move elements down' })
 
-map('i', '<M-h>', '<Left>')
-map('i', '<M-l>', '<Right>')
+map({ 'n', 'v' }, 'H', '^', { desc = 'Move the start of the line' })
+map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
 
-map('v',"<","<gv")
-map('v',">",">gv")
-
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
-map({'n','v'}, "H", "^")
-map({'n','v'}, "L", "g_")
-map({'n','i','v'}, '<C-tab>', '<cmd> b# <CR>')
-
-map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
+map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>', { desc = 'Execute tmux script' })
 
 map('n', '[h', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 map('n', ']l', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })

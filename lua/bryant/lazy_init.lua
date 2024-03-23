@@ -16,6 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({{ import = "bryant.lazy"}},{
 	defaults = { lazy = true },
 	change_detection = { notify = false },
+  install = {
+    missing = true,
+    colorscheme = { "rose-pine" },
+  },
   performance = {
     rtp = { disabled_plugins = {
         "2html_plugin",
