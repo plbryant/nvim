@@ -8,7 +8,7 @@ return {
 			['<C-s>'] = 'actions.select_vsplit',
 			['<C-h>'] = 'actions.select_split',
 			['<C-y>'] = 'actions.preview',
-			['<leader>o'] = 'actions.close',
+			['<leader>e'] = 'actions.close',
 			['.'] = 'actions.parent',
 			['_'] = 'actions.open_cwd',
 			['gs'] = 'actions.change_sort',
@@ -17,7 +17,7 @@ return {
 	},
 	keys = {
 		{
-			'<leader>o',
+			'<leader>e',
 			'<cmd>Oil<CR>',
 			desc = 'Open oil',
 		},

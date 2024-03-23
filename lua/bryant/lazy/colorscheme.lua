@@ -1,19 +1,19 @@
 local themes = {
-
 	{
 		'bluz71/vim-moonfly-colors',
-		enabled = true,
+		enabled = false,
 		name = 'moonfly',
 		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.cmd([[colorscheme moonfly]])
+      vim.g.moonflyItalics = false
 		end,
 	},
 
 	{
 		'rose-pine/neovim',
-		enabled = false,
+		enabled = true,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,
