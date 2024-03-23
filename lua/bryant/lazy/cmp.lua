@@ -7,7 +7,7 @@ return {
 			build = (function()
 				return 'make install_jsregexp'
 			end)(),
-      dependencies = { "rafamadriz/friendly-snippets" },
+			dependencies = { 'rafamadriz/friendly-snippets' },
 		},
 		{
 			'windwp/nvim-autopairs',

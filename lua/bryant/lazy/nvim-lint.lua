@@ -5,15 +5,12 @@ return {
 		vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 			group = lint_augroup,
 			callback = function()
-				require("lint").try_lint()
+				require('lint').try_lint()
 			end,
 		})
 
-		require("lint").linters_by_ft = {
+		require('lint').linters_by_ft = {
 			lua = { 'luacheck' },
-			yaml = { 'yamllint' },
-			json = { 'jsonlint' },
-			jsonc = { 'jsonlint' },
 			javascript = { 'eslint_d' },
 			typescript = { 'eslint_d' },
 			javascriptreact = { 'eslint_d' },
