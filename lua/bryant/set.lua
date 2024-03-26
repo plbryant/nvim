@@ -35,5 +35,5 @@ opt.termguicolors = true
 
 opt.conceallevel = 1
 
-opt.spell = true
+opt.spell = false
 opt.spelllang = { 'en_us', 'es_mx' }
