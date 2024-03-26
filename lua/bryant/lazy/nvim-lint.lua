@@ -1,5 +1,6 @@
 return {
 	'mfussenegger/nvim-lint',
+	event = 'InsertEnter',
 	config = function()
 		local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
 		vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
@@ -10,7 +11,6 @@ return {
 		})
 
 		require('lint').linters_by_ft = {
-			lua = { 'luacheck' },
 			javascript = { 'eslint_d' },
 			typescript = { 'eslint_d' },
 			javascriptreact = { 'eslint_d' },

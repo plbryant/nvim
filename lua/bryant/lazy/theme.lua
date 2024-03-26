@@ -1,12 +1,12 @@
 local themes = {
 	{
-		'bluz71/vim-moonfly-colors',
+		'folke/tokyonight.nvim',
 		enabled = false,
-		name = 'moonfly',
+		name = 'tokyonight',
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme moonfly]])
+			vim.cmd([[colorscheme tokyonight]])
 			vim.g.moonflyItalics = false
 		end,
 	},

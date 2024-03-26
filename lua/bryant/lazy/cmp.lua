@@ -22,7 +22,9 @@ return {
 			end,
 		},
 		'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
 	},
 	config = function()
@@ -54,9 +56,11 @@ return {
 				end, { 'i', 's' }),
 			}),
 			sources = {
-				{ name = 'nvim_lsp', max_item_count = 5 },
-				{ name = 'luasnip', max_item_count = 5 },
-				{ name = 'path', max_item_count = 5 },
+				{ name = 'nvim_lsp' },
+				{ name = 'luasnip' },
+				{ name = 'buffer' },
+				{ name = 'nvim_lua' },
+				{ name = 'path' },
 			},
 		})
 	end,

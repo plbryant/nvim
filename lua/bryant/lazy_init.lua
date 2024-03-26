@@ -18,7 +18,6 @@ require('lazy').setup({ { import = 'bryant.lazy' } }, {
 	change_detection = { notify = false },
 	install = {
 		missing = true,
-		colorscheme = { 'rose-pine' },
 	},
 	performance = {
 		rtp = {

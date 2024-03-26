@@ -1,11 +1,10 @@
 return {
 	'neovim/nvim-lspconfig',
-	event = 'BufEnter',
+	lazy = false,
 	dependencies = {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		{ 'j-hui/fidget.nvim', opts = {} },
 		{ 'folke/neodev.nvim', opts = {} },
 	},
 	config = function()
@@ -23,6 +22,9 @@ return {
 				map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 				map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 				map('K', vim.lsp.buf.hover, 'Hover Documentation')
+				vim.keymap.set('i', '<C-c>', function()
+					vim.lsp.buf.signature_help()
+				end, { desc = 'signature_help' })
 			end,
 		})
 
@@ -34,7 +36,9 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						globals = { 'vim', 'require' },
+						diagnostics = {
+							globals = { 'vim', 'it', 'describe', 'before_each', 'after_each' },
+						},
 					},
 				},
 			},
@@ -43,11 +47,10 @@ return {
 		require('mason').setup()
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
-			'stylua', -- Used to format Lua code
+			'stylua',
 			'prettierd',
 			'prettier',
 			'eslint_d',
-			'luacheck',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,
