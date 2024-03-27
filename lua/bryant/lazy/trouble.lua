@@ -1,8 +1,8 @@
 return {
 	'folke/trouble.nvim',
-	opts = {
-		icons = false,
-	},
+  opts = {
+    icons = false
+  },
 	keys = {
 		{
 			'<leader>tt',
@@ -13,14 +13,14 @@ return {
 		{
 			'[th',
 			function()
-				require('trouble').next({ skip_groups = true, jump = true })
+				require('trouble').next({skip_groups = true, jump = true})
 			end,
 		},
 		{
 			'[tl',
 			function()
-				require('trouble').previous({ skip_groups = true, jump = true })
+				require('trouble').previous({skip_groups = true, jump = true})
 			end,
 		},
-	},
+  }
 }

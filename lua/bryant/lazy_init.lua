@@ -16,9 +16,8 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({ { import = 'bryant.lazy' } }, {
 	defaults = { lazy = true },
 	change_detection = { notify = false },
-	install = {
-		missing = true,
-	},
+	checker = { enabled = false, notify = false },
+	install = { missing = true },
 	performance = {
 		rtp = {
 			disabled_plugins = {

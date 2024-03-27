@@ -3,12 +3,12 @@ return {
 	cmd = { 'DiffviewOpen', 'DiffviewClose' },
 	keys = {
 		{
-			'<leader>dvo',
+			'<leader>o',
 			'<cmd>DiffviewOpen<CR>',
 			desc = 'Open diffview',
 		},
 		{
-			'<leader>dvc',
+			'<leader>O',
 			'<cmd>DiffviewClose<CR>',
 			desc = 'Open diffview',
 		},
