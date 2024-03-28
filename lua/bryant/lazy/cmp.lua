@@ -21,6 +21,7 @@ return {
 				require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
 			end,
 		},
+		'onsails/lspkind.nvim',
 		'saadparwaiz1/cmp_luasnip',
 		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-nvim-lsp',
@@ -30,9 +31,20 @@ return {
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
+		local lspkind = require('lspkind')
 		luasnip.config.setup({})
 
+		local formating_style = {
+			format = lspkind.cmp_format({
+				mode = 'text_symbol',
+				maxwidth = 50,
+				ellipsis_char = '...',
+				show_labelDetails = true,
+			}),
+		}
+
 		cmp.setup({
+			formatting = formating_style,
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
