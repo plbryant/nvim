@@ -1,6 +1,12 @@
 return {
 	'NvChad/nvim-colorizer.lua',
 	cmd = 'ColorizerToggle',
+	ft = {
+		'javascript',
+		'typescript',
+		'javascriptreact',
+		'typescriptreact',
+	},
 	opts = {
 		filetypes = {
 			'*',

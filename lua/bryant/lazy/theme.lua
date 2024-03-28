@@ -12,6 +12,19 @@ local themes = {
 	},
 
 	{
+		'craftzdog/solarized-osaka.nvim',
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require('solarized-osaka').setup({
+				transparent = false,
+			})
+			vim.cmd([[colorscheme solarized-osaka]])
+		end,
+	},
+
+	{
 		'rose-pine/neovim',
 		enabled = true,
 		name = 'rose-pine',
@@ -19,8 +32,9 @@ local themes = {
 		priority = 1000,
 		config = function()
 			require('rose-pine').setup({
+				variant = 'main', -- main, moon, or dawn
+				dark_variant = 'main', -- main, moon
 				styles = {
-					bold = true,
 					italic = false,
 					transparency = false,
 				},
