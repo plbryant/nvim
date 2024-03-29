@@ -9,7 +9,6 @@ g.loaded_netrwPlugin = 1
 opt.showmode = true
 opt.showtabline = 0
 
-
 opt.swapfile = false
 opt.undofile = true
 opt.wrap = false
@@ -35,8 +34,6 @@ opt.isfname:append('@-@')
 opt.updatetime = 50
 
 opt.termguicolors = true
-
-opt.conceallevel = 1
 
 opt.spell = false
 opt.spelllang = { 'en_us', 'es_mx' }

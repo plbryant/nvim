@@ -25,6 +25,18 @@ local themes = {
 	},
 
 	{
+		'Mofiqul/dracula.nvim',
+		enabled = false,
+		name = 'dracula',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme dracula]])
+			-- vim.cmd([[colorscheme dracula-soft]])
+		end,
+	},
+
+	{
 		'rose-pine/neovim',
 		enabled = true,
 		name = 'rose-pine',
@@ -40,6 +52,21 @@ local themes = {
 				},
 			})
 			vim.cmd([[colorscheme rose-pine]])
+		end,
+	},
+
+	{
+		'maxmx03/solarized.nvim',
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		opts = {
+			-- theme = 'neo',
+		},
+		config = function(_, opts)
+			vim.o.background = 'dark' -- or 'light'
+			vim.cmd([[colorscheme solarized]])
+			require('colorizer').setup(opts)
 		end,
 	},
 }
