@@ -1,7 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/bryant/Documents/github/nvim
 - /home/bryant/Documents/github/dotfiles
+- /home/bryant/Documents/github/nvim
+- /home/bryant/Documents/github/notes
 - /home/bryant/Documents/github/royal
 - /home/bryant/Documents/github/royal/Royal-Home
 - /home/bryant/Documents/github/royal/Royal-API
@@ -9,7 +10,6 @@ recentrepos:
 - /home/bryant/.config/nvim
 - /home/bryant/Documents/github/st
 - /home/bryant/Documents/github/nvim/
-- /home/bryant/Documents/github/notes
 - /home/bryant/Documents/github/portfolio
 - /home/bryant/Documents/github/tmux-sessionist
 startuppopupversion: 5

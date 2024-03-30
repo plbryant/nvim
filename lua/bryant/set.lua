@@ -3,8 +3,8 @@ local o = vim.o
 local g = vim.g
 
 g.mapleader = ' '
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
+g.loaded_netrw = 0
+g.loaded_netrwPlugin = 0
 
 opt.showmode = true
 opt.showtabline = 0
@@ -34,6 +34,9 @@ opt.isfname:append('@-@')
 opt.updatetime = 50
 
 opt.termguicolors = true
+
+-- for obsidian
+opt.conceallevel = 1
 
 opt.spell = false
 opt.spelllang = { 'en_us', 'es_mx' }

@@ -34,6 +34,7 @@ return {
 
 		local servers = {
 			cssls = {},
+			marksman = {},
 			html = {},
 			lua_ls = {
 				settings = {
@@ -49,10 +50,15 @@ return {
 		require('mason').setup()
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
+			-- web dev
 			'stylua',
 			'prettierd',
 			'prettier',
 			'eslint_d',
+
+			-- markdown
+			'alex',
+			'markdownlint',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,

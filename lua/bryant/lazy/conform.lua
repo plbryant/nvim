@@ -16,9 +16,6 @@ return {
 			jsonc = { 'prettierd' },
 			['scss'] = { 'prettier' },
 			['less'] = { 'prettier' },
-			['markdown'] = { 'prettier' },
-			['markdown.mdx'] = { 'prettier' },
-			['graphql'] = { 'prettier' },
 		},
 	},
 	keys = {
