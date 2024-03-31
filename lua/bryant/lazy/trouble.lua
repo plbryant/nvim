@@ -27,4 +27,7 @@ return {
 			end,
 		},
 	},
+	config = function(_, opts)
+		require('trouble').setup(opts)
+	end,
 }

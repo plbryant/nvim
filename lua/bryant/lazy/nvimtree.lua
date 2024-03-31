@@ -12,5 +12,11 @@ return {
 		view = {
 			width = 65,
 		},
+		renderer = {
+			root_folder_label = false,
+		},
 	},
+	config = function(_, opts)
+		require('nvim-tree').setup(opts)
+	end,
 }

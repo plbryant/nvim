@@ -27,4 +27,7 @@ return {
 			desc = 'Format document with conform',
 		},
 	},
+	config = function(_, opts)
+		require('conform').setup(opts)
+	end,
 }

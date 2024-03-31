@@ -5,8 +5,8 @@ return {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		{ 'j-hui/fidget.nvim', opts = {} },
-		{ 'folke/neodev.nvim', opts = {} },
+		{ 'j-hui/fidget.nvim', config = true },
+		{ 'folke/neodev.nvim', config = true },
 	},
 	config = function()
 		vim.api.nvim_create_autocmd('LspAttach', {
@@ -19,7 +19,6 @@ return {
 				map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 				map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 				map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-				map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
 				map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 				map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 				map('K', vim.lsp.buf.hover, 'Hover Documentation')

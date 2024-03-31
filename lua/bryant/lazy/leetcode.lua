@@ -11,4 +11,7 @@ return {
 		arg = 'leetcode.nvim',
 		lang = 'javascript',
 	},
+	config = function(_, opts)
+		require('leetcode').setup(opts)
+	end,
 }

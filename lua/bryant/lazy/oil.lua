@@ -22,4 +22,7 @@ return {
 			desc = 'Open oil',
 		},
 	},
+	config = function(_, opts)
+		require('oil').setup(opts)
+	end,
 }

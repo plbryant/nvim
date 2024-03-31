@@ -13,7 +13,7 @@ local themes = {
 
 	{
 		'craftzdog/solarized-osaka.nvim',
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -38,7 +38,7 @@ local themes = {
 
 	{
 		'rose-pine/neovim',
-		enabled = true,
+		enabled = false,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,

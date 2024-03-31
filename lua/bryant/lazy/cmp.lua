@@ -8,17 +8,8 @@ return {
 				return 'make install_jsregexp'
 			end)(),
 			dependencies = { 'rafamadriz/friendly-snippets' },
-		},
-		{
-			'windwp/nvim-autopairs',
-			opts = {
-				fast_wrap = {},
-				disable_filetype = { 'TelescopePrompt', 'vim' },
-			},
-			config = function(_, opts)
-				require('nvim-autopairs').setup(opts)
-				local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-				require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
+			config = function()
+				require('luasnip.loaders.from_vscode').lazy_load({})
 			end,
 		},
 		'onsails/lspkind.nvim',
@@ -32,7 +23,6 @@ return {
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
 		local lspkind = require('lspkind')
-		luasnip.config.setup({})
 
 		local formating_style = {
 			format = lspkind.cmp_format({

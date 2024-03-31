@@ -13,14 +13,15 @@ return {
 			desc = 'Open diffview',
 		},
 	},
-	config = function()
-		require('diffview').setup({
-			view = {
-				merge_tool = {
-					layout = 'diff3_mixed',
-					disable_diagnostics = true,
-				},
+	opts = {
+		view = {
+			merge_tool = {
+				layout = 'diff3_mixed',
+				disable_diagnostics = true,
 			},
-		})
+		},
+	},
+	config = function(_, opts)
+		require('diffview').setup(opts)
 	end,
 }

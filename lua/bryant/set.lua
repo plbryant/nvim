@@ -3,8 +3,8 @@ local o = vim.o
 local g = vim.g
 
 g.mapleader = ' '
-g.loaded_netrw = 0
-g.loaded_netrwPlugin = 0
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 opt.showmode = true
 opt.showtabline = 0

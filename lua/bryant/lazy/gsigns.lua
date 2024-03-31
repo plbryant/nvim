@@ -44,4 +44,7 @@ return {
 			map('n', '<leader>gb', gs.blame_line, opts('Blame Line'))
 		end,
 	},
+	config = function(_, opts)
+		require('gitsigns').setup(opts)
+	end,
 }
