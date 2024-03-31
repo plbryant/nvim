@@ -1,30 +1,5 @@
 local themes = {
 	{
-		'folke/tokyonight.nvim',
-		enabled = false,
-		name = 'tokyonight',
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.cmd([[colorscheme tokyonight]])
-			vim.g.moonflyItalics = false
-		end,
-	},
-
-	{
-		'craftzdog/solarized-osaka.nvim',
-		enabled = true,
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require('solarized-osaka').setup({
-				transparent = false,
-			})
-			vim.cmd([[colorscheme solarized-osaka]])
-		end,
-	},
-
-	{
 		'Mofiqul/dracula.nvim',
 		enabled = false,
 		name = 'dracula',
@@ -57,16 +32,16 @@ local themes = {
 
 	{
 		'maxmx03/solarized.nvim',
-		enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		opts = {
-			-- theme = 'neo',
+			theme = 'neo',
 		},
 		config = function(_, opts)
 			vim.o.background = 'dark' -- or 'light'
 			vim.cmd([[colorscheme solarized]])
-			require('colorizer').setup(opts)
+			require('solarized').setup(opts)
 		end,
 	},
 }
