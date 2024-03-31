@@ -15,7 +15,7 @@ map('n', '}', '}zz', { desc = 'Better go to the previous block command' })
 map('n', '<C-o>', '<C-o>zz', { desc = 'Better go to the previous location' })
 map('n', '<C-i>', '<C-i>zz', { desc = 'Better go to the next location' })
 
-map('n', '<leader>p', [["_dP]], { desc = 'Paste withouth override register' })
+map({ 'n', 'v' }, '<leader>p', [["_dP]], { desc = 'Paste withouth override register' })
 map({ 'n', 'v' }, '<leader>d', [["_d]], { desc = 'Delete withouth override register' })
 
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace word' })
