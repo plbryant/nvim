@@ -1,6 +1,7 @@
 return {
 	'nvim-telescope/telescope.nvim',
 	keys = { '<C-p>', '<leader>ut' },
+	cmd = 'Telescope',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 		{

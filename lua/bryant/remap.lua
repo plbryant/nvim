@@ -36,3 +36,6 @@ map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>', { desc = 'Ex
 map('n', '[n', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 map('n', ']n', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>sd', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+
+map('n', '<leader>uc', '<cmd>set spell!<CR><cmd>lua vim.notify("Toggle spell")<CR>', { desc = 'Toggle spell' })
+map('n', '<leader>ur', '<cmd>Telescope spell_suggest<CR>', { desc = 'Suggest spell' })
