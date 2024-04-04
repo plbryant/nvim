@@ -31,7 +31,6 @@ return {
 
 		local servers = {
 			cssls = {},
-			marksman = {},
 			html = {},
 			lua_ls = {
 				settings = {
@@ -55,7 +54,6 @@ return {
 
 			-- markdown
 			'alex',
-			'markdownlint',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,

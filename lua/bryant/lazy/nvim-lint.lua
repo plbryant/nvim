@@ -1,6 +1,6 @@
 return {
 	'mfussenegger/nvim-lint',
-  enabled = true,
+	enabled = true,
 	event = 'InsertEnter',
 	config = function()
 		local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
@@ -16,7 +16,7 @@ return {
 			typescript = { 'eslint_d' },
 			javascriptreact = { 'eslint_d' },
 			typescriptreact = { 'eslint_d' },
-			markdown = { 'markdownlint', 'alex' },
+			markdown = { 'alex' },
 		}
 	end,
 }
