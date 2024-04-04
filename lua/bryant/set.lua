@@ -40,3 +40,6 @@ opt.conceallevel = 1
 
 opt.spell = false
 opt.spelllang = { 'en_us', 'es_mx' }
+
+-- disable nvim startup screen
+opt.shortmess:append('sI')
