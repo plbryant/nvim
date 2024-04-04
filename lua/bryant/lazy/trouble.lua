@@ -15,13 +15,13 @@ return {
 			end,
 		},
 		{
-			'[th',
+			']t',
 			function()
 				require('trouble').next({ skip_groups = true, jump = true })
 			end,
 		},
 		{
-			'[tl',
+			'[t',
 			function()
 				require('trouble').previous({ skip_groups = true, jump = true })
 			end,

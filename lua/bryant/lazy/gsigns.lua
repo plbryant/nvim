@@ -19,7 +19,7 @@ return {
 
 			local map = vim.keymap.set
 
-			map('n', '[gl', function()
+			map('n', ']g', function()
 				if vim.wo.diff then
 					return '[gh'
 				end
@@ -29,7 +29,7 @@ return {
 				return '<Ignore>'
 			end, { expr = true })
 
-			map('n', '[gh', function()
+			map('n', '[g', function()
 				if vim.wo.diff then
 					return '[gl'
 				end

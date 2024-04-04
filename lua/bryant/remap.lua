@@ -33,6 +33,6 @@ map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
 
 map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>', { desc = 'Execute tmux script' })
 
-map('n', '[h', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-map('n', '[l', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+map('n', '[n', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+map('n', ']n', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 map('n', '<leader>sd', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
