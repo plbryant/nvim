@@ -17,8 +17,6 @@ return {
 			['scss'] = { 'prettier' },
 			['less'] = { 'prettier' },
 			['yaml'] = { 'prettier' },
-			['markdown'] = { 'prettier' },
-			['markdown.mdx'] = { 'prettier' },
 		},
 	},
 	keys = {
