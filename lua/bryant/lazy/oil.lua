@@ -12,6 +12,8 @@ return {
 			['<leader>e'] = 'actions.close',
 			['-'] = 'actions.open_cwd',
 			['gx'] = 'actions.open_external',
+			[','] = 'actions.toggle_hidden',
+			['.'] = 'actions.parent',
 		},
 	},
 	keys = {
