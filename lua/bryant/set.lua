@@ -25,6 +25,8 @@ opt.relativenumber = false
 
 opt.hlsearch = true
 opt.incsearch = true
+opt.smartcase = true
+opt.ignorecase = true
 
 opt.scrolloff = 8
 opt.signcolumn = 'yes'
