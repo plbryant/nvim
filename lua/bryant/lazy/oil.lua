@@ -15,9 +15,6 @@ return {
 			[','] = 'actions.toggle_hidden',
 			['.'] = 'actions.parent',
 		},
-		columns = {
-			-- disable icons
-		},
 	},
 	keys = {
 		{
