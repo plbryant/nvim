@@ -12,6 +12,19 @@ return {
 				require('luasnip.loaders.from_vscode').lazy_load({})
 			end,
 		},
+		{
+			'windwp/nvim-autopairs',
+			opts = {
+				fast_wrap = {},
+				disable_filetype = { 'TelescopePrompt', 'vim' },
+			},
+			config = function(_, opts)
+				require('nvim-autopairs').setup(opts)
+				local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+				require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
+			end,
+		},
+		-- snippet engine
 		'onsails/lspkind.nvim',
 		-- sources
 		'saadparwaiz1/cmp_luasnip',
@@ -67,5 +80,9 @@ return {
 				{ name = 'buffer' },
 			},
 		})
+		-- autopairs
+		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+		local cmp = require('cmp')
+		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 	end,
 }
