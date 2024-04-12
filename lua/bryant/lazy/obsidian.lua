@@ -3,7 +3,7 @@ return {
 	version = '*',
 	ft = 'markdown',
 	opts = {
-		dir = '/home/bryant/Documents/github/notes',
+		dir = '/home/bryant/mega/personal/notes',
 		disable_frontmatter = true,
 		completion = { nvim_cmp = true },
 	},

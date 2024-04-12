@@ -32,6 +32,7 @@ return {
 		local servers = {
 			cssls = {},
 			html = {},
+			markdown_oxide = {},
 			lua_ls = {
 				settings = {
 					Lua = {
