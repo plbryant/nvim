@@ -3,7 +3,6 @@ return {
 	version = '*',
 	ft = 'markdown',
 	keys = {
-		{ '<leader>utd', '<cmd>ObsidianToday<cr>', desc = '[O]bsidian [t]o[d]ay' },
 		{ '<leader>ug', '<cmd>ObsidianSearch<cr>', desc = '[O]bsidian [S]earch' },
 	},
 	opts = {
