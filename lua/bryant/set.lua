@@ -38,7 +38,7 @@ opt.updatetime = 50
 opt.termguicolors = true
 
 -- for obsidian
-opt.conceallevel = 1
+opt.conceallevel = 2
 
 opt.spell = true
 opt.spelllang = { 'en_us', 'es_mx' }
