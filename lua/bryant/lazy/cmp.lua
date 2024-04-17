@@ -27,11 +27,12 @@ return {
 		-- snippet engine
 		'onsails/lspkind.nvim',
 		-- sources
-		'saadparwaiz1/cmp_luasnip',
-		'hrsh7th/cmp-nvim-lua',
-		'hrsh7th/cmp-nvim-lsp',
+		'chrisgrieser/cmp-nerdfont',
 		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-path',
+		'saadparwaiz1/cmp_luasnip',
 	},
 	config = function()
 		local cmp = require('cmp')
@@ -78,6 +79,7 @@ return {
 				{ name = 'nvim_lua' },
 				{ name = 'path' },
 				{ name = 'buffer' },
+				{ name = 'nerdfont' },
 			},
 		})
 		-- autopairs
