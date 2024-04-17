@@ -40,7 +40,7 @@ opt.termguicolors = true
 -- for obsidian
 opt.conceallevel = 1
 
-opt.spell = false
+opt.spell = true
 opt.spelllang = { 'en_us', 'es_mx' }
 
 -- disable nvim startup screen
