@@ -27,7 +27,7 @@ return {
 		-- snippet engine
 		'onsails/lspkind.nvim',
 		-- sources
-		'chrisgrieser/cmp-nerdfont',
+		'hrsh7th/cmp-emoji',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
@@ -79,7 +79,7 @@ return {
 				{ name = 'nvim_lua' },
 				{ name = 'path' },
 				{ name = 'buffer' },
-				{ name = 'nerdfont' },
+				{ name = 'emoji' },
 			},
 		})
 		-- autopairs
