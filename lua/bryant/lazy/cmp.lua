@@ -27,7 +27,6 @@ return {
 		-- snippet engine
 		'onsails/lspkind.nvim',
 		-- sources
-		'hrsh7th/cmp-emoji',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
@@ -79,12 +78,10 @@ return {
 				{ name = 'nvim_lua' },
 				{ name = 'path' },
 				{ name = 'buffer' },
-				{ name = 'emoji' },
 			},
 		})
 		-- autopairs
 		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-		local cmp = require('cmp')
 		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 	end,
 }
