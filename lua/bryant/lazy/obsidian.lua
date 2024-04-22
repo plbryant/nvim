@@ -23,12 +23,11 @@ return {
 		dir = '/home/bryant/mega/personal/notes',
 		disable_frontmatter = false,
 		new_notes_location = 'current_dir',
-		daily_notes = {
-			folder = 'Daily',
+		daily_notes = { folder = 'Daily' },
+		ui = { enable = true },
+		templates = {
+			subdir = 'Templates',
 		},
-		follow_url_func = function(url)
-			vim.fn.jobstart({"xdg-open", url})
-		end,
 		mappings = {
 			['gf'] = {
 				action = function()
@@ -49,6 +48,13 @@ return {
 				opts = { buffer = true, expr = true },
 			},
 		},
+		follow_url_func = function(url)
+			vim.fn.jobstart({ 'xdg-open', url })
+		end,
+		note_path_func = function(spec)
+			local path = spec.dir / tostring(spec.title)
+			return path:with_suffix('.md')
+		end,
 		picker = {
 			name = 'telescope.nvim',
 			mappings = {
@@ -57,7 +63,7 @@ return {
 			},
 		},
 		attachments = {
-			img_folder = 'meta',
+			img_folder = 'Meta',
 		},
 	},
 	config = function(_, opts)
