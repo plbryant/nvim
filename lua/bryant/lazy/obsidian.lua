@@ -51,6 +51,17 @@ return {
 		follow_url_func = function(url)
 			vim.fn.jobstart({ 'xdg-open', url })
 		end,
+		note_id_func = function(title)
+			local suffix = ''
+			if title ~= nil then
+				suffix = title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
+			else
+				for _ = 1, 4 do
+					suffix = suffix .. string.char(math.random(65, 90))
+				end
+			end
+			return tostring(os.time()) .. '-' .. suffix
+		end,
 		note_path_func = function(spec)
 			local path = spec.dir / tostring(spec.title)
 			return path:with_suffix('.md')
@@ -64,7 +75,14 @@ return {
 		},
 		attachments = {
 			img_folder = 'Meta',
+			img_text_func = function(client, path)
+				path = client:vault_relative_path(path) or path
+				return string.format('![%s](%s)', path.name, path)
+			end,
 		},
+		image_name_func = function()
+			return string.format('%s-', os.time())
+		end,
 	},
 	config = function(_, opts)
 		require('obsidian').setup(opts)
