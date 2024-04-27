@@ -17,7 +17,7 @@ return {
 	},
 	opts = {
 		completion = { nvim_cmp = true, min_chars = 2 },
-		dir = '/home/bryant/mega/personal/notes',
+		dir = '/home/bryant/Documents/github/notes',
 		disable_frontmatter = false,
 		new_notes_location = 'current_dir',
 		daily_notes = { folder = 'Daily' },
