@@ -13,7 +13,7 @@ local themes = {
 
 	{
 		'rose-pine/neovim',
-		enabled = false,
+		enabled = true,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,
@@ -32,7 +32,7 @@ local themes = {
 
 	{
 		'maxmx03/solarized.nvim',
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {

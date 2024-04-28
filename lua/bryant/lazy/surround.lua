@@ -4,7 +4,6 @@ return {
 	config = true,
 }
 
-  
 --    Old text                    Command         New text
 --
 --    surr*ound_words             ysiw)           (surround_words)
