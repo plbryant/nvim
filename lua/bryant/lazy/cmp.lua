@@ -1,7 +1,6 @@
 return {
 	'hrsh7th/nvim-cmp',
 	event = 'InsertEnter',
-  uneoahu =
 	dependencies = {
 		-- sources
 		'hrsh7th/cmp-buffer',
