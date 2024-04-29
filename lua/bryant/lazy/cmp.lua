@@ -12,20 +12,6 @@ return {
 				require('luasnip.loaders.from_vscode').lazy_load({})
 			end,
 		},
-		{
-			'windwp/nvim-autopairs',
-			opts = {
-				fast_wrap = {},
-				disable_filetype = { 'TelescopePrompt', 'vim' },
-			},
-			config = function(_, opts)
-				require('nvim-autopairs').setup(opts)
-				local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-				require('cmp').event:on('confirm_done', cmp_autopairs.on_confirm_done())
-			end,
-		},
-		-- snippet engine
-		'onsails/lspkind.nvim',
 		-- sources
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-nvim-lsp',
@@ -36,19 +22,8 @@ return {
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
-		local lspkind = require('lspkind')
-
-		local formating_style = {
-			format = lspkind.cmp_format({
-				mode = 'text_symbol',
-				maxwidth = 50,
-				ellipsis_char = '...',
-				show_labelDetails = true,
-			}),
-		}
 
 		cmp.setup({
-			formatting = formating_style,
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -80,8 +55,5 @@ return {
 				{ name = 'buffer' },
 			},
 		})
-		-- autopairs
-		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 	end,
 }
