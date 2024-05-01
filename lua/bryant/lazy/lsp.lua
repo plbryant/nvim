@@ -1,6 +1,6 @@
 return {
 	'neovim/nvim-lspconfig',
-	event = 'BufWinEnter',
+	event = 'BufEnter',
 	dependencies = {
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
@@ -32,16 +32,34 @@ return {
 		local servers = {
 			cssls = {},
 			marksman = {},
-			bashls = {},
 			html = {},
 			lua_ls = {
+				capabilities = capabilities,
 				settings = {
 					Lua = {
+						runtime = {
+							version = 'LuaJIT',
+						},
 						diagnostics = {
-							globals = { 'vim', 'it', 'describe', 'before_each', 'after_each' },
+							globals = { 'vim' },
+						},
+						workspace = {
+							-- Make the server aware of Neovim runtime files
+							library = vim.api.nvim_get_runtime_file('', true),
+							checkThirdParty = false, -- Stop question appearing
+						},
+						telemetry = {
+							enable = false,
 						},
 					},
 				},
+				format = {
+					enable = false,
+				},
+				on_attach = function(client)
+					client.server_capabilities.document_formatting = false -- Prevents option showing when null-ls autoformats
+					client.server_capabilities.document_range_formatting = false -- Prevents option showing when null-ls autoformats
+				end,
 			},
 		}
 

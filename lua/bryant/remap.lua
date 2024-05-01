@@ -4,7 +4,6 @@ map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
 
 map('n', '<C-c>', 'ciw', { desc = 'Change inner word' })
 map('n', '<C-y>', 'yiw', { desc = 'Copy inner word' })
-map('n', '<C-g>', 'diw', { desc = 'Delete inner word' })
 
 map('n', 'J', 'mzJ`z', { desc = 'One row align items' })
 map('n', '<C-d>', '<C-d>zz', { desc = 'Better c-d command' })

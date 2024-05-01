@@ -16,7 +16,6 @@ return {
 			javascriptreact = { 'eslint_d' },
 			typescriptreact = { 'eslint_d' },
 			markdown = { 'markdownlint', 'alex' },
-			bash = { 'shellcheck' },
 			sh = { 'shellcheck' },
 		}
 	end,
