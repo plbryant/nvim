@@ -39,8 +39,8 @@ return {
 				return '<Ignore>'
 			end, { expr = true })
 
-			map('n', '<leader>rh', gs.reset_hunk, opts('Reset Hunk'))
-			map('n', '<leader>ph', gs.preview_hunk, opts('Preview Hunk'))
+			map('n', '<leader>grh', gs.reset_hunk, opts('Reset Hunk'))
+			map('n', '<leader>gph', gs.preview_hunk, opts('Preview Hunk'))
 			map('n', '<leader>gb', gs.blame_line, opts('Blame Line'))
 		end,
 	},

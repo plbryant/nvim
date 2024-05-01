@@ -1,5 +1,16 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd('FileType', {
+  desc = 'Attach bashls to sh files',
+	pattern = 'sh',
+	callback = function()
+		vim.lsp.start({
+			name = 'bash-language-server',
+			cmd = { 'bash-language-server', 'start' },
+		})
+	end,
+})
+
 autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
 	group = vim.api.nvim_create_augroup('bryant-highlight-yank', { clear = true }),

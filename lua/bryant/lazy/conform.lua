@@ -19,7 +19,6 @@ return {
 			['yaml'] = { 'prettier' },
 			['markdown'] = { 'prettier' },
 			['markdown.mdx'] = { 'prettier' },
-			['bash'] = { 'shfmt' },
 			['sh'] = { 'shfmt' },
 		},
 	},

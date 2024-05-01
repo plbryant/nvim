@@ -1,6 +1,6 @@
 return {
 	'nvim-telescope/telescope.nvim',
-	keys = { '<C-p>', '<leader>ut' },
+	keys = { '<C-p>', '<C-g>' },
 	cmd = 'Telescope',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
@@ -88,10 +88,8 @@ return {
 		})
 		pcall(require('telescope').load_extension, 'fzf')
 		local map = vim.keymap.set
-		map('n', '<C-p>', '<cmd> Telescope find_files previewer=false<CR>')
-		map('n', '<leader>uh', '<cmd> Telescope find_files previewer=false follow=true no_ignore=true hidden=true<CR>')
-		map('n', '<leader>ut', '<cmd> Telescope live_grep<CR>')
-		map('n', '<leader>un', '<cmd> Telescope git_status<CR>')
-		map('n', '<leader>us', '<cmd> Telescope help_tags<CR>')
+		map('n', '<C-p>', '<cmd> Telescope find_files previewer=false follow=true no_ignore=true hidden=true<CR>')
+		map('n', '<C-g>', '<cmd> Telescope live_grep<CR>')
+		map('n', '<leader>uh', '<cmd> Telescope help_tags<CR>')
 	end,
 }
