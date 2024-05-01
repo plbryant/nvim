@@ -75,6 +75,10 @@ return {
 			-- markdown
 			'alex',
 			'markdownlint',
+
+			-- bash
+			'shellcheck',
+			'shfmt',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,
