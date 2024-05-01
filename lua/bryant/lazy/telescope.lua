@@ -88,8 +88,9 @@ return {
 		})
 		pcall(require('telescope').load_extension, 'fzf')
 		local map = vim.keymap.set
-		map('n', '<C-p>', '<cmd> Telescope find_files previewer=false follow=true no_ignore=true hidden=true<CR>')
-		map('n', '<C-g>', '<cmd> Telescope live_grep<CR>')
-		map('n', '<leader>uh', '<cmd> Telescope help_tags<CR>')
+		map('n', '<C-p>', '<cmd> Telescope find_files previewer=false <CR>')
+		map('n', '<C-g>', '<cmd> Telescope live_grep <CR>')
+		map('n', '<leader>uh', '<cmd> Telescope help_tags <CR>')
+		map('n', '<leader>uf', '<cmd> Telescope find_files previewer=false follow=true no_ignore=true hidden=true <CR>')
 	end,
 }
