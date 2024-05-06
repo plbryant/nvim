@@ -54,7 +54,7 @@ return {
 			['-'] = 'actions.open_cwd',
 			['gx'] = 'actions.open_external',
 			[','] = 'actions.toggle_hidden',
-			['H'] = 'actions.parent',
+			['.'] = 'actions.parent',
 		},
 
 		keymaps_help = {
