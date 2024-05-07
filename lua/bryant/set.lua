@@ -13,15 +13,13 @@ opt.swapfile = false
 opt.undofile = true
 opt.wrap = false
 
-opt.clipboard = 'unnamedplus'
-
 o.expandtab = true
 opt.shiftwidth = 2
 opt.softtabstop = 2
 opt.tabstop = 2
 
 opt.nu = true
-opt.relativenumber = false
+opt.relativenumber = true
 
 opt.hlsearch = true
 opt.incsearch = true
