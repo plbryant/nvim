@@ -3,9 +3,17 @@ return {
 	version = '*',
 	ft = 'markdown',
 	keys = {
-		{ '<leader>ot', '<cmd>ObsidianTemplate<cr>', desc = 'Insert obsidian template' },
+		{
+			'<leader>ot',
+			'<cmd>ObsidianTemplate<cr>',
+			desc = 'Insert obsidian template',
+		},
 		{ '<leader>oo', '<cmd>ObsidianOpen<cr>', desc = 'Open in obsidian app' },
-		{ '<leader>ob', '<cmd>ObsidianBacklinks<cr>', desc = 'Show obsidian backlinks' },
+		{
+			'<leader>ob',
+			'<cmd>ObsidianBacklinks<cr>',
+			desc = 'Show obsidian backlinks',
+		},
 		{ '<leader>ol', '<cmd>ObsidianLinks<cr>', desc = 'Show obsidian inks' },
 		{ '<leader>on', '<cmd>ObsidianNew<cr>', desc = 'Create new note' },
 		{ '<leader>og', '<cmd>ObsidianTags<cr>', desc = 'Obsidian tags' },
@@ -13,7 +21,11 @@ return {
 		{ '<leader>otd', '<cmd>ObsidianToday<cr>', desc = 'Obsidian today' },
 		{ '<leader>otm', '<cmd>ObsidianTomorrow<cr>', desc = 'Obsidian tomorrow' },
 		{ '<leader>oy', '<cmd>ObsidianYesterday<cr>', desc = 'Obsidian yesterday' },
-		{ '<leader>op', '<cmd>ObsidianPasteImg<cr>', desc = 'Obsidian paste image' },
+		{
+			'<leader>op',
+			'<cmd>ObsidianPasteImg<cr>',
+			desc = 'Obsidian paste image',
+		},
 	},
 	opts = {
 		completion = { nvim_cmp = true, min_chars = 2 },
