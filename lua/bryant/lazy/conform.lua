@@ -29,7 +29,7 @@ return {
 		{
 			'<leader>um',
 			function()
-				require('conform').format()
+				require('conform').format({ lsp_fallback = true })
 			end,
 			desc = 'Format document with conform',
 		},

@@ -30,6 +30,7 @@ return {
 			'css',
 			'rust',
 			'c',
+			'terraform',
 			-- golang
 			'go',
 			'gosum',
