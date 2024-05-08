@@ -8,15 +8,35 @@ return {
 	},
 	config = function()
 		vim.api.nvim_create_autocmd('LspAttach', {
-			group = vim.api.nvim_create_augroup('bryant-lsp-attach', { clear = true }),
+			group = vim.api.nvim_create_augroup(
+				'bryant-lsp-attach',
+				{ clear = true }
+			),
 			callback = function(event)
 				local map = function(keys, func, desc)
-					vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+					vim.keymap.set(
+						'n',
+						keys,
+						func,
+						{ buffer = event.buf, desc = 'LSP: ' .. desc }
+					)
 				end
 
-				map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-				map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-				map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+				map(
+					'gd',
+					require('telescope.builtin').lsp_definitions,
+					'[G]oto [D]efinition'
+				)
+				map(
+					'gr',
+					require('telescope.builtin').lsp_references,
+					'[G]oto [R]eferences'
+				)
+				map(
+					'gI',
+					require('telescope.builtin').lsp_implementations,
+					'[G]oto [I]mplementation'
+				)
 				map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 				map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 				map('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -27,12 +47,17 @@ return {
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+		capabilities = vim.tbl_deep_extend(
+			'force',
+			capabilities,
+			require('cmp_nvim_lsp').default_capabilities()
+		)
 
 		local servers = {
 			cssls = {},
 			marksman = {},
 			html = {},
+			bashls = {},
 			lua_ls = {
 				capabilities = capabilities,
 				settings = {
@@ -88,7 +113,12 @@ return {
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+					server.capabilities = vim.tbl_deep_extend(
+						'force',
+						{},
+						capabilities,
+						server.capabilities or {}
+					)
 					require('lspconfig')[server_name].setup(server)
 				end,
 			},

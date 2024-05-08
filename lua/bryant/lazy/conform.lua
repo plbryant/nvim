@@ -20,6 +20,7 @@ return {
 			['markdown'] = { 'prettier' },
 			['markdown.mdx'] = { 'prettier' },
 			['sh'] = { 'shfmt' },
+			['rust'] = { 'rustfmt' },
 		},
 	},
 	keys = {

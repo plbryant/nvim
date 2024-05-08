@@ -28,6 +28,7 @@ return {
 			'tsx',
 			'html',
 			'css',
+      'rust'
 		},
 		auto_install = true,
 		indent = { enable = true },
