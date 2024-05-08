@@ -19,6 +19,8 @@ return {
 			sh = { 'shellcheck' },
 			c = { 'clangtidy' }, -- installed by default
 			go = { 'golangcilint' },
+			json = { 'jsonlint' },
+			yaml = { 'yamllint' },
 		}
 	end,
 }

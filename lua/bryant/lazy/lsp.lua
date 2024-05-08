@@ -111,6 +111,12 @@ return {
 			'gofumpt',
 			'goimports',
 			'golangci-lint',
+
+			-- json
+			'jsonlint',
+
+			-- yaml
+			'yamllint',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,
