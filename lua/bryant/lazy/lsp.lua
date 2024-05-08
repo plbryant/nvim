@@ -55,10 +55,13 @@ return {
 
 		local servers = {
 			cssls = {},
+			clangd = {},
 			marksman = {},
 			html = {},
+			bashls = {},
+			tsserver = {},
+			gopls = {},
 			lua_ls = {
-				capabilities = capabilities,
 				settings = {
 					Lua = {
 						runtime = {
@@ -67,23 +70,11 @@ return {
 						diagnostics = {
 							globals = { 'vim' },
 						},
-						workspace = {
-							-- Make the server aware of Neovim runtime files
-							library = vim.api.nvim_get_runtime_file('', true),
-							checkThirdParty = false, -- Stop question appearing
-						},
 						telemetry = {
 							enable = false,
 						},
 					},
 				},
-				format = {
-					enable = false,
-				},
-				on_attach = function(client)
-					client.server_capabilities.document_formatting = false -- Prevents option showing when null-ls autoformats
-					client.server_capabilities.document_range_formatting = false -- Prevents option showing when null-ls autoformats
-				end,
 			},
 		}
 
@@ -103,14 +94,26 @@ return {
 			-- bash
 			'shellcheck',
 			'shfmt',
+
+			-- c
+			'clang-format',
+
+			-- golang
+			'gofumpt',
+			'goimports',
+			'golangci-lint',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,
 		})
 
+		local ignored_servers = { 'tsserver' }
 		require('mason-lspconfig').setup({
 			handlers = {
 				function(server_name)
+					if vim.tbl_contains(ignored_servers, server_name) then
+						return
+					end
 					local server = servers[server_name] or {}
 					server.capabilities = vim.tbl_deep_extend(
 						'force',

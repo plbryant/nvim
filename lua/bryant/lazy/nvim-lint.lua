@@ -17,6 +17,8 @@ return {
 			typescriptreact = { 'eslint_d' },
 			markdown = { 'markdownlint', 'alex' },
 			sh = { 'shellcheck' },
+			c = { 'clangtidy' }, -- installed by default
+			go = { 'golangcilint' },
 		}
 	end,
 }
