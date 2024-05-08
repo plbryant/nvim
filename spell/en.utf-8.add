@@ -68,3 +68,6 @@ tmux
 rustup
 rustfmt
 golang
+json
+yaml
+terraform
