@@ -65,3 +65,5 @@ shoujo
 Tecoh
 Dockerize
 tmux
+rustup
+rustfmt

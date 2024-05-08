@@ -6,7 +6,7 @@ return {
 		vim.g.rustaceanvim = {
 			server = {
 				default_settings = {
-					['rust-analizer'] = {
+					['rust-analizer'] = { -- Rust analyzer is installed thought rustup
 						cargo = { allFeatures = true },
 					},
 				},
