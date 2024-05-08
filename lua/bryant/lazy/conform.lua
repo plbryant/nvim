@@ -14,13 +14,15 @@ return {
 			html = { 'prettierd' },
 			json = { 'prettierd' },
 			jsonc = { 'prettierd' },
-			['scss'] = { 'prettier' },
-			['less'] = { 'prettier' },
-			['yaml'] = { 'prettier' },
-			['markdown'] = { 'prettier' },
+			scss = { 'prettier' },
+			less = { 'prettier' },
+			yaml = { 'prettier' },
+			markdown = { 'prettier' },
+			sh = { 'shfmt' },
+			rust = { 'rustfmt' }, -- rustfmt is installed thought rustup
+			c = { 'clang-format' },
+			go = { 'gofumpt', 'goimports' },
 			['markdown.mdx'] = { 'prettier' },
-			['sh'] = { 'shfmt' },
-			['rust'] = { 'rustfmt' }, -- rustfmt is installed thought rustup
 		},
 	},
 	keys = {

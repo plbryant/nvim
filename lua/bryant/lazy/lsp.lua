@@ -55,10 +55,12 @@ return {
 
 		local servers = {
 			cssls = {},
+			clangd = {},
 			marksman = {},
 			html = {},
 			bashls = {},
 			tsserver = {},
+			gopls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -83,15 +85,16 @@ return {
 			'stylua',
 			'prettierd',
 			'prettier',
-			'eslint_d',
-
-			-- markdown
-			'alex',
-			'markdownlint',
 
 			-- bash
-			'shellcheck',
 			'shfmt',
+
+			-- c
+			'clang-format',
+
+			-- golang
+			'gofumpt',
+			'goimports',
 		})
 		require('mason-tool-installer').setup({
 			ensure_installed = ensure_installed,

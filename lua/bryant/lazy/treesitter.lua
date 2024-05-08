@@ -29,6 +29,13 @@ return {
 			'html',
 			'css',
 			'rust',
+			'c',
+			-- golang
+			'go',
+			'gosum',
+			'gomod',
+			'gotmpl',
+			'gowork',
 		},
 		auto_install = true,
 		indent = { enable = true },
