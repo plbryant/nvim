@@ -3,7 +3,6 @@ local map = vim.keymap.set
 map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
 
 map('n', '<C-c>', 'ciw', { desc = 'Change inner word' })
-map('n', '<C-y>', 'yiw', { desc = 'Copy inner word' })
 
 map('n', 'J', 'mzJ`z', { desc = 'One row align items' })
 map('n', '<C-d>', '<C-d>zz', { desc = 'Better c-d command' })
@@ -55,7 +54,7 @@ map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
 
 map(
 	'n',
-	'<leader>f',
+	'<C-f>',
 	'<cmd>silent !tmux neww switch-tmux.sh<CR>',
 	{ desc = 'Execute tmux script' }
 )
