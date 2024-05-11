@@ -22,6 +22,7 @@ return {
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
+		local cmp_types = require('cmp.types')
 
 		cmp.setup({
 			snippet = {
@@ -29,7 +30,9 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-			completion = { completeopt = 'menu,menuone,noinsert' },
+			completion = {
+				completeopt = 'menu,menuone,noinsert',
+			},
 			mapping = cmp.mapping.preset.insert({
 				['<C-n>'] = cmp.mapping.select_next_item(),
 				['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -55,5 +58,31 @@ return {
 				{ name = 'buffer' },
 			},
 		})
+
+		-- Toggle cmp custom function
+
+		local usercmd = vim.api.nvim_create_user_command
+
+		local enabled = true
+		local function toggle_cmp()
+			enabled = not enabled
+			if enabled then
+				cmp.setup({
+					completion = {
+						autocomplete = {
+							cmp_types.cmp.TriggerEvent.TextChanged,
+						},
+					},
+				})
+			else
+				cmp.setup({
+					completion = {
+						autocomplete = false,
+					},
+				})
+			end
+		end
+
+		usercmd('ToggleCmp', toggle_cmp, { nargs = 0 })
 	end,
 }
