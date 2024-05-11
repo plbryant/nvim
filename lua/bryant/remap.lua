@@ -97,4 +97,9 @@ map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
 map({ 'n', 'v', 'x' }, '<M-j>', '<C-w>j', { desc = 'Go to down window' })
 map({ 'n', 'v', 'x' }, '<M-k>', '<C-w>k', { desc = 'Go to up window' })
 
-map('n', '<leader>uc', '<cmd>ToggleCmp<CR>', { desc = 'Toggle cmp' })
+map(
+	'n',
+	'<leader>uc',
+	'<cmd>ToggleCmp<CR><cmd>lua vim.notify("Toggle cmp")<CR>',
+	{ desc = 'Toggle cmp' }
+)
