@@ -96,3 +96,5 @@ map({ 'n', 'v', 'x' }, '<M-h>', '<C-w>h', { desc = 'Go to left window' })
 map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
 map({ 'n', 'v', 'x' }, '<M-j>', '<C-w>j', { desc = 'Go to down window' })
 map({ 'n', 'v', 'x' }, '<M-k>', '<C-w>k', { desc = 'Go to up window' })
+
+map('n', '<leader>uc', '<cmd>ToggleCmp<CR>', { desc = 'Toggle cmp' })
