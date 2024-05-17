@@ -39,7 +39,6 @@ return {
 				)
 				map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 				map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-				map('K', vim.lsp.buf.hover, 'Hover Documentation')
 				vim.keymap.set('i', '<C-s>', function()
 					vim.lsp.buf.signature_help()
 				end, { desc = 'signature_help' })

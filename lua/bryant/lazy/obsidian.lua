@@ -50,7 +50,7 @@ return {
 				end,
 				opts = { buffer = true },
 			},
-			['<cr>'] = {
+			['<CR>'] = {
 				action = function()
 					return require('obsidian').util.smart_action()
 				end,

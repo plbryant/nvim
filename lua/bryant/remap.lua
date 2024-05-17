@@ -61,23 +61,16 @@ map(
 
 map(
 	'n',
-	'[n',
+	'[d',
 	vim.diagnostic.goto_prev,
 	{ desc = 'Go to previous [D]iagnostic message' }
 )
 map(
 	'n',
-	']n',
+	']d',
 	vim.diagnostic.goto_next,
 	{ desc = 'Go to next [D]iagnostic message' }
 )
-map(
-	'n',
-	'<leader>sd',
-	vim.diagnostic.open_float,
-	{ desc = 'Show diagnostic [E]rror messages' }
-)
-
 map(
 	'n',
 	'<leader>ts',
@@ -92,7 +85,7 @@ map('n', '<leader>X>', function()
 	vim.cmd('so')
 end)
 
-map({ 'n', 'v', 'x' }, '<M-h>', '<C-w>h', { desc = 'Go to left window' })
-map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
-map({ 'n', 'v', 'x' }, '<M-j>', '<C-w>j', { desc = 'Go to down window' })
-map({ 'n', 'v', 'x' }, '<M-k>', '<C-w>k', { desc = 'Go to up window' })
+map({ 'n', 'v', 'x' }, '<C-h>', '<C-w>h', { desc = 'Go to left window' })
+map({ 'n', 'v', 'x' }, '<C-l>', '<C-w>l', { desc = 'Go to right window' })
+map({ 'n', 'v', 'x' }, '<C-j>', '<C-w>j', { desc = 'Go to down window' })
+map({ 'n', 'v', 'x' }, '<C-k>', '<C-w>k', { desc = 'Go to up window' })
