@@ -13,7 +13,7 @@ local themes = {
 
 	{
 		'rose-pine/neovim',
-		enabled = false,
+		enabled = true,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,
