@@ -4,7 +4,10 @@ map('n', '<Esc>', '<cmd>noh<CR>', { desc = 'Clear highlights' })
 
 map('n', '<C-c>', 'ciw', { desc = 'Change inner word' })
 
+-- move items in visual mode
 map('n', 'J', 'mzJ`z', { desc = 'One row align items' })
+
+-- center scren when navigate with nvim default key binds
 map('n', '<C-d>', '<C-d>zz', { desc = 'Better c-d command' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Better c-u command' })
 map('n', 'n', 'nzzzv', { desc = 'Better "n" command' })
@@ -13,6 +16,7 @@ map('n', '}', '}zz', { desc = 'Better go to the previous block command' })
 map('n', '<C-o>', '<C-o>zz', { desc = 'Better go to the previous location' })
 map('n', '<C-i>', '<C-i>zz', { desc = 'Better go to the next location' })
 
+-- improve register key binds
 map('x', '<leader>p', [["_dP]], { desc = 'Paste without override register' })
 map(
 	{ 'n', 'v' },
@@ -34,6 +38,7 @@ map(
 	{ desc = 'Copy full line and make sure it saved in system clipboard' }
 )
 
+-- replace text
 map(
 	'n',
 	'<leader>s',
@@ -41,17 +46,18 @@ map(
 	{ desc = 'Replace word' }
 )
 
-map('n', '<leader>tn', '<cmd>set rnu!<CR>', { desc = 'Toggle number mode' })
-
+-- align manually
 map('v', '<', '<gv', { desc = 'Better align items' })
 map('v', '>', '>gv', { desc = 'Better align items' })
 
+-- move elements in visual mode
 map('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move elements up' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move elements down' })
 
 map({ 'n', 'v' }, 'H', '^', { desc = 'Move the start of the line' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
 
+-- tmux create new session by folder
 map(
 	'n',
 	'<C-f>',
@@ -59,40 +65,17 @@ map(
 	{ desc = 'Execute tmux script' }
 )
 
-map(
-	'n',
-	'[d',
-	vim.diagnostic.goto_prev,
-	{ desc = 'Go to previous [D]iagnostic message' }
-)
-map(
-	'n',
-	']d',
-	vim.diagnostic.goto_next,
-	{ desc = 'Go to next [D]iagnostic message' }
-)
-map(
-	'n',
-	'<leader>ts',
-	'<cmd>set spell!<CR><cmd>lua vim.notify("Toggle spell")<CR>',
-	{ desc = 'Toggle spell' }
-)
+-- use Telescope for spell suggest
 map('n', 'z=', '<cmd>Telescope spell_suggest<CR>', { desc = 'Suggest spell' })
 
+-- make and execute current file
 map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
-
 map('n', '<leader>X>', function()
 	vim.cmd('so')
 end)
 
-map({ 'n', 'v', 'x' }, '<C-h>', '<C-w>h', { desc = 'Go to left window' })
-map({ 'n', 'v', 'x' }, '<C-l>', '<C-w>l', { desc = 'Go to right window' })
-map({ 'n', 'v', 'x' }, '<C-j>', '<C-w>j', { desc = 'Go to down window' })
-map({ 'n', 'v', 'x' }, '<C-k>', '<C-w>k', { desc = 'Go to up window' })
-
-map(
-	'n',
-	'<leader>uc',
-	'<cmd>ToggleCmp<CR><cmd>lua vim.notify("Toggle cmp")<CR>',
-	{ desc = 'Toggle cmp' }
-)
+-- move between nvim split buffers
+map({ 'n', 'v', 'x' }, '<M-h>', '<C-w>h', { desc = 'Go to left window' })
+map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
+map({ 'n', 'v', 'x' }, '<M-j>', '<C-w>j', { desc = 'Go to down window' })
+map({ 'n', 'v', 'x' }, '<M-k>', '<C-w>k', { desc = 'Go to up window' })
