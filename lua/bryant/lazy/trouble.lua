@@ -9,7 +9,7 @@ return {
 	},
 	keys = {
 		{
-			'<leader>tt',
+			'<leader>t',
 			function()
 				require('trouble').toggle()
 			end,
