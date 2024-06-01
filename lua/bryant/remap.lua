@@ -68,12 +68,6 @@ map(
 -- use Telescope for spell suggest
 map('n', 'z=', '<cmd>Telescope spell_suggest<CR>', { desc = 'Suggest spell' })
 
--- make and execute current file
-map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
-map('n', '<leader>X>', function()
-	vim.cmd('so')
-end)
-
 -- move between nvim split buffers
 map({ 'n', 'v', 'x' }, '<M-h>', '<C-w>h', { desc = 'Go to left window' })
 map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
