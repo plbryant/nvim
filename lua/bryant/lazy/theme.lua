@@ -44,6 +44,19 @@ local themes = {
 			require('solarized').setup(opts)
 		end,
 	},
+
+	{
+		'craftzdog/solarized-osaka.nvim',
+		enabled = true,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require('solarized-osaka').setup({
+				transparent = false,
+			})
+			vim.cmd([[colorscheme solarized-osaka]])
+		end,
+	},
 }
 
 return themes
