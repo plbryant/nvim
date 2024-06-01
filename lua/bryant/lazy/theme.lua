@@ -13,7 +13,7 @@ local themes = {
 
 	{
 		'rose-pine/neovim',
-		enabled = true,
+		enabled = false,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,
@@ -42,6 +42,19 @@ local themes = {
 			vim.o.background = 'dark' -- or 'light'
 			vim.cmd([[colorscheme solarized]])
 			require('solarized').setup(opts)
+		end,
+	},
+
+	{
+		'craftzdog/solarized-osaka.nvim',
+		enabled = true,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require('solarized-osaka').setup({
+				transparent = false,
+			})
+			vim.cmd([[colorscheme solarized-osaka]])
 		end,
 	},
 }
