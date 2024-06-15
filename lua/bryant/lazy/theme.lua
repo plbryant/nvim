@@ -1,19 +1,42 @@
 local themes = {
 	{
-		'Mofiqul/dracula.nvim',
-		enabled = false,
-		name = 'dracula',
+		'catppuccin/nvim',
+		enabled = true,
 		lazy = false,
+		name = 'catppuccin',
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme dracula]])
-			-- vim.cmd([[colorscheme dracula-soft]])
+			require('catppuccin').setup({
+				flavour = 'frappe',
+				background = {
+					dark = 'frappe',
+				},
+				no_italic = false,
+				no_bold = false,
+				no_underline = false,
+				styles = {
+					comments = { 'italic' },
+					conditionals = { 'italic' },
+					loops = {},
+					functions = {},
+					keywords = {},
+					strings = {},
+					variables = {},
+					numbers = {},
+					booleans = {},
+					properties = {},
+					types = {},
+					operators = {},
+					-- miscs = {}, -- Uncomment to turn off hard-coded styles
+				},
+			})
+			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 
 	{
 		'rose-pine/neovim',
-		enabled = true,
+		enabled = false,
 		name = 'rose-pine',
 		lazy = false,
 		priority = 1000,
