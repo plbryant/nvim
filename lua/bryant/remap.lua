@@ -25,19 +25,6 @@ map(
 	{ desc = 'Delete without override register' }
 )
 
-map(
-	{ 'n', 'v' },
-	'<leader>y',
-	[["+y]],
-	{ desc = 'Copy and make sure it saved in system clipboard' }
-)
-map(
-	'n',
-	'<leader>Y',
-	[["+Y]],
-	{ desc = 'Copy full line and make sure it saved in system clipboard' }
-)
-
 -- replace text
 map(
 	'n',
@@ -67,9 +54,3 @@ map(
 
 -- use Telescope for spell suggest
 map('n', 'z=', '<cmd>Telescope spell_suggest<CR>', { desc = 'Suggest spell' })
-
--- move between nvim split buffers
-map({ 'n', 'v', 'x' }, '<M-h>', '<C-w>h', { desc = 'Go to left window' })
-map({ 'n', 'v', 'x' }, '<M-l>', '<C-w>l', { desc = 'Go to right window' })
-map({ 'n', 'v', 'x' }, '<M-j>', '<C-w>j', { desc = 'Go to down window' })
-map({ 'n', 'v', 'x' }, '<M-k>', '<C-w>k', { desc = 'Go to up window' })
