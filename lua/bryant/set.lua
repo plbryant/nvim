@@ -9,6 +9,8 @@ g.loaded_netrwPlugin = 1
 opt.showmode = true
 opt.showtabline = 0
 
+opt.clipboard = 'unnamedplus'
+
 opt.swapfile = false
 opt.undofile = true
 opt.wrap = false
