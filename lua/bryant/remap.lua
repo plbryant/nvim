@@ -48,7 +48,7 @@ map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
 map(
 	'n',
 	'<C-f>',
-	'<cmd>silent !tmux neww switch-tmux.sh<CR>',
+	'<cmd>silent !tmux neww tmux-new-session.sh<CR>',
 	{ desc = 'Execute tmux script' }
 )
 
