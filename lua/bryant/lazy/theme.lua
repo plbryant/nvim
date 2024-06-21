@@ -1,14 +1,15 @@
 local themes = {
 	{
 		'catppuccin/nvim',
-		enabled = false,
+		enabled = true,
+		lazy = false,
 		name = 'catppuccin',
 		priority = 1000,
 		config = function()
 			require('catppuccin').setup({
-				flavour = 'frappe',
+				flavour = 'auto',
 				background = {
-					dark = 'frappe',
+					dark = 'macchiato',
 				},
 				no_italic = false,
 				no_bold = false,
@@ -29,7 +30,7 @@ local themes = {
 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
 				},
 			})
-			vim.cmd([[colorscheme catppuccin]])
+			vim.cmd([[colorscheme catppuccin-macchiato]])
 		end,
 	},
 
@@ -54,7 +55,7 @@ local themes = {
 
 	{
 		'maxmx03/solarized.nvim',
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {
