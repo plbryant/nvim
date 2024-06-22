@@ -2,22 +2,6 @@ return {
 	'folke/flash.nvim',
 	event = 'VeryLazy',
 	opts = {
-		label = {
-			style = 'inline',
-		},
-
-		highlight = {
-			backdrop = false,
-			matches = false,
-			priority = 5000,
-			groups = {
-				match = 'FlashMatch',
-				current = 'FlashCurrent',
-				backdrop = 'FlashBackdrop',
-				label = 'FlashLabel',
-			},
-		},
-
 		modes = {
 			search = { enabled = true },
 			char = { enabled = true },
