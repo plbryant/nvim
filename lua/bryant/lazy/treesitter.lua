@@ -31,6 +31,7 @@ return {
 			'rust',
 			'c',
 			'terraform',
+			'sxhkdrc',
 			-- golang
 			'go',
 			'gosum',
