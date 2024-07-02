@@ -10,7 +10,7 @@ return {
 		daily_notes = { folder = 'Daily' },
 		ui = { enable = true },
 		templates = {
-			subdir = 'Templates',
+			subdir = 'Obsidian/Templates',
 		},
 		mappings = {
 			['gf'] = {
@@ -33,7 +33,7 @@ return {
 			},
 		},
 		attachments = {
-			img_folder = 'Meta',
+			img_folder = 'Obsidian/Meta',
 			img_text_func = function(client, path)
 				path = client:vault_relative_path(path) or path
 				return string.format('![%s](%s)', path.name, path)
