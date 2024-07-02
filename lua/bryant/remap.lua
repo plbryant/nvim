@@ -43,6 +43,7 @@ map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move elements down' })
 
 map({ 'n', 'v' }, 'H', '^', { desc = 'Move the start of the line' })
 map({ 'n', 'v' }, 'L', 'g_', { desc = 'Move at the end of the line ' })
+map({ 'n', 'v' }, '<C-b>', '0', { desc = 'Move at the end of the line ' })
 
 -- tmux create new session by folder
 map(
